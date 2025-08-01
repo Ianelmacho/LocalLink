@@ -1,0 +1,73 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
+    color: #fff;
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+.hero {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.hero h2 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    background: linear-gradient(90deg, #ff3131, #ff6b6b, #fff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.guides-section {
+    margin-top: 24px;
+}
+.guides-section h3 {
+    font-size: 1.3rem;
+    color: #ffb3b3;
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #0d0d0d44;
+}
+.guides-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #b80000 #f7f7f7;
+}
+.guides-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+.guides-scroll::-webkit-scrollbar-thumb {
+    background: #b80000;
+    border-radius: 6px;
+}
+.guide-card.placeholder {
+    min-width: 160px;
+    height: 200px;
+    background: linear-gradient(135deg, #1a1a1a 60%, #b80000 100%);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px 0 rgba(184,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.85;
+    border: 2px solid #ff3131;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.guide-card.placeholder:hover {
+    box-shadow: 0 6px 24px 0 #b8000055;
+    transform: scale(1.04);
+}
