@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindMyGuide - Search Guides</title>
+    <link rel="stylesheet" href="search_guide_style.css">
+    <link rel="stylesheet" href="navbar_style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo-placeholder">
+            <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" style="height: 100%; max-height: 80px; width: auto; object-fit: contain; border-radius: 8px;" />
+        </div>
+        <ul class="navbar-tabs">
+            <li class="navbar-tab" onclick="window.location.href='home.html'">Local Guides</li>
+            <li class="navbar-tab active" onclick="window.location.href='search_guides.html'">Explore</li>
+            <li class="navbar-tab" onclick="window.location.href='test_local_guide.html'">Tab 3</li>
+        </ul>
+    </nav>
+    <div class="search-container">
+        <aside class="sidebar">
+            <h3>Suggested Guides</h3>
+            <div class="suggested-guides">
+                <div class="suggested-guide">Jane Doe</div>
+                <div class="suggested-guide">John Smith</div>
+                <div class="suggested-guide">Maria Lopez</div>
+            </div>
+            <div class="filters">
+                <h4>Filters</h4>
+                <label><input type="checkbox" /> Near Me</label>
+                <label><input type="checkbox" /> Top Rated</label>
+                <label><input type="checkbox" /> Available Today</label>
+            </div>
+        </aside>
+        <section class="main-search">
+            <form class="search-bar">
+                <input type="text" placeholder="Search locations, tours, guides..." />
+                <button type="submit">Search</button>
+            </form>
+            <div class="results">
+                <!-- Results will appear here -->
+                Start your search to find the perfect guide for your next adventure!
+            </div>
+        </section>
+    </div>
+</body>
+</html>
