@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    background: #fff;
+    background: #000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     padding: 0;
     position: sticky;
@@ -9,7 +9,9 @@
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: stretch;
+    justify-content: space-between; /* Ensure proper spacing between logo and tabs */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+    font-size: 1.5rem; /* Enlarged text */
 }
 .navbar-logo-placeholder {
     width: 180px;
@@ -25,6 +27,10 @@
     font-size: 1.2rem;
     letter-spacing: 1px;
     box-shadow: 0 2px 8px 0 #b8000011;
+    flex-shrink: 0; /* Prevent logo from being overlapped */
+    margin-right: 16px; /* Add spacing between logo and tabs */
+    z-index: 10; /* Ensure logo is above other elements */
+    position: relative; /* Required for z-index to take effect */
 }
 .navbar-logo-placeholder img {
     height: 100%;
@@ -45,24 +51,78 @@
     gap: 16px;
 }
 .navbar-tab {
-    color: #222;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 0 32px;
-    height: 100%;
+    color: #fff;
+    background: #111;
+    font-size: 1.35rem;
+    font-weight: 600;
+    padding: 0 40px;
+    height: 56px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: color 0.2s, border-bottom 0.2s;
-    border-bottom: 3px solid transparent;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     flex: 1;
     justify-content: center;
 }
 .navbar-tab.active {
-    color: #e05260;
-    border-bottom: 3px solid #e05260;
-    background: #f7f7f7;
+    background: #e05260;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(224,82,96,0.15);
 }
 .navbar-tab:hover {
-    color: #e05260;
+    background: #ff8a80;
+    color: #222;
+    box-shadow: 0 4px 16px rgba(255,138,128,0.15);
+}
+.navbar a {
+    box-shadow: none; /* Remove boxes over tabs */
+    flex-grow: 1; /* Allow tabs to take up remaining space */
+    text-align: center;
+}
+.profile-icon {
+    font-size: 1.5rem;
+    color: #ff3131; /* Change icon color to red */
+    cursor: pointer;
+    position: relative;
+    margin-right: 20px; /* Move icon slightly to the left */
+}
+
+.profile-popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 250px; /* Make the popup wider */
+}
+
+.profile-popup p {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.profile-popup button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #e05260;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.profile-popup button:hover {
+    background: #ff8a80;
 }

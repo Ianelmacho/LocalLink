@@ -10,7 +10,12 @@
     <div class="container">
         <h1>FindMyGuide</h1>
         <p>Connecting travelers with local tour guides. Discover, book, and explore with confidence—just like Uber, but for your next adventure!</p>
-        <button class="cta-btn" onclick="window.location.href='home.html'">Get Started</button>
+        <button class="cta-btn" onclick="showLoginPopup()">Get Started</button>
     </div>
+    <script>
+        function showLoginPopup() {
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>

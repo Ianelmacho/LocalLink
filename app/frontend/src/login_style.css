@@ -1,0 +1,138 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    padding: 24px 40px 32px 40px;  /* ↓ tighter top padding */
+    width: 100%;                   /* allow full width up to max */
+    max-width: 640px;              /* ↑ wider card */
+    margin: 80px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;                 /* remove default h1 top margin */
+    margin-bottom: 10px;           /* tighter gap before form */
+    background: linear-gradient(90deg, #e05260, #ff8a80, #fff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.login-form label {
+    color: #ffd6d6;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.login-form input[type="text"],
+login-form input[type="password"],
+.login-form input[type="password"] {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    background: #fff;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.login-form .show-password {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.98rem;
+    color: #ffd6d6;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.login-form .forgot-link {
+    color: #ff8a80;
+    text-decoration: underline;
+    font-size: 0.98rem;
+    margin-top: -4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.login-form button {
+    background: linear-gradient(90deg, #e05260, #ff8a80);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-bottom: 8px;
+}
+
+.login-form button:hover {
+    background: linear-gradient(90deg, #ff8a80, #e05260);
+    transform: scale(1.04);
+}
+
+.register-btn {
+    background: transparent;
+    color: #ff8a80;
+    border: 2px solid #ff8a80;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.register-btn:hover {
+    background: #ff8a80;
+    color: #fff;
+}
+
+.error-popup {
+    position: fixed;
+    top: -100px; /* Start off-screen */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: top 2s ease; /* Glide-in and glide-out effect */
+}
+
+.error-popup.visible {
+    top: 20px; /* Slide into view */
+}
+
+.error-popup:not(.visible) {
+    top: -100px; /* Slide out of view */
+}

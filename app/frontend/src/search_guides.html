@@ -1,13 +1,57 @@
+<!--
+  File: search_guides.html
+  Description: HTML structure for the Search Guides page. Includes navigation, search filters, and dynamic profile popup.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindMyGuide - Search Guides</title>
+    <!-- Linking stylesheets -->
     <link rel="stylesheet" href="search_guide_style.css">
     <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="profile_popup_style.css">
+    <style>
+        .profile-popup {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+        }
+        .popup-content h3 {
+            margin: 10px 0;
+        }
+        .popup-content button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #e05260;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @keyframes glideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav class="navbar">
         <div class="navbar-logo-placeholder">
             <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" style="height: 100%; max-height: 80px; width: auto; object-fit: contain; border-radius: 8px;" />
@@ -17,8 +61,20 @@
             <li class="navbar-tab active" onclick="window.location.href='search_guides.html'">Explore</li>
             <li class="navbar-tab" onclick="window.location.href='test_local_guide.html'">Tab 3</li>
         </ul>
+        <!-- Profile icon with popup toggle -->
+        <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="#e05260" aria-hidden="true">
+                <!-- head -->
+                <circle cx="12" cy="8" r="4"/>
+                <!-- shoulders -->
+                <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
+            </svg>
+        </div>
     </nav>
+
+    <!-- Search container -->
     <div class="search-container">
+        <!-- Sidebar with suggested guides and filters -->
         <aside class="sidebar">
             <h3>Suggested Guides</h3>
             <div class="suggested-guides">
@@ -33,6 +89,8 @@
                 <label><input type="checkbox" /> Available Today</label>
             </div>
         </aside>
+
+        <!-- Main search area -->
         <section class="main-search">
             <form class="search-bar">
                 <input type="text" placeholder="Search locations, tours, guides..." />
@@ -44,5 +102,33 @@
             </div>
         </section>
     </div>
+
+    <!-- Profile popup container -->
+    <div class="profile-popup" id="profilePopup" style="display: none;">
+        <div class="popup-content">
+            <h3>Profile Menu</h3>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div id="profile-popup-container"></div>
+    <script>
+        // Dynamically load the profile popup HTML
+        fetch('profile_popup.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('profile-popup-container').innerHTML = html;
+          });
+
+        // Toggle profile popup visibility
+        function toggleProfilePopup() {
+            const popup = document.getElementById('profilePopup');
+            if (popup.style.display === 'none') {
+                popup.style.display = 'block';
+                popup.style.animation = 'glideIn 0.3s ease-out';
+            } else {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

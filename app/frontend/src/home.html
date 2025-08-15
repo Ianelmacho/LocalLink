@@ -1,13 +1,21 @@
+<!--
+  File: home.html
+  Description: HTML structure for the Home page of FindMyGuide. Includes navigation, hero section, and featured guides.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindMyGuide - Home</title>
+    <!-- Linking stylesheets -->
     <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="profile_popup_style.css">
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav class="navbar">
         <div class="navbar-logo-placeholder">
             <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" style="height: 100%; max-height: 80px; width: auto; object-fit: contain; border-radius: 8px;" />
@@ -17,11 +25,30 @@
             <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
             <li class="navbar-tab" onclick="window.location.href='test_local_guide.html'">Tab 3</li>
         </ul>
+        <!-- Profile icon with popup toggle -->
+        <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="#e05260" aria-hidden="true">
+                <!-- head -->
+                <circle cx="12" cy="8" r="4"/>
+                <!-- shoulders -->
+                <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
+            </svg>
+        </div>
+        <!-- Profile popup container -->
+        <div class="profile-popup" id="profilePopup">
+            <p id="usernameDisplay">Username</p>
+            <button onclick="logout()">Logout</button>
+        </div>
     </nav>
+
+    <!-- Main content area -->
     <main class="main-content">
+        <!-- Hero section -->
         <section class="hero">
             <h2>Your next trip to paradise is one click away.</h2>
         </section>
+
+        <!-- Guides section -->
         <section class="guides-section">
             <h3>Tour Guides near me</h3>
             <div class="guides-scroll">
@@ -29,24 +56,14 @@
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
             </div>
             <div class="guides-scroll">
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
             </div>
             <div class="guides-scroll">
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-            </div>
-            <div class="guides-scroll">
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
@@ -54,5 +71,66 @@
             </div>
         </section>
     </main>
+
+    <!-- Profile popup container for dynamic loading -->
+    <div id="profile-popup-container"></div>
+
+    <!-- Inline styles for specific elements -->
+    <style>
+        .guides-scroll {
+            margin: 0; /* Start at the left edge and end at the right edge */
+            padding: 0 2%; /* Add slight padding for spacing */
+        }
+        .guide-card {
+            flex: 1;
+            margin: 0 10px;
+            height: 250px; /* Enlarged size */
+            background: #ccc;
+            border-radius: 8px;
+        }
+        .guides-section {
+            margin-bottom: 16px; /* Move up the bottom row */
+        }
+        body {
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .profile-icon {
+            cursor: pointer;
+            position: relative;
+        }
+        .profile-popup {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 1000;
+        }
+    </style>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Toggle profile popup visibility
+        function toggleProfilePopup() {
+            const popup = document.getElementById('profilePopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Logout function
+        function logout() {
+            alert('Logging out...');
+            window.location.href = 'login.html';
+        }
+
+        // Dynamically load the profile popup HTML
+        fetch('profile_popup.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('profile-popup-container').innerHTML = html;
+          });
+    </script>
 </body>
 </html>

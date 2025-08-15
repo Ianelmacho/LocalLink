@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindMyGuide - Featured Guides</title>
+    <link rel="stylesheet" href="featured_styles.css">
+    <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="profile_popup_style.css">
+    <style>
+        .profile-popup {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+        }
+        .popup-content h3 {
+            margin: 10px 0;
+        }
+        .popup-content button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #e05260;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @keyframes glideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo-placeholder">
+            <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" style="height: 100%; max-height: 80px; width: auto; object-fit: contain; border-radius: 8px;" />
+        </div>
+        <ul class="navbar-tabs">
+            <li class="navbar-tab" onclick="window.location.href='home.html'">Local Guides</li>
+            <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
+            <li class="navbar-tab active" onclick="window.location.href='featured_guides.html'">Featured Tours</li>
+        </ul>
+        <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="#e05260" aria-hidden="true">
+                <!-- head -->
+                <circle cx="12" cy="8" r="4"/>
+                <!-- shoulders -->
+                <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
+            </svg>
+        </div>
+    </nav>
+    <div class="featured-container">
+        <h1 class="featured-title">Featured Guides</h1>
+        <div class="featured-scroll">
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 1" />
+                <div class="featured-guide-desc">Jane Doe - Expert in city tours, food experiences, and hidden gems. 10+ years of experience.</div>
+            </div>
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 2" />
+                <div class="featured-guide-desc">John Smith - Nature and adventure specialist. Hiking, biking, and outdoor fun for all ages.</div>
+            </div>
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 3" />
+                <div class="featured-guide-desc">Maria Lopez - Art, history, and culture tours. Fluent in English and Spanish.</div>
+            </div>
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 4" />
+                <div class="featured-guide-desc">Akira Tanaka - Local nightlife and entertainment expert. Unique experiences every night.</div>
+            </div>
+        </div>
+    </div>
+    <div id="profile-popup-container"></div>
+    <script>
+        fetch('profile_popup.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profile-popup-container').innerHTML = html;
+            });
+    </script>
+</body>
+</html>

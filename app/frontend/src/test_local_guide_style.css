@@ -1,3 +1,9 @@
+/*
+ * File: test_local_guide_style.css
+ * Description: Stylesheet for the Local Guide Profile page. Contains layout, typography, and design elements for the profile page.
+ */
+
+/* Body styling */
 body {
     min-height: 100vh;
     margin: 0;
@@ -5,6 +11,8 @@ body {
     background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
     color: #fff;
 }
+
+/* Profile container layout */
 .profile-container {
     display: flex;
     max-width: 1000px;
@@ -14,6 +22,8 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
     overflow: hidden;
 }
+
+/* Profile image section */
 .profile-image {
     flex: 1;
     min-width: 350px;
@@ -22,12 +32,16 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Profile image styling */
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 0;
 }
+
+/* Profile information section */
 .profile-info {
     flex: 1;
     padding: 48px 32px;
@@ -36,6 +50,8 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
+/* Profile name styling */
 .profile-info h2 {
     font-size: 2.2rem;
     margin-bottom: 0.5em;
@@ -44,14 +60,20 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* Profile description */
 .profile-info p {
     font-size: 1.1rem;
     margin-bottom: 1em;
     color: #ffd6d6;
 }
+
+/* Hotspots section */
 .hotspots {
     margin-bottom: 2em;
 }
+
+/* Hotspot tags */
 .hotspots span {
     display: inline-block;
     background: #e05260;
@@ -62,6 +84,8 @@ body {
     font-size: 1rem;
     font-weight: 500;
 }
+
+/* Connect button styling */
 .connect-btn {
     background: linear-gradient(90deg, #e05260, #ff8a80);
     color: #fff;
@@ -75,6 +99,8 @@ body {
     box-shadow: 0 4px 16px 0 rgba(224,82,96,0.25);
     margin-top: 16px;
 }
+
+/* Hover effect for connect button */
 .connect-btn:hover {
     background: linear-gradient(90deg, #ff8a80, #e05260);
     transform: translateY(-2px) scale(1.04);
