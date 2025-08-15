@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindMyGuide - Search Guides</title>
-    <link rel="stylesheet" href="search_guide_style.css">
+    <title>FindMyGuide - Featured Guides</title>
+    <link rel="stylesheet" href="featured_styles.css">
     <link rel="stylesheet" href="navbar_style.css">
     <link rel="stylesheet" href="profile_popup_style.css">
     <style>
@@ -51,8 +51,8 @@
         </div>
         <ul class="navbar-tabs">
             <li class="navbar-tab" onclick="window.location.href='home.html'">Local Guides</li>
-            <li class="navbar-tab active" onclick="window.location.href='search_guides.html'">Explore</li>
-            <li class="navbar-tab" onclick="window.location.href='test_local_guide.html'">Tab 3</li>
+            <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
+            <li class="navbar-tab active" onclick="window.location.href='featured_guides.html'">Featured Tours</li>
         </ul>
         <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="#e05260" aria-hidden="true">
@@ -63,54 +63,34 @@
             </svg>
         </div>
     </nav>
-    <div class="search-container">
-        <aside class="sidebar">
-            <h3>Suggested Guides</h3>
-            <div class="suggested-guides">
-                <div class="suggested-guide">Jane Doe</div>
-                <div class="suggested-guide">John Smith</div>
-                <div class="suggested-guide">Maria Lopez</div>
+    <div class="featured-container">
+        <h1 class="featured-title">Featured Guides</h1>
+        <div class="featured-scroll">
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 1" />
+                <div class="featured-guide-desc">Jane Doe - Expert in city tours, food experiences, and hidden gems. 10+ years of experience.</div>
             </div>
-            <div class="filters">
-                <h4>Filters</h4>
-                <label><input type="checkbox" /> Near Me</label>
-                <label><input type="checkbox" /> Top Rated</label>
-                <label><input type="checkbox" /> Available Today</label>
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 2" />
+                <div class="featured-guide-desc">John Smith - Nature and adventure specialist. Hiking, biking, and outdoor fun for all ages.</div>
             </div>
-        </aside>
-        <section class="main-search">
-            <form class="search-bar">
-                <input type="text" placeholder="Search locations, tours, guides..." />
-                <button type="submit">Search</button>
-            </form>
-            <div class="results">
-                <!-- Results will appear here -->
-                Start your search to find the perfect guide for your next adventure!
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 3" />
+                <div class="featured-guide-desc">Maria Lopez - Art, history, and culture tours. Fluent in English and Spanish.</div>
             </div>
-        </section>
-    </div>
-    <div class="profile-popup" id="profilePopup" style="display: none;">
-        <div class="popup-content">
-            <h3>Profile Menu</h3>
-            <button onclick="logout()">Logout</button>
+            <div class="featured-guide">
+                <img class="featured-guide-img" src="../photos/progress_updates/Welcome_Page.png" alt="Guide 4" />
+                <div class="featured-guide-desc">Akira Tanaka - Local nightlife and entertainment expert. Unique experiences every night.</div>
+            </div>
         </div>
     </div>
     <div id="profile-popup-container"></div>
     <script>
-        function toggleProfilePopup() {
-            const popup = document.getElementById('profilePopup');
-            if (popup.style.display === 'none') {
-                popup.style.display = 'block';
-                popup.style.animation = 'glideIn 0.3s ease-out';
-            } else {
-                popup.style.display = 'none';
-            }
-        }
         fetch('profile_popup.html')
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById('profile-popup-container').innerHTML = html;
-          });
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profile-popup-container').innerHTML = html;
+            });
     </script>
 </body>
 </html>

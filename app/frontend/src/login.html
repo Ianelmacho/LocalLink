@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FindMyGuide – Login</title>
+  <link rel="stylesheet" href="login_style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="login-title">Welcome back</h1>
+
+    <form class="login-form" id="loginForm" autocomplete="on" novalidate>
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" inputmode="email" autofocus required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label class="show-password">
+        <input type="checkbox" id="togglePassword" />
+        Show password
+      </label>
+
+      <a class="forgot-link" href="forgot_password.html" aria-label="Forgot your password?">Forgot password?</a>
+
+      <button type="submit" aria-label="Log in to your account">Log In</button>
+      <button type="button" class="register-btn" id="registerBtn" onclick="window.location.href='create_account.html'">Create Account</button>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const user = document.getElementById('username');
+      const pass = document.getElementById('password');
+      const toggle = document.getElementById('togglePassword');
+      const registerBtn = document.getElementById('registerBtn');
+
+      // Show/hide password via checkbox
+      toggle.addEventListener('change', function () {
+        pass.type = this.checked ? 'text' : 'password';
+      });
+
+      // Demo login: basic front-end validation + redirect
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const u = user.value.trim();
+        const p = pass.value.trim();
+
+        if (!u || !p) {
+          const errorPopup = document.createElement('div');
+          errorPopup.textContent = 'Please enter both a username and password.';
+          errorPopup.className = 'error-popup';
+          document.body.appendChild(errorPopup);
+
+          // Trigger the glide-in effect
+          setTimeout(() => {
+            errorPopup.classList.add('visible');
+          }, 50);
+
+          setTimeout(() => {
+            errorPopup.classList.remove('visible');
+          }, 5000); // Start glide-out after 5 seconds (3s pause + 2s glide-out)
+
+          setTimeout(() => {
+            errorPopup.remove();
+          }, 7000); // Fully remove after 7 seconds
+          return;
+        }
+        try { localStorage.setItem('fmg_user', u); } catch (_) {}
+        window.location.href = 'home.html';
+      });
+
+      // Placeholder for a future registration flow
+      registerBtn.addEventListener('click', function () {
+        alert('Account creation coming soon!');
+      });
+    })();
+  </script>
+</body>
+</html>

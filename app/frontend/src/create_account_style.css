@@ -1,0 +1,71 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #000; /* Sleek black background */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-account-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.create-account-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.create-account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-account-form label {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.create-account-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #fff; /* White text boxes */
+    color: #000;
+}
+
+.create-account-form button {
+    padding: 15px; /* Increase button size */
+    font-size: 1.2rem; /* Increase text size */
+    font-weight: bold; /* Make text bold */
+    border: none;
+    border-radius: 8px;
+    background: #e05260;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.create-account-form button:hover {
+    background: #ff8a80;
+}
+
+.logo-container {
+    margin-top: 20px;
+}
+
+.logo-container img {
+    max-width: 300px; /* Further widen the logo width */
+    height: auto;
+}

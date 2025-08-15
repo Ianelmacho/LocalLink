@@ -1,0 +1,17 @@
+<div class="profile-popup" id="profilePopup" style="display: none;">
+  <div class="popup-content">
+    <h3>Profile Menu</h3>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+<script>
+  function toggleProfilePopup() {
+    const popup = document.getElementById('profilePopup');
+    if (popup.style.display === 'none') {
+      popup.style.display = 'block';
+      popup.style.animation = 'glideIn 0.3s ease-out';
+    } else {
+      popup.style.display = 'none';
+    }
+  }
+</script>

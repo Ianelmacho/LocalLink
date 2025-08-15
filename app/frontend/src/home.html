@@ -6,6 +6,7 @@
     <title>FindMyGuide - Home</title>
     <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="navbar_style.css">
+    <link rel="stylesheet" href="profile_popup_style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -17,6 +18,18 @@
             <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
             <li class="navbar-tab" onclick="window.location.href='test_local_guide.html'">Tab 3</li>
         </ul>
+        <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="#e05260" aria-hidden="true">
+                <!-- head -->
+                <circle cx="12" cy="8" r="4"/>
+                <!-- shoulders -->
+                <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
+            </svg>
+        </div>
+        <div class="profile-popup" id="profilePopup">
+            <p id="usernameDisplay">Username</p>
+            <button onclick="logout()">Logout</button>
+        </div>
     </nav>
     <main class="main-content">
         <section class="hero">
@@ -29,24 +42,14 @@
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
             </div>
             <div class="guides-scroll">
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
             </div>
             <div class="guides-scroll">
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
-            </div>
-            <div class="guides-scroll">
-                <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
                 <div class="guide-card placeholder" onclick="window.location.href='test_local_guide.html'"></div>
@@ -54,5 +57,57 @@
             </div>
         </section>
     </main>
+    <div id="profile-popup-container"></div>
+    <style>
+        .guides-scroll {
+            margin: 0; /* Start at the left edge and end at the right edge */
+            padding: 0 2%; /* Add slight padding for spacing */
+        }
+        .guide-card {
+            flex: 1;
+            margin: 0 10px;
+            height: 250px; /* Enlarged size */
+            background: #ccc;
+            border-radius: 8px;
+        }
+        .guides-section {
+            margin-bottom: 16px; /* Move up the bottom row */
+        }
+        body {
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .profile-icon {
+            cursor: pointer;
+            position: relative;
+        }
+        .profile-popup {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+        function toggleProfilePopup() {
+            const popup = document.getElementById('profilePopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function logout() {
+            alert('Logging out...');
+            window.location.href = 'login.html';
+        }
+
+        fetch('profile_popup.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('profile-popup-container').innerHTML = html;
+          });
+    </script>
 </body>
 </html>
