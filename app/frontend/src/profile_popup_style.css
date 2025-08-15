@@ -1,3 +1,9 @@
+/*
+ * File: profile_popup_style.css
+ * Description: Stylesheet for the profile popup component. Contains layout and design elements for the popup.
+ */
+
+/* Profile popup container */
 .profile-popup {
   position: absolute;
   top: 60px;
@@ -10,9 +16,13 @@
   text-align: center;
   padding: 10px;
 }
+
+/* Popup content heading */
 .popup-content h3 {
   margin: 10px 0;
 }
+
+/* Popup button styling */
 .popup-content button {
   margin-top: 10px;
   padding: 5px 10px;
@@ -22,6 +32,8 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* Animation for popup appearance */
 @keyframes glideIn {
   from {
     transform: translateY(-20px);
