@@ -1,143 +1,124 @@
-/*
- * File: search_guide_style.css
- * Description: Stylesheet for the Search Guides page. Contains layout, typography, and design elements for the search interface.
- */
-
-/* Body styling */
 body {
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
-    color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
+  color: #fff;
 }
 
-/* Search container layout */
 .search-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-    gap: 32px;
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 32px;
+  padding: 0 16px;
 }
 
-/* Sidebar styling */
 .sidebar {
-    width: 260px;
-    background: rgba(20, 20, 20, 0.85);
-    border-radius: 16px;
-    box-shadow: 0 4px 16px 0 rgba(224,82,96,0.10);
-    padding: 24px 18px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  width: 260px;
+  background: rgba(20,20,20,0.85);
+  border-radius: 16px;
+  padding: 24px 18px;
+  box-shadow: 0 4px 16px rgba(224,82,96,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-/* Sidebar headings */
 .sidebar h3 {
-    font-size: 1.2rem;
-    color: #ff8a80;
-    margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #ff8a80;
 }
 
-/* Suggested guides section */
 .suggested-guides {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Individual suggested guide */
 .suggested-guide {
-    background: #e05260;
-    color: #fff;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
+  background: #e05260;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-
-/* Hover effect for suggested guide */
 .suggested-guide:hover {
-    background: #ff8a80;
+  background: #ff8a80;
 }
 
-/* Filters section */
-.filters {
-    margin-top: 24px;
-}
-
-/* Filter headings */
 .filters h4 {
-    color: #ffd6d6;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+  color: #ffd6d6;
+  margin-bottom: 8px;
 }
 
-/* Filter labels */
 .filters label {
-    display: block;
-    margin-bottom: 8px;
-    color: #fff;
-    font-size: 1rem;
+  display: block;
+  margin-bottom: 8px;
 }
 
-/* Main search area */
 .main-search {
-    flex: 1;
-    background: rgba(20, 20, 20, 0.85);
-    border-radius: 16px;
-    box-shadow: 0 4px 16px 0 rgba(224,82,96,0.10);
-    padding: 32px 28px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  flex: 1;
+  background: rgba(20,20,20,0.85);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 16px rgba(224,82,96,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Search bar styling */
 .search-bar {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
+  display: flex;
+  gap: 12px;
 }
-
-/* Search input field */
 .search-bar input {
-    flex: 1;
-    padding: 12px 16px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1.1rem;
-    background: #fff;
-    color: #222;
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
 }
-
-/* Search button */
 .search-bar button {
-    background: linear-gradient(90deg, #e05260, #ff8a80);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 28px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+  background: linear-gradient(90deg, #e05260, #ff8a80);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
-
-/* Hover effect for search button */
 .search-bar button:hover {
-    background: linear-gradient(90deg, #ff8a80, #e05260);
-    transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* Search results section */
 .results {
-    margin-top: 24px;
-    color: #ffd6d6;
-    font-size: 1.1rem;
+  margin-top: 24px;
+  color: #ffd6d6;
+}
+
+.profile-popup {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 240px;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: glideIn 0.3s ease-out;
+}
+@keyframes glideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive: collapse sidebar */
+@media (max-width: 900px) {
+  .search-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
 }
