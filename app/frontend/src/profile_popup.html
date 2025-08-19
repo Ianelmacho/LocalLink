@@ -1,23 +1,14 @@
-<!--
-  File: profile_popup.html
-  Description: HTML structure for the profile popup component. Includes a heading and a logout button.
--->
-
-<div class="profile-popup" id="profilePopup" style="display: none;">
-  <div class="popup-content">
-    <h3>Profile Menu</h3>
-    <button onclick="logout()">Logout</button>
+<!-- Profile Popup Component (markup only; scripts live on each page) -->
+<div class="profile-popup" id="profilePopup" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+  <div class="popup-header">
+    <h3 id="profileTitle">Profile</h3>
+    <button class="close-btn" type="button" aria-label="Close profile menu" onclick="closeProfilePopup()">×</button>
+  </div>
+  <div class="popup-body">
+    <p id="usernameDisplay">Username</p>
+    <!-- You can add email/links here later -->
+  </div>
+  <div class="popup-actions">
+    <button class="logout-btn" type="button" onclick="logout()">Logout</button>
   </div>
 </div>
-<script>
-  // Function to toggle the visibility of the profile popup
-  function toggleProfilePopup() {
-    const popup = document.getElementById('profilePopup');
-    if (popup.style.display === 'none') {
-      popup.style.display = 'block';
-      popup.style.animation = 'glideIn 0.3s ease-out';
-    } else {
-      popup.style.display = 'none';
-    }
-  }
-</script>

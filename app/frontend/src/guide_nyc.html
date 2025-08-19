@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FindMyGuide - Home</title>
-  <link rel="stylesheet" href="home_style.css">
-  <link rel="stylesheet" href="navbar_style.css">
-  <link rel="stylesheet" href="profile_popup_style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FindMyGuide - John (NYC)</title>
+  <link rel="stylesheet" href="guide_common_style.css" />
+  <link rel="stylesheet" href="navbar_style.css" />
+  <link rel="stylesheet" href="profile_popup_style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -15,67 +15,68 @@
       <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" />
     </div>
     <ul class="navbar-tabs">
-      <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
+      <li class="navbar-tab" onclick="window.location.href='home.html'">Local Guides</li>
       <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
       <li class="navbar-tab" onclick="window.location.href='featured_guides.html'">Featured</li>
     </ul>
-    <div class="profile-icon" onclick="toggleProfilePopup()">
-      <svg viewBox="0 0 24 24" width="30" height="30" fill="#e05260">
+    <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="#e05260" aria-hidden="true">
         <circle cx="12" cy="8" r="4"/>
         <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
       </svg>
     </div>
   </nav>
 
-  <!-- Main content -->
-  <main class="main-content">
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Your next trip to paradise is one click away.</h2>
-    </section>
+  <!-- Profile popup (injected) -->
+  <div id="profile-popup-container"></div>
 
-    <!-- Guides Gallery -->
-    <section class="guides-section">
-      <h3>Popular Guides & Tours</h3>
-      <div class="guides-grid">
-        <div class="guide-card" onclick="window.location.href='guide_nyc.html'">
-          <img src="../photos/Tom_NYC.png" alt="New York Tour">
-          <div class="guide-info">
-            <h4>New York Highlights</h4>
-            <p>Discover hidden gems and iconic landmarks with John.</p>
-          </div>
+  <!-- Main -->
+  <main class="guide-profile">
+    <h2>John – New York Highlights</h2>
+
+    <!-- Scrollable images -->
+    <div class="image-scroll">
+      <img src="../photos/Tom_NYC.png" alt="NYC skyline at sunset" />
+      <img src="../photos/Tom_NYC_2.png" alt="Brooklyn Bridge morning walk" />
+      <img src="../photos/Tom_NYC_3.png" alt="Times Square night tour" />
+    </div>
+
+    <!-- Info + CTA -->
+    <section class="guide-info">
+      <p>
+        John has 15+ years guiding travelers through NYC’s icons and hidden gems — from skyline views and
+        speakeasies to neighborhood eats you’ll dream about later. Expect history, culture, and fun.
+      </p>
+
+      <div class="actions-row">
+        <button class="connect-btn">Message &amp; Connect</button>
+      </div>
+
+      <!-- Favorite tour spots -->
+      <div class="favorites">
+        <h3>Favorite Tour Spots</h3>
+        <div class="pill-row">
+          <button class="pill-btn">Central Park</button>
+          <button class="pill-btn">Brooklyn Bridge</button>
+          <button class="pill-btn">DUMBO</button>
+          <button class="pill-btn">Chelsea Market</button>
+          <button class="pill-btn">High Line</button>
+          <button class="pill-btn">Times Square</button>
         </div>
-        <div class="guide-card" onclick="window.location.href='guide_paris.html'">
-          <img src="../photos/Emma_Paris.png" alt="Paris Tour">
-          <div class="guide-info">
-            <h4>Romantic Paris</h4>
-            <p>Walk the streets of love and history with Emma.</p>
-          </div>
-        </div>
-        <div class="guide-card" onclick="window.location.href='guide_tokyo.html'">
-          <img src="../photos/Ken_Tokyo.png" alt="Tokyo Tour">
-          <div class="guide-info">
-            <h4>Tokyo Adventures</h4>
-            <p>Experience food, tech, and tradition with Ken.</p>
-          </div>
-        </div>
-        <div class="guide-card" onclick="window.location.href='guide_rome.html'">
-          <img src="../photos/Sofia_Rome.png" alt="Rome Tour">
-          <div class="guide-info">
-            <h4>Historic Rome</h4>
-            <p>Travel back in time and enjoy culture with Sofia.</p>
-          </div>
-        </div>
+      </div>
+
+      <!-- More in NYC -->
+      <div class="more-link">
+        <a href="search_guides.html?city=New%20York">More tour guides in New York →</a>
       </div>
     </section>
   </main>
 
-  <!-- Profile popup -->
-  <div id="profile-popup-container"></div>
   <script>
+    // Inject popup HTML once page loads
     fetch('profile_popup.html')
-      .then(res => res.text())
-      .then(html => { document.getElementById('profile-popup-container').innerHTML = html; });
+      .then((res) => res.text())
+      .then((html) => { document.getElementById('profile-popup-container').innerHTML = html; });
   </script>
   <script>
   // Load the popup HTML once and keep a promise so we can await it on first toggle
@@ -137,7 +138,6 @@
   function logout() {
       window.location.href = 'login.html';
     }
-</script>
-
+  </script>
 </body>
 </html>
