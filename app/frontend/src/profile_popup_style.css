@@ -1,10 +1,9 @@
-/* Compact, clean popup with white bg, red outline */
+/* Profile popup: white bg, red outline, black text, red logout, glide-in */
 .profile-popup {
-  /* hidden by default; we animate in with .show */
-  position: fixed;               /* keep it anchored to the viewport */
-  top: 90px;                     /* sits below the navbar */
-  right: 10px;                   /* matches your 60px icon margin-right */
-  width: 200px;
+  position: fixed;               /* anchored to the viewport so it stays aligned */
+  top: 90px;                     /* just under the navbar */
+  right: 60px;                   /* match your .profile-icon { margin-right: 60px } */
+  width: 260px;
   background: #ffffff;
   color: #000000;
   border: 2px solid #e05260;     /* red outline */
@@ -13,44 +12,24 @@
   padding: 12px 12px 14px 12px;
   z-index: 1000;
 
-  /* start hidden & slightly shifted up; pointer-events off */
+  /* hidden state */
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity .25s ease, transform .25s ease;
 }
 
 .profile-popup.show {
+  display: block;                /* force visible even if another stylesheet set display:none */
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  animation: glideIn 1.5s ease-out;
-}
-
-.profile-popup.hide {
-  animation: glideOut 1.5s ease-in;
+  animation: glideIn .25s ease-out;
 }
 
 @keyframes glideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glideOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Layout inside the popup */
@@ -73,14 +52,13 @@
   appearance: none;
   border: none;
   background: transparent;
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
   color: #e05260;
   border-radius: 6px;
   padding: 4px 6px;
 }
-
 .close-btn:hover { background: rgba(224,82,96,0.12); }
 
 .popup-body {
@@ -89,7 +67,6 @@
   line-height: 1.45;
   margin-bottom: 10px;
 }
-
 .popup-body p { margin: 0 0 6px 0; }
 
 .popup-actions {
