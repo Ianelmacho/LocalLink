@@ -65,3 +65,10 @@
 .profile-icon:hover {
   transform: scale(1.1);
 }
+
+/* New styles for the updated tab */
+.navbar-tab.my-profile {
+  background: #e05260;
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(224,82,96,0.35);
+}

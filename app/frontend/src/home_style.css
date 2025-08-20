@@ -5,6 +5,7 @@ body {
   background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
   color: #fff;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  overscroll-behavior: none;
 }
 
 .main-content {

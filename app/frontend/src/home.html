@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FindMyGuide - Home</title>
-  <link rel="stylesheet" href="home_style.css">
-  <link rel="stylesheet" href="navbar_style.css">
-  <link rel="stylesheet" href="profile_popup_style.css">
+  <link rel="stylesheet" href="home_style.css" />
+  <link rel="stylesheet" href="navbar_style.css" />
+  <link rel="stylesheet" href="profile_popup_style.css" />
+  <link rel="stylesheet" href="question_style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -17,10 +18,10 @@
     <ul class="navbar-tabs">
       <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
       <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
-      <li class="navbar-tab" onclick="window.location.href='featured_guides.html'">Featured</li>
+      <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
     </ul>
-    <div class="profile-icon" onclick="toggleProfilePopup()">
-      <svg viewBox="0 0 24 24" width="30" height="30" fill="#e05260">
+    <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="#e05260" aria-hidden="true">
         <circle cx="12" cy="8" r="4"/>
         <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
       </svg>
@@ -29,12 +30,10 @@
 
   <!-- Main content -->
   <main class="main-content">
-    <!-- Hero -->
     <section class="hero">
       <h2>Your next trip to paradise is one click away.</h2>
     </section>
 
-    <!-- Guides Gallery -->
     <section class="guides-section">
       <h3>Popular Guides & Tours</h3>
       <div class="guides-grid">
@@ -70,74 +69,116 @@
     </section>
   </main>
 
-  <!-- Profile popup -->
+  <!-- Popup container (injected) -->
   <div id="profile-popup-container"></div>
+
+  <!-- Robust loader + controls (single source of truth) -->
   <script>
-    fetch('profile_popup.html')
-      .then(res => res.text())
-      .then(html => { document.getElementById('profile-popup-container').innerHTML = html; });
-  </script>
-  <script>
-  // Load the popup HTML once and keep a promise so we can await it on first toggle
-  const __popupLoaded = (async () => {
-    const container = document.getElementById('profile-popup-container') || (() => {
-      const div = document.createElement('div');
-      div.id = 'profile-popup-container';
-      document.body.appendChild(div);
-      return div;
+    // Load the popup HTML once and keep a promise so we can await it on first toggle
+    const __popupLoaded = (async () => {
+      const container = document.getElementById('profile-popup-container') || (() => {
+        const div = document.createElement('div');
+        div.id = 'profile-popup-container';
+        document.body.appendChild(div);
+        return div;
+      })();
+      const res = await fetch('profile_popup.html', { cache: 'no-store' });
+      const html = await res.text();
+      container.innerHTML = html;
+      return document.getElementById('profilePopup');
     })();
-    const res = await fetch('profile_popup.html', { cache: 'no-store' });
-    const html = await res.text();
-    container.innerHTML = html;
-    // Return the element for convenience
-    return document.getElementById('profilePopup');
-  })();
 
-  // Open/Close helpers (exposed globally so onclick can find them)
-  async function toggleProfilePopup() {
-    const popup = await __popupLoaded;
-    const isOpen = popup.classList.contains('show');
-    if (isOpen) {
-      closeProfilePopup();
-    } else {
-      openProfilePopup();
+    async function toggleProfilePopup() {
+      const popup = await __popupLoaded;
+      const isOpen = popup.classList.contains('show');
+      if (isOpen) {
+        closeProfilePopup();
+      } else {
+        openProfilePopup();
+      }
     }
-  }
-
-  async function openProfilePopup() {
-    const popup = await __popupLoaded;
-    popup.classList.add('show');
-    const icon = document.querySelector('.profile-icon');
-    icon && icon.setAttribute('aria-expanded', 'true');
-  }
-
-  async function closeProfilePopup() {
-    const popup = await __popupLoaded;
-    popup.classList.remove('show');
-    const icon = document.querySelector('.profile-icon');
-    icon && icon.setAttribute('aria-expanded', 'false');
-  }
-
-  // Close when clicking outside
-  document.addEventListener('click', async (e) => {
-    const popup = await __popupLoaded;
-    const icon = document.querySelector('.profile-icon');
-    if (!popup.classList.contains('show')) return;
-    if (!popup.contains(e.target) && !icon.contains(e.target)) {
-      closeProfilePopup();
+    async function openProfilePopup() {
+      const popup = await __popupLoaded;
+      popup.classList.add('show');
+      document.querySelector('.profile-icon')?.setAttribute('aria-expanded', 'true');
     }
-  });
+    async function closeProfilePopup() {
+      const popup = await __popupLoaded;
+      popup.classList.remove('show');
+      document.querySelector('.profile-icon')?.setAttribute('aria-expanded', 'false');
+    }
 
-  // Optional: Esc key closes the popup
-  document.addEventListener('keydown', async (e) => {
-    if (e.key === 'Escape') closeProfilePopup();
-  });
+    // Close when clicking outside
+    document.addEventListener('click', async (e) => {
+      const popup = await __popupLoaded;
+      const icon = document.querySelector('.profile-icon');
+      if (!popup.classList.contains('show')) return;
+      if (!popup.contains(e.target) && !icon.contains(e.target)) closeProfilePopup();
+    });
+    // Esc key closes
+    document.addEventListener('keydown', async (e) => { if (e.key === 'Escape') closeProfilePopup(); });
 
-  // Required by the markup; keep as no-op until you want to add real auth
-  function logout() {
+    function logout() {
+      alert('Logging out...');
       window.location.href = 'login.html';
     }
+  </script>
+  <!-- ===== Help FAB & Modal ===== -->
+<button class="help-fab" id="helpFab" aria-haspopup="dialog" aria-controls="helpModal" aria-label="Open help">
+  <img src="../photos/Help_Icon.png" alt="Help" />
+</button>
+
+<div class="help-backdrop" id="helpBackdrop" hidden></div>
+
+<div class="help-modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
+  <div class="help-modal__head">
+    <h2 id="helpTitle">Welcome to FindMyGuide</h2>
+    <button class="help-close" id="helpClose" aria-label="Close help">×</button>
+  </div>
+  <div class="help-modal__body">
+    <p>We have three pages for all your tour guide needs:</p>
+    <ul>
+      <li><strong>Local Guides</strong> — find guides near you.</li>
+      <li><strong>Explore</strong> — search travel spots & guides using advanced filters.</li>
+      <li><strong>My Profile</strong> — customize preferences so we can match the best tours for your next trip.</li>
+    </ul>
+  </div>
+  <div class="help-modal__actions">
+    <button class="help-action" id="helpGotIt">Got it</button>
+  </div>
+</div>
+
+<script>
+  // Help modal behavior
+  const fab = document.getElementById('helpFab');
+  const modal = document.getElementById('helpModal');
+  const closeBtn = document.getElementById('helpClose');
+  const backdrop = document.getElementById('helpBackdrop');
+  const gotIt = document.getElementById('helpGotIt');
+
+  function openHelp() {
+    modal.hidden = false;
+    backdrop.hidden = false;
+    requestAnimationFrame(() => {
+      modal.classList.add('show');
+      backdrop.classList.add('show');
+    });
+    fab.setAttribute('aria-expanded', 'true');
+  }
+  function closeHelp() {
+    modal.classList.remove('show');
+    backdrop.classList.remove('show');
+    fab.setAttribute('aria-expanded', 'false');
+    setTimeout(() => { modal.hidden = true; backdrop.hidden = true; }, 220);
+  }
+
+  fab.addEventListener('click', openHelp);
+  closeBtn.addEventListener('click', closeHelp);
+  gotIt.addEventListener('click', closeHelp);
+  backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeHelp(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeHelp(); });
 </script>
+<!-- ===== End Help FAB & Modal ===== -->
 
 </body>
 </html>
