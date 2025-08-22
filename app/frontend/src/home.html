@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FindMyGuide - Home</title>
+  <title>Local Link - Home</title>
   <link rel="stylesheet" href="home_style.css" />
   <link rel="stylesheet" href="navbar_style.css" />
   <link rel="stylesheet" href="profile_popup_style.css" />
   <link rel="stylesheet" href="question_style.css" />
+  <link rel="stylesheet" href="bottom_logo_style.css">
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-logo-placeholder">
-      <img src="../photos/Original_Logo.png" alt="FindMyGuide Logo" />
-    </div>
-    <ul class="navbar-tabs">
-      <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
-      <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
-      <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
-    </ul>
-    <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="30" height="30" fill="#e05260" aria-hidden="true">
-        <circle cx="12" cy="8" r="4"/>
-        <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4z"/>
-      </svg>
-    </div>
-  </nav>
+  <div class="navbar-logo-placeholder">
+    <a class="logo-link" href="home.html" aria-label="Go to home">
+      <!-- point src to your new logo asset -->
+      <img src="../photos/Logo_Test.png" alt="Local Link logo">
+    </a>
+  </div>
+
+  <ul class="navbar-tabs">
+    <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
+    <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
+    <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
+  </ul>
+
+  <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
+    <!-- your profile SVG/icon -->
+  </div>
+</nav>
+
 
   <!-- Main content -->
   <main class="main-content">
@@ -132,7 +135,7 @@
 
 <div class="help-modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
   <div class="help-modal__head">
-    <h2 id="helpTitle">Welcome to FindMyGuide</h2>
+    <h2 id="helpTitle">Welcome to Local Link</h2>
     <button class="help-close" id="helpClose" aria-label="Close help">×</button>
   </div>
   <div class="help-modal__body">
@@ -179,6 +182,7 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeHelp(); });
 </script>
 <!-- ===== End Help FAB & Modal ===== -->
-
+<!-- Bottom right logo -->
+<img src="../photos/Logo_Test.png" alt="Local Link logo" class="bottom-logo" style="position: fixed; right: 24px; bottom: 24px; width: 64px; height: auto; z-index: 999; pointer-events: none;" />
 </body>
 </html>

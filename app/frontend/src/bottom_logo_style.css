@@ -1,0 +1,28 @@
+/* ===== BOTTOM LOGO ===== */
+.bottom-logo {
+  position: fixed;
+  bottom: 20px;   /* space from bottom */
+  right: 20px;    /* space from right */
+  z-index: 999;   /* ensure it stays above other elements */
+}
+
+.bottom-logo img {
+  width: 70px;        /* default size */
+  height: auto;       /* keep aspect ratio */
+  border-radius: 50%; /* ensures circle if not already */
+  cursor: pointer;    /* looks clickable */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.bottom-logo img:hover {
+  transform: scale(1.1); /* slight grow effect */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 600px) {
+  .bottom-logo img {
+    width: 50px;  /* smaller size on mobile */
+  }
+}

@@ -1,8 +1,8 @@
 /* Profile popup: white bg, red outline, black text, red logout, glide-in */
 .profile-popup {
   position: fixed;               /* anchored to the viewport so it stays aligned */
-  top: 90px;                     /* just under the navbar */
-  right: 60px;                   /* match your .profile-icon { margin-right: 60px } */
+  top: 100px;                    /* Adjusted to move slightly lower */
+  right: 30px;                   /* Adjusted to align with the profile icon */
   width: 260px;
   background: #ffffff;
   color: #000000;
