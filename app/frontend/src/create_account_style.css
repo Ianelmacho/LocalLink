@@ -1,76 +1,125 @@
 /*
  * File: create_account_style.css
- * Description: Stylesheet for the Create Account page. Contains layout, typography, and design elements for the account creation form.
+ * Full-bleed London background + centered glass card.
  */
 
-body {
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #000; /* Sleek black background */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* ---------- Page base + background ---------- */
+:root {
+  --brand-red: #e05260;
 }
 
+/* Center the card and create layers for bg + overlay */
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer (rename path to your file as needed) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* If your file name has spaces, keep them encoded like London%20pic.jpg */
+  background: url("../photos/London_view.png") center center / cover no-repeat fixed;
+  z-index: -2;
+}
+
+/* Soft dark overlay for readability */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(0,0,0,0.45), transparent 60%),
+    linear-gradient(0deg, rgba(0,0,0,0.38), rgba(0,0,0,0.38));
+  z-index: -1;
+}
+
+/* ---------- Card ---------- */
 .create-account-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-    text-align: center;
+  width: min(540px, 92vw);
+  padding: 40px 28px;
+  background: rgba(20, 20, 20, 0.55);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  text-align: left;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .create-account-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+  margin: 0 0 16px 0;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: .3px;
+  background: linear-gradient(90deg, #ffffff, #dcdcdc 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* ---------- Form ---------- */
 .create-account-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .create-account-form label {
-    text-align: left;
-    font-size: 1rem;
+  font-size: 0.95rem;
+  color: #ffdede;
 }
 
 .create-account-form input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background: #fff; /* White text boxes */
-    color: #000;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.94);
+  color: #111;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.create-account-form input:focus {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 4px rgba(224,82,96,0.18);
 }
 
 .create-account-form button {
-    padding: 15px; /* Increase button size */
-    font-size: 1.2rem; /* Increase text size */
-    font-weight: bold; /* Make text bold */
-    border: none;
-    border-radius: 8px;
-    background: #e05260;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s;
+  margin-top: 6px;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff3131, #b80000);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(184,0,0,0.35);
+  transition: transform .2s ease, background .25s ease, box-shadow .25s ease;
 }
-
 .create-account-form button:hover {
-    background: #ff8a80;
+  background: linear-gradient(90deg, #b80000, #ff3131);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(184,0,0,0.45);
 }
 
-.logo-container {
-    margin-top: 20px;
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 540px) {
+  .create-account-container { padding: 28px 20px; }
 }
 
-.logo-container img {
-    max-width: 300px; /* Further widen the logo width */
-    height: auto;
+/* Optional sharpening for fixed bg on high DPI */
+@media (min-resolution: 2dppx) {
+  body::before { image-rendering: auto; }
 }

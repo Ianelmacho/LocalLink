@@ -1,47 +1,44 @@
 <!--
   File: create_account.html
-  Description: HTML structure for the Create Account page. Includes a form for user registration.
+  Description: Create Account with full-bleed London background and centered card.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindMyGuide - Create Account</title>
-    <!-- Linking stylesheets -->
-    <link rel="stylesheet" href="create_account_style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FindMyGuide - Create Account</title>
+  <link rel="stylesheet" href="create_account_style.css" />
 </head>
 <body>
-    <!-- Main content area -->
-    <main class="main-content">
-        <section class="create-account-container">
-            <h2 class="create-account-title">Create Your Account</h2>
-            <form class="create-account-form">
-                <!-- First Name field -->
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" required>
+  <main class="main-content">
+    <section class="create-account-container" role="form" aria-labelledby="createTitle">
+      <h2 class="create-account-title" id="createTitle">Create Your Account</h2>
 
-                <!-- Last Name field -->
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" required>
+      <form class="create-account-form" action="#" method="post" novalidate>
+        <!-- First Name -->
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" autocomplete="given-name" required />
 
-                <!-- Username field -->
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+        <!-- Last Name -->
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" autocomplete="family-name" required />
 
-                <!-- Email field -->
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+        <!-- Username -->
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required />
 
-                <!-- Password field -->
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required />
 
-                <!-- Submit button -->
-                <button type="submit">Sign Up</button>
-            </form>
-        </section>
-    </main>
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="new-password" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
