@@ -1,3 +1,12 @@
+/* ---------- Tokens ---------- */
+:root {
+  --brand-red: #e05260;
+  --card-glass-bg: rgba(20,20,20,0.48);
+  --card-border-grad: linear-gradient(135deg, rgba(224,82,96,0.7), rgba(255,255,255,0.35));
+  --overlay-radial: radial-gradient(1200px 800px at 20% -10%, rgba(0,0,0,0.45), transparent 60%);
+  --overlay-linear: linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+}
+
 /* ---------- Page base ---------- */
 body {
   min-height: 100vh;
@@ -5,13 +14,11 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   color: #fff;
 
-  /* Center the welcome box */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  /* Create a stacking context for the background layers */
   position: relative;
   overflow: hidden;
 }
@@ -21,33 +28,42 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* If your file name contains a space, encode it like below.
-     Recommended: rename to beach.jpg and change the URL. */
   background: url("../photos/Beach\ pic.png") center center / cover no-repeat fixed;
   z-index: -2;
 }
 
-/* Soft dark overlay for readability */
+/* Soft dark overlay for readability (vignette fuse) */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(1200px 800px at 20% -10%, rgba(0,0,0,0.45), transparent 60%),
-    linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+  background: var(--overlay-radial), var(--overlay-linear);
   z-index: -1;
 }
 
-/* ---------- Welcome box ---------- */
+/* ---------- Welcome card (glass + gradient border) ---------- */
 .container {
-  background: rgba(20, 20, 20, 0.55);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.37);
-  padding: 48px 32px;
+  position: relative;
   width: min(560px, 92vw);
+  padding: 48px 32px;
   text-align: center;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+
+  /* Glass base */
+  background: var(--card-glass-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+
+  /* Gradient border via double background trick */
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--card-glass-bg), var(--card-glass-bg)),
+    var(--card-border-grad);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  /* Depth */
+  box-shadow: 0 10px 34px rgba(0,0,0,0.38);
 }
 
 h1 {
@@ -72,7 +88,7 @@ p {
   background: linear-gradient(90deg, #ff3131, #b80000);
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 14px 32px;
   font-size: 1.1rem;
   font-weight: 800;
@@ -99,15 +115,10 @@ p {
   .container { padding: 28px 20px; }
 }
 
-/* ---------- High DPI (optional sharpening for fixed bg) ---------- */
+/* High DPI */
 @media (min-resolution: 2dppx) {
-  body::before {
-    image-rendering: auto;
-  }
+  body::before { image-rendering: auto; }
 }
 
-/* Make the Local Link button in the bottom right corner not clickable */
-.local-link-btn {
-    pointer-events: none;
-    /* ...existing code... */
-}
+/* Keep any Local Link floating badge non-interactive if present */
+.local-link-btn { pointer-events: none; }

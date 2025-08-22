@@ -1,11 +1,13 @@
 /*
  * File: create_account_style.css
- * Full-bleed London background + centered glass card.
+ * Full-bleed London background + centered glass card with gradient border.
  */
 
-/* ---------- Page base + background ---------- */
+/* ---------- Tokens ---------- */
 :root {
   --brand-red: #e05260;
+  --card-glass-bg: rgba(20,20,20,0.50);
+  --card-border-grad: linear-gradient(135deg, rgba(224,82,96,0.7), rgba(255,255,255,0.35));
 }
 
 /* Center the card and create layers for bg + overlay */
@@ -23,12 +25,11 @@ body {
   overflow: hidden;
 }
 
-/* Background image layer (rename path to your file as needed) */
+/* Background image layer */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* If your file name has spaces, keep them encoded like London%20pic.jpg */
   background: url("../photos/London_view.png") center center / cover no-repeat fixed;
   z-index: -2;
 }
@@ -44,17 +45,25 @@ body::after {
   z-index: -1;
 }
 
-/* ---------- Card ---------- */
+/* ---------- Card (glass + gradient border) ---------- */
 .create-account-container {
   width: min(540px, 92vw);
   padding: 40px 28px;
-  background: rgba(20, 20, 20, 0.55);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   text-align: left;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.12);
+
+  background: var(--card-glass-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--card-glass-bg), var(--card-glass-bg)),
+    var(--card-border-grad);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .create-account-title {
