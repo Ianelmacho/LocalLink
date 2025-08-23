@@ -1,138 +1,197 @@
+/* Option C: Focus-only glass — Ruins landscape with blue sky + vignette.
+   Inputs are transparent until focused; on focus: subtle blur + tint. */
+
+/* ---------- Tokens ---------- */
+:root {
+  --brand-blue-light: #1e90ff;
+  --brand-blue-dark: #0056b3;
+  --on-dark: #ffffff;
+
+  --outline: rgba(255,255,255,0.25);
+
+  --overlay-radial: radial-gradient(1200px 750px at 30% -10%, rgba(0,0,0,.45), transparent 60%);
+  --overlay-linear: linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+}
+
+/* ---------- Page base ---------- */
 body {
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--on-dark);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 24px;
 }
 
-.login-container {
-    background: rgba(20, 20, 20, 0.92);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-    padding: 24px 40px 32px 40px;  /* ↓ tighter top padding */
-    width: 100%;                   /* allow full width up to max */
-    max-width: 640px;              /* ↑ wider card */
-    margin: 80px auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Background (blue sky + tan ruins) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../photos/Ruins_login_pic.png") center center / cover no-repeat fixed;
+  z-index: -2;
 }
 
+/* Vignette for readability across sky + ruins */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-radial), var(--overlay-linear);
+  z-index: -1;
+}
+
+/* ---------- Layout ---------- */
+.login-shell {
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Headings & text ---------- */
 .login-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 0;                 /* remove default h1 top margin */
-    margin-bottom: 10px;           /* tighter gap before form */
-    background: linear-gradient(90deg, #e05260, #ff8a80, #fff 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-align: center;
+  margin: 0 0 12px 0;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: var(--on-dark);
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
 
+/* ---------- Form ---------- */
 .login-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  width: min(560px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  text-align: left;
 }
-
 .login-form label {
-    color: #ffd6d6;
-    font-size: 1.1rem;
-    margin-bottom: 4px;
+  color: var(--on-dark);
+  font-size: 1rem;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
 
+/* Transparent idle; soft glass on focus */
 .login-form input[type="text"],
-login-form input[type="password"],
 .login-form input[type="password"] {
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1.1rem;
-    background: #fff;
-    color: #222;
-    margin-bottom: 6px;
+  background: transparent;
+  border: 1px solid var(--outline);
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  outline: none;
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, backdrop-filter .2s ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  background: rgba(0,0,0,0.18);
+  border-color: rgba(30,144,255,0.65);
+  box-shadow: 0 0 0 4px rgba(30,144,255,0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
+/* Placeholder & autofill */
+.login-form input::placeholder { color: rgba(255,255,255,0.85); }
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Show password checkbox */
 .login-form .show-password {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.98rem;
-    color: #ffd6d6;
-    margin-bottom: 0;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.98rem;
+  color: var(--on-dark);
+  margin-bottom: 0;
+  cursor: pointer;
 }
 
-.login-form .forgot-link {
-    color: #ff8a80;
-    text-decoration: underline;
-    font-size: 0.98rem;
-    margin-top: -4px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    align-self: flex-start;
+/* Links */
+.forgot-link {
+  color: #e1f0ff;
+  text-decoration: none;
+  font-size: 0.98rem;
+  margin-top: -2px;
+  margin-bottom: 8px;
+  align-self: flex-start;
 }
+.forgot-link:hover { text-decoration: underline; }
 
-.login-form button {
-    background: linear-gradient(90deg, #e05260, #ff8a80);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 14px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    margin-bottom: 8px;
+/* ---------- Buttons ---------- */
+.primary-btn {
+  background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-blue-dark));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s, box-shadow .25s;
+  box-shadow: 0 8px 20px rgba(0,86,179,0.35);
+  margin-bottom: 8px;
 }
-
-.login-form button:hover {
-    background: linear-gradient(90deg, #ff8a80, #e05260);
-    transform: scale(1.04);
+.primary-btn:hover {
+  background: linear-gradient(90deg, var(--brand-blue-dark), var(--brand-blue-light));
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,86,179,0.45);
 }
 
 .register-btn {
-    background: transparent;
-    color: #ff8a80;
-    border: 2px solid #ff8a80;
-    border-radius: 8px;
-    padding: 10px 0;
-    font-size: 1.05rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+  background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-blue-dark));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s, box-shadow .25s;
+  box-shadow: 0 8px 20px rgba(0,86,179,0.35);
+  margin-bottom: 8px;
 }
-
 .register-btn:hover {
-    background: #ff8a80;
-    color: #fff;
+  background: linear-gradient(90deg, var(--brand-blue-dark), var(--brand-blue-light));
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,86,179,0.45);
 }
 
+/* ---------- Error toast (blue theme) ---------- */
 .error-popup {
-    position: fixed;
-    top: -100px; /* Start off-screen */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 16px 24px;
-    background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: top 2s ease; /* Glide-in and glide-out effect */
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--brand-blue-dark), var(--brand-blue-light));
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  z-index: 1000;
+  transition: top 2s ease;
 }
+.error-popup.visible { top: 20px; }
+.error-popup:not(.visible) { top: -100px; }
 
-.error-popup.visible {
-    top: 20px; /* Slide into view */
+/* ---------- Responsive ---------- */
+@media (max-width: 540px) {
+  .login-shell { padding: 0 4px; }
 }
-
-.error-popup:not(.visible) {
-    top: -100px; /* Slide out of view */
+@media (min-resolution: 2dppx) {
+  body::before { image-rendering: auto; }
 }
