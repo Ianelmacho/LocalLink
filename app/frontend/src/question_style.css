@@ -14,7 +14,7 @@ html, body {
 /* ===== Help Floating Icon (uses YOUR image) ===== */
  .help-fab{
   position: fixed;
-  top: 120px; /* moved further down below the profile icon */
+  top: 104px; /* Slightly moved up from previous value */
   right: 32px; /* closer to the profile icon */
   /* If you want it exactly under the profile icon, you may need to adjust top and right further based on your navbar height and padding */
   width: 48px;

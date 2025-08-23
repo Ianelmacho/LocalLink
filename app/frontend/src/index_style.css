@@ -1,3 +1,11 @@
+/* ---------- Tokens ---------- */
+:root {
+  --brand-blue-light: #1e90ff;
+  --brand-blue-dark: #0056b3;
+  --overlay-radial: radial-gradient(1200px 800px at 20% -10%, rgba(0,0,0,0.35), transparent 60%);
+  --overlay-linear: linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+}
+
 /* ---------- Page base ---------- */
 body {
   min-height: 100vh;
@@ -5,15 +13,14 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   color: #fff;
 
-  /* Center the welcome box */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  /* Create a stacking context for the background layers */
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 /* Full-bleed background image layer */
@@ -21,72 +28,36 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* If your file name contains a space, encode it like below.
-     Recommended: rename to beach.jpg and change the URL. */
   background: url("../photos/Beach\ pic.png") center center / cover no-repeat fixed;
   z-index: -2;
 }
 
-/* Soft dark overlay for readability */
+/* Soft overlay for readability */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(1200px 800px at 20% -10%, rgba(0,0,0,0.45), transparent 60%),
-    linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+  background: var(--overlay-radial), var(--overlay-linear);
   z-index: -1;
 }
 
-/* ---------- Welcome box ---------- */
-.container {
-  background: rgba(20, 20, 20, 0.55);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.37);
-  padding: 48px 32px;
-  width: min(560px, 92vw);
-  text-align: center;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
+/* ---------- Headings & text ---------- */
 h1 {
   font-family: 'Impact', Charcoal, sans-serif;
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: bold;
   margin-bottom: 0.4em;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #ffffff, #dcdcdc 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
 }
 
 p {
   font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   margin-bottom: 1.6em;
   color: #f0f0f0;
+  font-weight: 700;
 }
 
-.cta-btn {
-  background: linear-gradient(90deg, #ff3131, #b80000);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 14px 32px;
-  font-size: 1.1rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s, box-shadow .3s;
-  box-shadow: 0 6px 20px rgba(184,0,0,0.25);
-}
-.cta-btn:hover {
-  background: linear-gradient(90deg, #b80000, #ff3131);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 26px rgba(184,0,0,0.35);
-}
-
-/* Featured quote style */
 .quote {
   font-family: 'Georgia', serif;
   font-size: clamp(1.2rem, 2.8vw, 1.6rem);
@@ -94,20 +65,31 @@ p {
   margin: 0 0 0.8em 0;
 }
 
+/* ---------- Call-to-action button ---------- */
+.cta-btn {
+  background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-blue-dark));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow .3s;
+  box-shadow: 0 6px 20px rgba(0,86,179,0.25);
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, var(--brand-blue-dark), var(--brand-blue-light));
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 26px rgba(0,86,179,0.35);
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 540px) {
-  .container { padding: 28px 20px; }
+  body { padding: 20px; }
 }
 
-/* ---------- High DPI (optional sharpening for fixed bg) ---------- */
+/* High DPI */
 @media (min-resolution: 2dppx) {
-  body::before {
-    image-rendering: auto;
-  }
-}
-
-/* Make the Local Link button in the bottom right corner not clickable */
-.local-link-btn {
-    pointer-events: none;
-    /* ...existing code... */
+  body::before { image-rendering: auto; }
 }
