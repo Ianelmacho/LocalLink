@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0d0d0d 0%, #e05260 40%, #ff8a80 80%, #0d0d0d 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, #87cefa 50%, #0d0d0d 100%);
   color: #fff;
 }
 
@@ -75,17 +75,16 @@ body {
   padding: 14px 28px;       /* larger */
   border: none;
   border-radius: 10px;
-  background: #e05260;
+  background: #000;
   color: #fff;
   font-weight: 700;         /* bolder */
   font-size: 1.05rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 6px 18px rgba(224,82,96,0.35);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 .connect-btn:hover {
-  background: #ff3131;
-  transform: translateY(-2px);
+  background: #222;
 }
 
 /* Favorite tour spots (pills) */
@@ -96,7 +95,7 @@ body {
 .favorites h3 {
   margin: 0 0 12px 0;
   font-size: 1.2rem;
-  color: #ffd6d6;
+  color: #fff;
   font-weight: 700;
 }
 .pill-row {
@@ -106,8 +105,8 @@ body {
   justify-content: center;
 }
 .pill-btn {
-  border: 1px solid #ff8a80;
-  background: rgba(255, 138, 128, 0.12);
+  border: 1px solid #000;
+  background: rgba(0,0,0,0.12);
   color: #fff;
   padding: 8px 14px;
   border-radius: 999px;
@@ -116,9 +115,8 @@ body {
   transition: background 0.2s, transform 0.2s, border-color 0.2s;
 }
 .pill-btn:hover {
-  background: rgba(255, 138, 128, 0.22);
-  transform: translateY(-1px);
-  border-color: #ffb3b3;
+  background: rgba(0,0,0,0.22);
+  border-color: #222;
 }
 
 /* Bottom link */
@@ -127,8 +125,10 @@ body {
   text-align: center;
 }
 .more-link a {
-  color: #ffb3b3;
+  color: #fff;
   font-weight: 700;
   text-decoration: none;
 }
-.more-link a:hover { text-decoration: underline; }
+.more-link a:hover {
+  text-decoration: underline;
+}
