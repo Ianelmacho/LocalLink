@@ -19,3 +19,9 @@
     </script>
 </body>
 </html>
+<script type="module">
+  import { supabase, getCurrentSession } from '../backend/js/supabaseClient.js';
+
+  const session = await getCurrentSession();
+  console.log('Session?', session); // should log null if not logged in
+</script>

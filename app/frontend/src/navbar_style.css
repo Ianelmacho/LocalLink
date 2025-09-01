@@ -95,9 +95,9 @@
 }
 .navbar-tab.active,
 .navbar-tab.my-profile {
-  background: var(--brand-red);
+  background: linear-gradient(100deg, #87cefa 0%, #4fc3f7 100%);
   color: #fff;
-  box-shadow: 0 5px 14px rgba(224,82,96,0.35);
+  box-shadow: 0 5px 14px rgba(33,150,243,0.35);
 }
 
 /* ===== PROFILE ICON ===== */
