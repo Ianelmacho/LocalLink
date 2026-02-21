@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Link — Tourist Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --navy:#0b1f3b;
+      --coral:#ff5a5f;
+      --border:#e5e7eb;
+      --text:#0f172a;
+      --muted:#64748b;
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(135deg, #0b1f3b 0%, #132c55 100%);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .container{
+      background:white;
+      width:100%;
+      max-width:860px;
+      border-radius:var(--radius);
+      padding:40px;
+      box-shadow:0 25px 60px rgba(0,0,0,0.2);
+    }
+
+    h1{
+      margin:0;
+      font-size:32px;
+      color:var(--navy);
+      letter-spacing:-0.4px;
+    }
+
+    .tagline{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      max-width:70ch;
+    }
+
+    form{
+      margin-top:28px;
+      display:grid;
+      gap:18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    @media(max-width:700px){
+      .grid{grid-template-columns:1fr;}
+      .container{padding:28px;}
+    }
+
+    label{
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:7px;
+      display:block;
+      color:var(--navy);
+      letter-spacing:0.2px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:12px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-size:14px;
+      outline:none;
+      transition:.2s;
+      background:#fff;
+      color:var(--text);
+    }
+
+    textarea{
+      min-height:90px;
+      resize:vertical;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:var(--coral);
+      box-shadow:0 0 0 4px rgba(255,90,95,0.2);
+    }
+
+    .hidden{display:none;}
+
+    .checkbox-row{
+      display:flex;
+      gap:10px;
+      font-size:13px;
+      align-items:flex-start;
+      color:var(--text);
+      background:#fafbff;
+      border:1px dashed var(--border);
+      padding:12px;
+      border-radius:12px;
+    }
+
+    .checkbox-row input{
+      margin-top:3px;
+      accent-color:var(--coral);
+    }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .req{
+      color:var(--coral);
+      font-weight:900;
+      margin-left:4px;
+    }
+
+    button{
+      background:var(--navy);
+      color:white;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s;
+      letter-spacing:.2px;
+    }
+
+    button:hover{
+      background:var(--coral);
+    }
+
+    .section-title{
+      margin-top:6px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--navy);
+      letter-spacing:.2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Local Link</h1>
+    <div class="tagline">
+      Plan less. Live more. Tell us your destination and vibe you will have the chance to be part of the early pilot and match you with the right local experiences.
+    </div>
+
+    <form action="#" method="POST">
+
+      <!-- Basics -->
+      <div class="grid">
+        <div>
+          <label for="name">Full Name<span class="req">*</span></label>
+          <input id="name" type="text" name="name" placeholder="Jane Doe" required>
+        </div>
+
+        <div>
+          <label for="email">Email<span class="req">*</span></label>
+          <input id="email" type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <label for="destination">Destination City<span class="req">*</span></label>
+          <input id="destination" type="text" name="destination" placeholder="New York, London, Miami..." required>
+        </div>
+
+        <div>
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" type="tel" name="phone" placeholder="+1 (555) 123-4567">
+          <div class="small">Optional — helpful for urgent trip-related updates.</div>
+        </div>
+      </div>
+
+      <!-- Trip Dates -->
+      <div class="section-title">Trip Details</div>
+
+      <div class="grid">
+        <div>
+          <label for="startDate">Trip Start Date (optional)</label>
+          <input id="startDate" type="date" name="startDate">
+        </div>
+
+        <div>
+          <label for="endDate">Trip End Date (optional)</label>
+          <input id="endDate" type="date" name="endDate">
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <div class="grid">
+        <div>
+          <label for="budget">Budget (optional)</label>
+          <select id="budget" name="budget">
+            <option value="" selected>Choose a range</option>
+            <option value="$">$ (budget-friendly)</option>
+            <option value="$$">$$ (comfortable)</option>
+            <option value="$$$">$$$ (premium)</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="pace">Preferred Pace (optional)</label>
+          <select id="pace" name="pace">
+            <option value="" selected>Select</option>
+            <option value="chill">Chill / relaxed</option>
+            <option value="balanced">Balanced</option>
+            <option value="packed">Packed / maximize everything</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="section-title">What You Want</div>
+
+      <div>
+        <label for="experienceType">What kind of experience are you looking for?<span class="req">*</span></label>
+        <select id="experienceType" name="experienceType" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Hidden Gems">Hidden Gems & Local Secrets</option>
+          <option value="Food Scene">Food Scene & Underground Spots</option>
+          <option value="Nightlife">Club Scene & Nightlife</option>
+          <option value="Adventure">Adventure & Outdoor Exploration</option>
+          <option value="Culture">Art, Culture & Local History</option>
+          <option value="Relaxation">Beaches, Views & Chill Spots</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="small">This helps us match you with the best locals for your vibe.</div>
+      </div>
+
+      <div id="otherField" class="hidden">
+        <label for="otherText">Tell us what you're looking for</label>
+        <input id="otherText" type="text" name="otherText" placeholder="Example: street photography, vintage shopping, anime spots...">
+      </div>
+
+      <div>
+        <label for="notes">Anything else we should know? (optional)</label>
+        <textarea id="notes" name="notes" placeholder="Diet preferences, accessibility needs, must-see interests, etc."></textarea>
+      </div>
+
+      <!-- Emergency Contact -->
+      <div class="section-title">Emergency Contact (optional)</div>
+
+      <div class="grid">
+        <div>
+          <label for="emergencyName">Emergency Contact Name</label>
+          <input id="emergencyName" type="text" name="emergencyName" placeholder="Full name">
+        </div>
+
+        <div>
+          <label for="emergencyPhone">Emergency Contact Phone</label>
+          <input id="emergencyPhone" type="tel" name="emergencyPhone" placeholder="+1 (555) 000-0000">
+        </div>
+      </div>
+
+      <!-- Consent -->
+      <div class="checkbox-row">
+        <input id="consent" type="checkbox" name="consent" required>
+        <div>
+          <strong>Consent</strong><br>
+          I confirm my information is accurate and I agree to be contacted about Local Link early access.
+          <div class="small">We won’t sell your data.</div>
+        </div>
+      </div>
+
+      <button type="submit">Join Early Access</button>
+
+    </form>
+  </div>
+
+  <script>
+    const experienceSelect = document.getElementById("experienceType");
+    const otherField = document.getElementById("otherField");
+
+    experienceSelect.addEventListener("change", function () {
+      if (this.value === "Other") {
+        otherField.classList.remove("hidden");
+      } else {
+        otherField.classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>

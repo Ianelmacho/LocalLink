@@ -25,14 +25,11 @@
     <li class="navbar-tab active" onclick="window.location.href='my_profile.html'">My Profile</li>
   </ul>
 
-  <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
-    <!-- your profile SVG/icon -->
-  </div>
+  <button class="navbar-auth" onclick="window.location.href='login.html'">
+    Log in / Create account
+  </button>
 </nav>
 
-
-  <!-- Popup container (injected) -->
-  <div id="profile-popup-container"></div>
 
   <!-- Main -->
   <main class="profile-shell">
@@ -120,31 +117,6 @@
 
   <!-- Scripts -->
   <script>
-    /* ---------- Profile popup loader (single source of truth) ---------- */
-    const __popupLoaded = (async () => {
-      const container = document.getElementById('profile-popup-container') || (() => {
-        const div = document.createElement('div'); div.id='profile-popup-container'; document.body.appendChild(div); return div;
-      })();
-      const res = await fetch('profile_popup.html', { cache: 'no-store' });
-      const html = await res.text();
-      container.innerHTML = html;
-      return document.getElementById('profilePopup');
-    })();
-
-    async function toggleProfilePopup() {
-      const popup = await __popupLoaded;
-      popup.classList.toggle('show');
-      const icon = document.querySelector('.profile-icon');
-      icon?.setAttribute('aria-expanded', popup.classList.contains('show') ? 'true' : 'false');
-    }
-    document.addEventListener('click', async (e) => {
-      const popup = await __popupLoaded; const icon = document.querySelector('.profile-icon');
-      if (!popup.classList.contains('show')) return;
-      if (!popup.contains(e.target) && !icon.contains(e.target)) { popup.classList.remove('show'); icon?.setAttribute('aria-expanded','false'); }
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.getElementById('profilePopup')?.classList.remove('show'); }});
-    function logout(){ alert('Logging out...'); window.location.href='login.html'; }
-
     /* ---------- Mock data (works now; replace via API later) ---------- */
     const state = {
       spots: ['Central Park', 'DUMBO', 'High Line'],

@@ -20,26 +20,53 @@
   </div>
 
   <ul class="navbar-tabs">
-    <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
+    <li class="navbar-tab active" onclick="window.location.href='home.html'">Home</li>
     <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
     <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
   </ul>
 
-  <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
-    <!-- your profile SVG/icon -->
-  </div>
+  <button class="navbar-auth" onclick="window.location.href='login.html'">
+    Log in / Create account
+  </button>
 </nav>
 
 
   <!-- Main content -->
   <main class="main-content">
     <section class="hero">
-      <h2>Your next trip to paradise is one click away.</h2>
+      <p class="hero-tagline">Plan less. Live more.</p>
+      <h1 class="hero-title">Local Link</h1>
+      <p class="hero-subtitle">
+        Connects travelers with local guides — like Uber, but for exploring the world. Real people. Hidden gems. Unforgettable adventures.
+      </p>
     </section>
 
-    <section class="guides-section">
-      <h3>Popular Guides & Tours</h3>
-      <div class="guides-grid">
+    <section class="intro-section">
+      <h2>What is Local Link?</h2>
+      <p>
+        We match travelers with vetted local guides who know the best spots, eats, and experiences. No tourist traps — just authentic connections and trips you'll remember.
+      </p>
+    </section>
+
+    <section class="pilot-section">
+      <h2>Pilot Launch: New York</h2>
+      <p>
+        We're launching our pilot in <strong>New York</strong>. Be among the first <strong>50 travelers</strong> and <strong>50 local guides</strong> to shape the future of how we explore.
+      </p>
+      <div class="pilot-ctas">
+        <button class="hero-btn hero-btn--tourist" onclick="window.location.href='tourist_sign.html'">
+          I'm a traveler — Join the pilot
+        </button>
+        <button class="hero-btn hero-btn--local" onclick="window.location.href='create_account.html'">
+          I'm a local guide — Apply
+        </button>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <h3>A taste of what's to come</h3>
+      <p class="preview-subtitle">Meet the kind of guides you'll find in New York</p>
+      <div class="guides-grid guides-grid--single">
         <div class="guide-card" onclick="window.location.href='guide_nyc.html'">
           <img src="../photos/Tom_NYC.png" alt="New York Tour">
           <div class="guide-info">
@@ -47,85 +74,11 @@
             <p>Discover hidden gems and iconic landmarks with John.</p>
           </div>
         </div>
-        <div class="guide-card" onclick="window.location.href='guide_paris.html'">
-          <img src="../photos/Emma_Paris.png" alt="Paris Tour">
-          <div class="guide-info">
-            <h4>Romantic Paris</h4>
-            <p>Walk the streets of love and history with Emma.</p>
-          </div>
-        </div>
-        <div class="guide-card" onclick="window.location.href='guide_tokyo.html'">
-          <img src="../photos/Ken_Tokyo.png" alt="Tokyo Tour">
-          <div class="guide-info">
-            <h4>Tokyo Adventures</h4>
-            <p>Experience food, tech, and tradition with Ken.</p>
-          </div>
-        </div>
-        <div class="guide-card" onclick="window.location.href='guide_rome.html'">
-          <img src="../photos/Sofia_Rome.png" alt="Rome Tour">
-          <div class="guide-info">
-            <h4>Historic Rome</h4>
-            <p>Travel back in time and enjoy culture with Sofia.</p>
-          </div>
-        </div>
       </div>
     </section>
   </main>
 
-  <!-- Popup container (injected) -->
-  <div id="profile-popup-container"></div>
-
-  <!-- Robust loader + controls (single source of truth) -->
-  <script>
-    // Load the popup HTML once and keep a promise so we can await it on first toggle
-    const __popupLoaded = (async () => {
-      const container = document.getElementById('profile-popup-container') || (() => {
-        const div = document.createElement('div');
-        div.id = 'profile-popup-container';
-        document.body.appendChild(div);
-        return div;
-      })();
-      const res = await fetch('profile_popup.html', { cache: 'no-store' });
-      const html = await res.text();
-      container.innerHTML = html;
-      return document.getElementById('profilePopup');
-    })();
-
-    async function toggleProfilePopup() {
-      const popup = await __popupLoaded;
-      const isOpen = popup.classList.contains('show');
-      if (isOpen) {
-        closeProfilePopup();
-      } else {
-        openProfilePopup();
-      }
-    }
-    async function openProfilePopup() {
-      const popup = await __popupLoaded;
-      popup.classList.add('show');
-      document.querySelector('.profile-icon')?.setAttribute('aria-expanded', 'true');
-    }
-    async function closeProfilePopup() {
-      const popup = await __popupLoaded;
-      popup.classList.remove('show');
-      document.querySelector('.profile-icon')?.setAttribute('aria-expanded', 'false');
-    }
-
-    // Close when clicking outside
-    document.addEventListener('click', async (e) => {
-      const popup = await __popupLoaded;
-      const icon = document.querySelector('.profile-icon');
-      if (!popup.classList.contains('show')) return;
-      if (!popup.contains(e.target) && !icon.contains(e.target)) closeProfilePopup();
-    });
-    // Esc key closes
-    document.addEventListener('keydown', async (e) => { if (e.key === 'Escape') closeProfilePopup(); });
-
-    function logout() {
-      alert('Logging out...');
-      window.location.href = 'login.html';
-    }
-  </script>
+  <!-- (Profile popup loader removed for now to keep login optional) -->
   <!-- ===== Help FAB & Modal ===== -->
 <button class="help-fab" id="helpFab" aria-haspopup="dialog" aria-controls="helpModal" aria-label="Open help">
   <img src="../photos/Help_Icon.png" alt="Help" />
@@ -141,7 +94,7 @@
   <div class="help-modal__body">
     <p>We have three pages for all your tour guide needs:</p>
     <ul>
-      <li><strong>Local Guides</strong> — find guides near you.</li>
+      <li><strong>Home</strong> — learn about Local Link and join our New York pilot.</li>
       <li><strong>Explore</strong> — search travel spots & guides using advanced filters.</li>
       <li><strong>My Profile</strong> — customize preferences so we can match the best tours for your next trip.</li>
     </ul>

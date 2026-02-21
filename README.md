@@ -35,6 +35,8 @@
 ## ⚙️ Quick Start
 Serve the site as static files (any simple HTTP server works).
 
+**Website URL:** `http://localhost:9000/frontend/src/index.html`
+
 **Option A: VS Code Live Server (easiest)**
 1. Open the folder in VS Code  
 2. Install the **Live Server** extension  

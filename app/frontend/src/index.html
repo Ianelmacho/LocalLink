@@ -7,21 +7,12 @@
     <link rel="stylesheet" href="index_style.css">
 </head>
 <body>
-    <h1>Local Link</h1>
-    <p class="quote">"Plan less, Live more."</p>
-    <p>Connecting travelers with local tour guides. Discover, book, and explore with confidence—just like Uber, but for your next adventure!</p>
-    <button class="cta-btn" onclick="showLoginPopup()">Get Started</button>
-
-    <script>
-      function showLoginPopup() {
-        window.location.href = 'login.html';
-      }
-    </script>
+  <script>
+    // Always send visitors straight into the main app
+    window.location.href = 'home.html';
+  </script>
+  <noscript>
+    <p>JavaScript is required to view Local Link. Please open <code>home.html</code> directly.</p>
+  </noscript>
 </body>
 </html>
-<script type="module">
-  import { supabase, getCurrentSession } from '../backend/js/supabaseClient.js';
-
-  const session = await getCurrentSession();
-  console.log('Session?', session); // should log null if not logged in
-</script>
