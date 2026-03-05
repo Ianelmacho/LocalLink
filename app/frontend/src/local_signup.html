@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Local Guide - Local Link</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Local Link</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Coming Soon Section -->
+  <section class="section">
+    <div class="section-container">
+      <h1>Become a Local Guide</h1>
+      <p>We're excited to have you join our community of local experts! Our guide application process is coming soon.</p>
+      <p>In the meantime, join our tourist waitlist to be the first to know when we launch in your area.</p>
+      <div style="margin-top: 2rem;">
+        <a href="tourist_signup.html" class="btn btn-primary">Join Tourist Waitlist</a>
+        <a href="index.html" class="btn btn-secondary" style="margin-left: 1rem;">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Keyboard focus ring visibility
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-focus');
+      }
+    });
+
+    document.addEventListener('mousedown', function () {
+      document.body.classList.remove('keyboard-focus');
+    });
+  </script>
+</body>
+</html>

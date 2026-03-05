@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Local Link - Tourist Early Access</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="tourist_signup_style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Local Link</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="signup-container">
+    <div class="signup-card">
+      <div class="signup-header">
+        <h1 class="signup-title">Join Early Access</h1>
+        <p class="signup-subtitle">Be among the first travelers to experience Local Link</p>
+      </div>
+
+      <form id="touristSignupForm" class="signup-form" novalidate>
+        <!-- Required Fields -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Essential Information</legend>
+
+          <div class="form-group">
+            <label for="fullName" class="form-label">Full Name <span class="form-required">*</span></label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              class="form-input"
+              placeholder="Jane Doe"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email <span class="form-required">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="jane@example.com"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="destinationCity" class="form-label">What city are you planning to visit? <span class="form-required">*</span></label>
+            <input
+              type="text"
+              id="destinationCity"
+              name="destinationCity"
+              class="form-input"
+              placeholder="e.g., New York, Paris, Tokyo"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="experienceType" class="form-label">What kind of experience are you looking for? <span class="form-required">*</span></label>
+            <select
+              id="experienceType"
+              name="experienceType"
+              class="form-select"
+              required
+              aria-required="true"
+            >
+              <option value="">Select an option</option>
+              <option value="hidden-gems">Hidden Gems &amp; Local Secrets</option>
+              <option value="food-scene">Food Scene &amp; Underground Spots</option>
+              <option value="club-scene">Club Scene &amp; Nightlife</option>
+              <option value="adventure">Adventure &amp; Outdoor Exploration</option>
+              <option value="art-culture">Art, Culture &amp; Local History</option>
+              <option value="beaches">Beaches, Views &amp; Chill Spots</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div id="otherExperienceGroup" class="form-group" style="display: none;">
+            <label for="otherExperience" class="form-label">Tell us what you're looking for</label>
+            <input
+              type="text"
+              id="otherExperience"
+              name="otherExperience"
+              class="form-input"
+              placeholder="Describe your ideal experience..."
+            />
+          </div>
+        </fieldset>
+
+        <!-- Optional Fields -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Trip Details (Optional)</legend>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="+1 (555) 000-0000"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tripStartDate" class="form-label">Trip Start Date</label>
+              <input
+                type="date"
+                id="tripStartDate"
+                name="tripStartDate"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label for="tripEndDate" class="form-label">Trip End Date</label>
+              <input
+                type="date"
+                id="tripEndDate"
+                name="tripEndDate"
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget" class="form-label">Budget</label>
+            <select id="budget" name="budget" class="form-select">
+              <option value="">Select a range</option>
+              <option value="budget-1">$ (Under $500/day)</option>
+              <option value="budget-2">$$ ($500–$1,500/day)</option>
+              <option value="budget-3">$$$ ($1,500+/day)</option>
+              <option value="budget-flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pace" class="form-label">Preferred Pace</label>
+            <select id="pace" name="pace" class="form-select">
+              <option value="">Select a pace</option>
+              <option value="chill">Chill (Relaxed, spontaneous)</option>
+              <option value="balanced">Balanced (Mix of activity and rest)</option>
+              <option value="packed">Packed (Maximize experiences)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea
+              id="notes"
+              name="notes"
+              class="form-textarea"
+              placeholder="Anything else we should know? Dietary restrictions, mobility needs, interests..."
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="emergencyName" class="form-label">Emergency Contact Name</label>
+            <input
+              type="text"
+              id="emergencyName"
+              name="emergencyName"
+              class="form-input"
+              placeholder="John Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="emergencyPhone" class="form-label">Emergency Contact Phone</label>
+            <input
+              type="tel"
+              id="emergencyPhone"
+              name="emergencyPhone"
+              class="form-input"
+              placeholder="+1 (555) 000-0000"
+            />
+          </div>
+        </fieldset>
+
+        <!-- Consent -->
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Consent</legend>
+          <div class="form-group consent-group">
+            <input
+              type="checkbox"
+              id="consent"
+              name="consent"
+              class="form-checkbox"
+              required
+              aria-required="true"
+            />
+            <label for="consent" class="consent-label">
+              I confirm my info is accurate and agree to be contacted about Local Link early access. We won't sell your data.
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Success Message (Hidden) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+          <h2 class="success-title">Welcome Aboard!</h2>
+          <p class="success-text">Thanks for joining — you're on the early access list. Check your email for next steps.</p>
+          <button type="button" class="btn-secondary" onclick="startNewSignup()">Sign Up Another</button>
+          <button type="button" class="btn-secondary" onclick="window.location.href='home.html'">Back to Home</button>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions" id="formActions">
+          <button type="submit" class="btn-primary">Join Early Access</button>
+          <a href="home.html" class="btn-link">Back to Home</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('touristSignupForm');
+      const experienceSelect = document.getElementById('experienceType');
+      const otherGroup = document.getElementById('otherExperienceGroup');
+      const successMessage = document.getElementById('successMessage');
+      const formActions = document.getElementById('formActions');
+
+      // Show/hide "Other" experience input
+      experienceSelect.addEventListener('change', function () {
+        if (this.value === 'other') {
+          otherGroup.style.display = 'block';
+          document.getElementById('otherExperience').focus();
+        } else {
+          otherGroup.style.display = 'none';
+        }
+      });
+
+      // Handle form submission
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic validation
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const destinationCity = document.getElementById('destinationCity').value.trim();
+        const experienceType = document.getElementById('experienceType').value;
+        const consent = document.getElementById('consent').checked;
+
+        if (!fullName || !email || !destinationCity || !experienceType || !consent) {
+          alert('Please fill in all required fields and confirm your consent.');
+          return;
+        }
+
+        // Show success state
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        formActions.style.display = 'none';
+        window.scrollTo(0, 0);
+      });
+
+      // Keyboard focus ring visibility
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab') {
+          document.body.classList.add('keyboard-focus');
+        }
+      });
+
+      document.addEventListener('mousedown', function () {
+        document.body.classList.remove('keyboard-focus');
+      });
+    });
+
+    function startNewSignup() {
+      location.reload();
+    }
+  </script>
+</body>
+</html>
+

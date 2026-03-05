@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FindMyGuide - John (NYC)</title>
   <link rel="stylesheet" href="guide_common_style.css" />
-  <link rel="stylesheet" href="navbar_style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="profile_popup_style.css" />
   <link rel="stylesheet" href="bottom_logo_style.css">
   <style>
@@ -20,24 +20,20 @@ body {
 </style>
 </head>
 <body>
-  <nav class="navbar">
-  <div class="navbar-logo-placeholder">
-    <a class="logo-link" href="home.html" aria-label="Go to home">
-      <!-- point src to your new logo asset -->
-      <img src="../photos/Logo_Test.png" alt="Local Link logo">
-    </a>
-  </div>
-
-  <ul class="navbar-tabs">
-    <li class="navbar-tab active" onclick="window.location.href='home.html'">Local Guides</li>
-    <li class="navbar-tab" onclick="window.location.href='search_guides.html'">Explore</li>
-    <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
-  </ul>
-
-  <div class="profile-icon" onclick="toggleProfilePopup()" aria-label="Open profile menu" aria-expanded="false">
-    <!-- your profile SVG/icon -->
-  </div>
-</nav>
+    <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Local Link</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
   <!-- Profile popup (injected) -->
@@ -49,9 +45,9 @@ body {
 
     <!-- Scrollable images -->
     <div class="image-scroll">
-      <img src="../photos/Tom_NYC.png" alt="NYC skyline at sunset" />
-      <img src="../photos/Tom_NYC_2.png" alt="Brooklyn Bridge morning walk" />
-      <img src="../photos/Tom_NYC_3.png" alt="Times Square night tour" />
+      <img src="photos/Tom_NYC.png" alt="NYC skyline at sunset" />
+      <img src="photos/Tom_NYC_2.png" alt="Brooklyn Bridge morning walk" />
+      <img src="photos/Tom_NYC_3.png" alt="Times Square night tour" />
     </div>
 
     <!-- Info + CTA -->
@@ -154,3 +150,7 @@ body {
   </script>
 </body>
 </html>
+
+
+
+

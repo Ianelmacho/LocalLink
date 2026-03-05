@@ -5,31 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Local Link - Explore</title>
 
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="search_guide_style.css" />
-  <link rel="stylesheet" href="navbar_style.css" />
-  <link rel="stylesheet" href="profile_popup_style.css" />
-  <link rel="stylesheet" href="question_style.css" />
-  <link rel="stylesheet" href="bottom_logo_style.css">
 </head>
 <body>
-<nav class="navbar">
-  <div class="navbar-logo-placeholder">
-    <a class="logo-link" href="home.html" aria-label="Go to home">
-      <!-- point src to your new logo asset -->
-      <img src="../photos/Logo_Test.png" alt="Local Link logo">
-    </a>
-  </div>
-
-  <ul class="navbar-tabs">
-    <li class="navbar-tab" onclick="window.location.href='home.html'">Local Guides</li>
-    <li class="navbar-tab active" onclick="window.location.href='search_guides.html'">Explore</li>
-    <li class="navbar-tab" onclick="window.location.href='my_profile.html'">My Profile</li>
-  </ul>
-
-  <button class="navbar-auth" onclick="window.location.href='login.html'">
-    Log in / Create account
-  </button>
-</nav>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Local Link</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
   <!-- Explore layout -->
@@ -75,10 +68,10 @@
     /* -------- Explore page app code -------- */
     const USE_MOCK = true;
     const MOCK_GUIDES = [
-      { id: 1, name: 'John',  city: 'New York', country: 'USA',   bio: 'NYC highlights, food, hidden gems', rating: 4.9, is_available: true,  cover_photo_url: '../photos/Tom_NYC.png'   },
-      { id: 2, name: 'Emma',  city: 'Paris',    country: 'France',bio: 'Romantic walks, art & cafés',       rating: 4.8, is_available: true,  cover_photo_url: '../photos/Emma_Paris.png' },
-      { id: 3, name: 'Ken',   city: 'Tokyo',    country: 'Japan', bio: 'Food + tech + tradition',           rating: 4.9, is_available: false, cover_photo_url: '../photos/Ken_Tokyo.png' },
-      { id: 4, name: 'Sofia', city: 'Rome',     country: 'Italy', bio: 'Ancient history, local eats',       rating: 4.7, is_available: true,  cover_photo_url: '../photos/Sofia_Rome.png'  },
+      { id: 1, name: 'John',  city: 'New York', country: 'USA',   bio: 'NYC highlights, food, hidden gems', rating: 4.9, is_available: true,  cover_photo_url: 'photos/Tom_NYC.png'   },
+      { id: 2, name: 'Emma',  city: 'Paris',    country: 'France',bio: 'Romantic walks, art & cafés',       rating: 4.8, is_available: true,  cover_photo_url: 'photos/Emma_Paris.png' },
+      { id: 3, name: 'Ken',   city: 'Tokyo',    country: 'Japan', bio: 'Food + tech + tradition',           rating: 4.9, is_available: false, cover_photo_url: 'photos/Ken_Tokyo.png' },
+      { id: 4, name: 'Sofia', city: 'Rome',     country: 'Italy', bio: 'Ancient history, local eats',       rating: 4.7, is_available: true,  cover_photo_url: 'photos/Sofia_Rome.png'  },
     ];
 
     const form = document.getElementById('searchForm');
@@ -136,7 +129,7 @@
       grid.innerHTML = list.map(g => `
         <article class="card" role="article">
           <div class="card-img-wrap" onclick="window.location.href='${guideLinkForCity(g.city)}'" role="link" tabindex="0" aria-label="Open ${g.name} in ${g.city}">
-            <img src="${g.cover_photo_url || '../photos/gallery/placeholder.jpg'}" alt="${g.city} cover"/>
+            <img src="${g.cover_photo_url || 'photos/gallery/placeholder.jpg'}" alt="${g.city} cover"/>
           </div>
           <div class="card-body">
             <h4>${g.name} — ${g.city}</h4>
@@ -185,7 +178,7 @@
   </script>
   <!-- ===== Help FAB & Modal ===== -->
 <button class="help-fab" id="helpFab" aria-haspopup="dialog" aria-controls="helpModal" aria-label="Open help">
-  <img src="../photos/Help_Icon.png" alt="Help" />
+  <img src="photos/Help_Icon.png" alt="Help" />
 </button>
 
 <div class="help-backdrop" id="helpBackdrop" hidden></div>
@@ -240,8 +233,9 @@
 </script>
 <!-- ===== End Help FAB & Modal ===== -->
 <div class="bottom-logo">
-    <img src="../photos/Logo_circle.png" alt="Local Link Logo">
+    <img src="photos/Logo_circle.png" alt="Local Link Logo">
   </a>
 </div>
 </body>
 </html>
+
