@@ -3,49 +3,329 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Become a Local Guide - Local Link</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Local Link — Become a Guide</title>
+  <meta name="description" content="Share your city. Earn on your schedule. Join Local Link as a verified guide." />
+  <link rel="stylesheet" href="styles.css?v=11" />
+  <style>
+    /* Specific overrides for the signup layout */
+    .signup-hero {
+      background: var(--ll-navy);
+      color: var(--ll-cream);
+      padding: 5rem 2rem 6rem;
+    }
+    .signup-hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .signup-hero-text h1 {
+      color: var(--ll-cream);
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+    .signup-hero-text .hero-subtext {
+      color: rgba(245, 230, 216, 0.85);
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+    .signup-hero-image {
+      position: relative;
+    }
+    .signup-hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius-card);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 992px) {
+      .signup-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .signup-hero-text .hero-subtext {
+        margin: 1.5rem auto 0;
+      }
+      .signup-hero-image img {
+        height: 350px;
+      }
+    }
+    .signup-content {
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 5rem;
+      align-items: start;
+      position: relative;
+    }
+    
+    .application-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      padding: 4rem;
+      box-shadow: 0 30px 60px rgba(10, 43, 86, 0.08);
+    }
+    
+    textarea.form-input {
+      min-height: 120px;
+      padding-top: 1rem;
+      resize: vertical;
+    }
+    
+    .perks-container {
+      margin-top: 4rem;
+    }
+    
+    .perks-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .perk-item {
+      background: var(--ll-cream);
+      padding: 2.5rem;
+      border-radius: var(--radius-card);
+      border-left: 4px solid var(--ll-ocean); /* Brand accent */
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    
+    .perk-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(10, 43, 86, 0.08);
+    }
+    
+    .perk-item h4 {
+      margin-bottom: 0.75rem;
+      color: var(--ll-navy);
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .perk-item h4::before {
+      content: '→';
+      color: var(--ll-ocean);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .perk-item:hover h4::before {
+      opacity: 1;
+    }
+    
+    .perk-item p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--ll-text);
+      margin: 0;
+    }
+    
+    @media (max-width: 992px) {
+      .signup-content { 
+        grid-template-columns: 1fr; 
+        gap: 4rem; 
+        margin-top: 0; 
+      }
+      .application-box {
+        padding: 2.5rem;
+      }
+      .perks-container {
+        margin-top: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- ===================== NAVIGATION ===================== -->
   <nav class="nav">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="index.html" class="logo-link">Local Link</a>
+        <a href="index.html" class="logo-link">
+          <div class="logo-mark">
+            <span class="logo-l l-back">L</span>
+            <span class="logo-l l-front">L</span>
+          </div>
+          Local Link
+        </a>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#how-it-works">How it Works</a></li>
-        <li><a href="#safety">Safety</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#editorial">Philosophy</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="index.html#human">Safety & Trust</a></li>
       </ul>
+      <div class="nav-cta">
+        <a href="index.html#waitlist" class="btn btn-outline" style="border: none; background: transparent;">Join as Traveler</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Coming Soon Section -->
-  <section class="section">
-    <div class="section-container">
-      <h1>Become a Local Guide</h1>
-      <p>We're excited to have you join our community of local experts! Our guide application process is coming soon.</p>
-      <p>In the meantime, join our tourist waitlist to be the first to know when we launch in your area.</p>
-      <div style="margin-top: 2rem;">
-        <a href="tourist_signup.html" class="btn btn-primary">Join Tourist Waitlist</a>
-        <a href="index.html" class="btn btn-secondary" style="margin-left: 1rem;">Back to Home</a>
+  <section class="signup-hero" data-animate>
+    <div class="signup-hero-container">
+      <div class="signup-hero-text">
+        <span style="font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ll-ocean); display: block; margin-bottom: 1.5rem;">Join the Movement</span>
+        <h1>Share your city.<br>Earn on your schedule.</h1>
+        <p class="hero-subtext">You know the hidden streets, the best food, and the perfect views. Turn your passion for your city into a flexible career. Change how someone sees the world, simply by showing them your home.</p>
+        <div style="margin-top: 2.5rem;">
+          <a href="#localApplicationForm" class="btn btn-primary" style="background: var(--ll-ocean); border-color: var(--ll-ocean);">Apply Now</a>
+        </div>
+      </div>
+      <div class="signup-hero-image">
+        <img src="local_hero.png" alt="A friendly local guide connecting with travelers" />
       </div>
     </div>
   </section>
 
-  <script>
-    // Keyboard focus ring visibility
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-focus');
-      }
-    });
+  <main class="signup-content">
+    
+    <!-- ===================== THE APPLICATION FORM (Left side, Floating) ===================== -->
+    <div class="application-box" data-animate>
+      <h2 style="font-size: 2.25rem; margin-bottom: 0.5rem; font-family: var(--font-serif); color: var(--ll-navy);">Local Guide Application</h2>
+      <p style="margin-bottom: 3rem; opacity: 0.8; font-size: 1.1rem;">Phase 1 is strictly limited to 200–300 verified locals per launch city. Please provide detailed information below.</p>
+      
+      <form id="localApplicationForm">
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-input" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" class="form-input" required>
+          </div>
+        </div>
 
-    document.addEventListener('mousedown', function () {
-      document.body.classList.remove('keyboard-focus');
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Phase 1 Launch City</label>
+          <div class="custom-select-wrapper">
+            <select id="city" class="form-input custom-select" required>
+              <option value="" disabled selected>Select your city...</option>
+              <option value="nyc">New York City, NY</option>
+              <option value="la">Los Angeles, CA</option>
+              <option value="miami">Miami, FL</option>
+              <option value="austin">Austin, TX</option>
+              <option value="london">London, UK</option>
+              <option value="edinburgh">Edinburgh, UK</option>
+              <option value="manchester">Manchester, UK</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="services">Primary Service Offered</label>
+          <div class="custom-select-wrapper">
+            <select id="services" class="form-input custom-select" required>
+              <option value="" disabled selected>I want to offer...</option>
+              <option value="walking">Walking Tours & Guidance</option>
+              <option value="driving">Driving & Logistics</option>
+              <option value="hosting">Hosting Meals / Dining</option>
+              <option value="homestay">Full Homestay</option>
+              <option value="other">Other / Custom</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pitch">Why would you make a great Local Link?</label>
+          <textarea id="pitch" class="form-input" placeholder="Tell us about how long you've lived here, your unique perspective, and what kind of vibe you bring..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" style="margin-top: 1.5rem; font-size: 1.1rem; padding: 1rem;">Submit Application</button>
+      </form>
+      <div class="success-message" id="appSuccessMessage">Application successfully submitted. Our team will review your profile and reach out regarding background verification.</div>
+    </div>
+
+    <!-- ===================== VALUE PROPS (Right side, Cascading Array) ===================== -->
+    <div class="perks-container" data-animate data-delay="150">
+      <span style="font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ll-navy); display: block; margin-bottom: 2rem;">Why host with us?</span>
+      <div class="perks-grid">
+        <div class="perk-item">
+          <h4>Flexible Earnings</h4>
+          <p>Set your own hours and rates. Work hourly, daily, or week-based. Commission is only taken after a completed service.</p>
+        </div>
+        <div class="perk-item">
+          <h4>Absolute Safety</h4>
+          <p>Protected by mandatory tourist ID checks, secure in-app escrow deposits, and immediate location sharing.</p>
+        </div>
+        <div class="perk-item">
+          <h4>Offer Anything</h4>
+          <p>Lead walking tours, drive, host local meals, or offer homestays. You have total creative control over the experience.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer">
+    <!-- (Reusing existing footer style via styles.css) -->
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--ll-navy);">Local Link</a>
+        <p>Connecting travelers with trustworthy locals in real time.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="index.html#app-experience">The Experience</a></li>
+            <li><a href="index.html#waitlist">Apply for Pilot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="mission.html">Our Vision</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Prefill email passed from homepage/join path selection
+    const params = new URLSearchParams(window.location.search);
+    const prefilledEmail = params.get('email');
+    const emailInput = document.getElementById('email');
+    if (prefilledEmail && emailInput) {
+      emailInput.value = prefilledEmail;
+    }
+
+    // Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('animated');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Waitlist Form
+    const form = document.getElementById('localApplicationForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('appSuccessMessage').classList.add('show');
+      form.reset();
     });
   </script>
 </body>

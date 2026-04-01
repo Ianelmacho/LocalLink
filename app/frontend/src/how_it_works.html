@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Link - How It Works</title>
+  <meta name="description" content="Learn how Local Link connects travelers with trusted locals for simpler, more personal travel." />
+  <link rel="stylesheet" href="styles.css?v=7" />
+  <style>
+    .how-hero {
+      background:
+        radial-gradient(900px 320px at 15% 0%, rgba(127, 184, 255, 0.2), transparent 60%),
+        linear-gradient(180deg, #f7efe7 0%, #ffffff 78%);
+      padding: 10rem 2rem 5rem;
+      text-align: center;
+    }
+    .how-hero h1 {
+      max-width: 900px;
+      margin: 0 auto 1.9rem;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+    .how-hero-lead {
+      max-width: 620px;
+      margin: 0 auto;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(10, 43, 86, 0.14);
+      text-align: left;
+    }
+    .how-hero-lead p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: rgba(10, 43, 86, 0.78);
+    }
+    .how-visual-grid {
+      max-width: 1080px;
+      margin: 2.75rem auto 0;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .how-visual-main,
+    .how-visual-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(10, 43, 86, 0.12);
+      min-height: 220px;
+    }
+    .how-visual-main img,
+    .how-visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .how-visual-main {
+      min-height: 420px;
+    }
+    .how-visual-stack {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 1rem;
+    }
+    .how-process-card {
+      background:
+        linear-gradient(180deg, rgba(245, 230, 216, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%);
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(10, 43, 86, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 220px;
+    }
+    .how-process-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.9rem;
+    }
+    .how-process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .how-process-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 0.85rem;
+      align-items: start;
+    }
+    .how-process-list p {
+      margin: 0;
+      font-size: 0.93rem;
+      line-height: 1.55;
+    }
+    .how-process-list span {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(46, 115, 214, 0.14);
+      color: var(--ll-deep-ocean);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .how-overview {
+      padding: 2rem 2rem 7rem;
+      background: var(--ll-surface);
+    }
+    .how-overview-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .how-summary {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      box-shadow: var(--shadow-subtle);
+    }
+    .how-summary h2,
+    .why-local-link-intro h2,
+    .steps-deep-intro h2,
+    .role-intro h2,
+    .pilot-note-container h2 {
+      max-width: 720px;
+      margin: 0 auto 1rem;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+    .how-summary > p,
+    .why-local-link-intro > p,
+    .steps-deep-intro > p,
+    .role-intro > p,
+    .pilot-note-container > p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: rgba(10, 43, 86, 0.78);
+    }
+    .how-summary ul {
+      list-style: none;
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .how-summary li {
+      border-top: 1px solid rgba(10, 43, 86, 0.1);
+      padding-top: 0.9rem;
+      font-size: 0.95rem;
+    }
+    .how-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .detail-card {
+      background: var(--ll-neutral);
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+    }
+    .detail-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+    .detail-card p {
+      font-size: 0.95rem;
+    }
+    .why-local-link {
+      padding: 7rem 2rem;
+      background: var(--ll-neutral);
+    }
+    .why-local-link-container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .why-local-link-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+    .why-local-link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .why-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-subtle);
+    }
+    .why-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .why-card p {
+      font-size: 0.95rem;
+    }
+    .steps-deep {
+      padding: 7rem 2rem;
+      background: var(--ll-neutral);
+    }
+    .steps-deep-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .steps-deep-intro {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+    .deep-step {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(10, 43, 86, 0.1);
+    }
+    .deep-step:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .deep-step-number {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1;
+      color: rgba(10, 43, 86, 0.22);
+    }
+    .deep-step-copy h3 {
+      margin-bottom: 0.85rem;
+      font-size: 1.8rem;
+    }
+    .deep-step-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .deep-step-notes span {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ll-deep-ocean);
+      background: rgba(127, 184, 255, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.7rem;
+    }
+    .role-section {
+      padding: 7rem 2rem;
+      background: var(--ll-surface);
+    }
+    .role-container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .role-intro {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .role-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      box-shadow: var(--shadow-subtle);
+    }
+    .role-card ul {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .role-card li {
+      position: relative;
+      padding-left: 1rem;
+    }
+    .role-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.72rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ll-ocean);
+    }
+    .pilot-note {
+      padding: 7rem 2rem;
+      background: var(--ll-cream);
+      text-align: center;
+    }
+    .pilot-note-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .pilot-note-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    @media (max-width: 960px) {
+      .how-visual-grid,
+      .how-overview-container,
+      .detail-card,
+      .why-local-link-grid,
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+      .how-visual-main {
+        min-height: 320px;
+      }
+      .how-visual-stack {
+        grid-template-rows: none;
+      }
+      .how-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .deep-step {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <div class="logo-mark">
+            <span class="logo-l l-back">L</span>
+            <span class="logo-l l-front">L</span>
+          </div>
+          Local Link
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#what-local-link">Why Local Link</a></li>
+        <li><a href="index.html#human">Safety &amp; Trust</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#waitlist" class="btn btn-primary">Join Pilot</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="how-hero" data-animate>
+    <h1>Local Link makes travel simpler, more personal, and closer to the city.</h1>
+    <div class="how-hero-lead">
+      <p>Instead of starting with a big travel company, you start with a trusted local who lives there. That makes the trip easier to plan and more personal from the beginning.</p>
+    </div>
+    <div class="how-visual-grid">
+      <div class="how-visual-main" data-animate>
+        <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Traveler moving through a city street with a sense of direction and purpose" />
+      </div>
+      <div class="how-visual-stack">
+        <div class="how-process-card" data-animate data-delay="150">
+          <h3>How it works</h3>
+          <ul class="how-process-list">
+            <li><span>01</span><p>The traveler shares what they want.</p></li>
+            <li><span>02</span><p>The local shares how they can help.</p></li>
+            <li><span>03</span><p>Both sides agree on the trip before it begins.</p></li>
+          </ul>
+        </div>
+        <div class="how-visual-card" data-animate data-delay="300">
+          <img src="https://images.pexels.com/photos/4553031/pexels-photo-4553031.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="People reviewing a city map together while planning a local experience" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-overview">
+    <div class="how-overview-container">
+      <div class="how-summary" data-animate>
+        <h2>The idea is simple.</h2>
+        <p>Local Link starts with people, not tour packages. Travelers say what they want, locals say how they can help, and the platform helps both sides connect with clear expectations and strong safety.</p>
+        <ul>
+          <li><strong>For travelers:</strong> less time lost in listings and fixed tours, and more help from someone who actually knows the city.</li>
+          <li><strong>For locals:</strong> a direct way to use their city knowledge, hosting, planning help, and translation skills.</li>
+          <li><strong>For both:</strong> clear expectations, better communication, and a safer start before the trip begins.</li>
+        </ul>
+      </div>
+      <div class="how-detail-grid" data-animate data-delay="150">
+        <article class="detail-card">
+          <h3>Traveler details</h3>
+          <p>Travelers share the city, their interests, their pace, and what kind of help they want.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Local details</h3>
+          <p>Locals share where they live, what they can help with, when they are available, and whether they can help with translation or planning.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Good match</h3>
+          <p>When both sides fit, they connect to talk through the details and the kind of trip they want to create.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Safety</h3>
+          <p>Local Link is there to keep the connection safe, clear, and respectful for both the traveler and the local.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-local-link">
+    <div class="why-local-link-container">
+      <div class="why-local-link-intro" data-animate>
+        <h2>Why it feels different.</h2>
+        <p>Most travel companies sell a fixed plan first. Local Link starts with a real local person, so the trip can fit you instead of pushing you into the same version of the city as everyone else.</p>
+      </div>
+      <div class="why-local-link-grid">
+        <article class="why-card" data-animate>
+          <h3>Start with your trip</h3>
+          <p>Instead of browsing ready-made packages, you start with what matters to you.</p>
+        </article>
+        <article class="why-card" data-animate data-delay="150">
+          <h3>Keep it flexible</h3>
+          <p>A local can guide, host, help with planning, and in some cases act as a translator depending on what they offer.</p>
+        </article>
+        <article class="why-card" data-animate data-delay="300">
+          <h3>More money stays local</h3>
+          <p>The people who actually live in the city stay at the center of the trip and the money from it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-deep">
+    <div class="steps-deep-container">
+      <div class="steps-deep-intro" data-animate>
+        <h2>Step by step.</h2>
+        <p>How it moves from first interest to a trip both sides understand.</p>
+      </div>
+
+      <div class="deep-step" data-animate>
+        <div class="deep-step-number">01</div>
+        <div class="deep-step-copy">
+          <h3>The traveler shares what they want.</h3>
+          <p>The traveler shares the city they want to visit, what they want to do, and whether they need food tips, planning help, or translation support.</p>
+          <div class="deep-step-notes">
+            <span>Destination</span>
+            <span>Trip goals</span>
+            <span>Experience preferences</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-step" data-animate>
+        <div class="deep-step-number">02</div>
+        <div class="deep-step-copy">
+          <h3>The local shares how they can help.</h3>
+          <p>The local explains their city, when they are available, and the kind of help or experience they are best placed to provide.</p>
+          <div class="deep-step-notes">
+            <span>Services offered</span>
+            <span>City knowledge</span>
+            <span>Hosting style</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-step" data-animate>
+        <div class="deep-step-number">03</div>
+        <div class="deep-step-copy">
+          <h3>Both sides talk before the trip starts.</h3>
+          <p>Traveler and local talk through expectations, style, and what the trip should feel like, while Local Link focuses on safety and a clear experience for both sides.</p>
+          <div class="deep-step-notes">
+            <span>Clear expectations</span>
+            <span>Safety first</span>
+            <span>Satisfaction on both sides</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="role-section">
+    <div class="role-container">
+      <div class="role-intro" data-animate>
+        <h2>How each side uses it.</h2>
+        <p>The same system works for both sides, but each side uses it a little differently.</p>
+      </div>
+      <div class="role-grid">
+        <article class="role-card" data-animate>
+          <h3>Joining as a Traveler</h3>
+          <ul>
+            <li>Start with the city, timing, interests, and type of support you want.</li>
+            <li>Ask for neighborhoods, food, planning help, logistics, or translation if that matters to the trip.</li>
+            <li>Connect with a local whose offer, pace, and style fit what you are trying to create.</li>
+          </ul>
+        </article>
+        <article class="role-card" data-animate data-delay="150">
+          <h3>Joining as a Local</h3>
+          <ul>
+            <li>Share your city, your availability, and what you can genuinely help with.</li>
+            <li>Offer guiding, planning help, language help, or local support on your own terms.</li>
+            <li>Connect with travelers whose needs match your strengths and boundaries.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pilot-note">
+    <div class="pilot-note-container" data-animate>
+      <h2>Why start with a pilot.</h2>
+      <p>The pilot is our first small launch. It lets us test the service in real cities, improve safety, and grow carefully.</p>
+      <div class="pilot-note-actions">
+        <a href="index.html#waitlist" class="btn btn-primary">Join the Phase 1 Pilot</a>
+        <a href="index.html#how-it-works" class="btn btn-outline">Back to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('animated');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

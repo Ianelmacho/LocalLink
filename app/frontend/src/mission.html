@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Link - Our Mission</title>
+  <meta name="description" content="Why Local Link exists: to make travel simpler, more personal, and fairer to the people who live in the city." />
+  <link rel="stylesheet" href="styles.css?v=11" />
+  <style>
+    /* Specific overrides for the mission layout */
+    .mission-hero {
+      background: var(--ll-cream);
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+    }
+    .mission-hero h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.15;
+    }
+    .manifesto {
+      max-width: 800px;
+      margin: 6rem auto;
+      padding: 0 2rem;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--ll-navy);
+    }
+    .manifesto p {
+      margin-bottom: 2rem;
+    }
+    
+    .roadmap {
+      background: var(--ll-neutral);
+      padding: 8rem 2rem;
+    }
+    .roadmap-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .roadmap-intro {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+    .phase-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(10, 43, 86, 0.1);
+    }
+    .phase-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .phase-label {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ll-ocean);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .phase-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) {
+      .phase-item { grid-template-columns: 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <div class="logo-mark">
+            <span class="logo-l l-back">L</span>
+            <span class="logo-l l-front">L</span>
+          </div>
+          Local Link
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#what-local-link">Why Local Link</a></li>
+        <li><a href="how_it_works.html">How It Works</a></li>
+        <li><a href="index.html#human">Safety & Trust</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#waitlist" class="btn btn-outline" style="border: none; background: transparent;">Join Pilot</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="mission-hero" data-animate>
+    <span style="font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ll-ocean); display: block; margin-bottom: 2rem;">Why Local Link Exists</span>
+    <h1>Travel should feel closer to the city, and fairer to the people who live there.</h1>
+  </section>
+
+  <!-- ===================== MANIFESTO ===================== -->
+  <section class="manifesto" data-animate data-delay="150">
+    <p>We believe travel has become too complicated. Too many packages, listings, and tourist versions of a city can pull people away from the place they actually came to see.</p>
+    
+    <p><strong>Local Link gives travelers a simpler option.</strong> Instead of starting with a company, they start with a trusted local who lives there.</p>
+    
+    <p>That makes travel easier for visitors and fairer for locals. Planning gets simpler, the trip stays flexible, and more money goes to the people sharing their city.</p>
+  </section>
+
+  <!-- ===================== ROADMAP (Phases) ===================== -->
+  <section class="roadmap">
+    <div class="roadmap-container">
+      
+      <div class="roadmap-intro" data-animate>
+        <h2>The Road Ahead</h2>
+        <p style="max-width: 560px; margin: 1.5rem auto 0;">We are building one city at a time. The goal is simple: make local travel safer, easier, and more useful for the people who live there and the people visiting.</p>
+      </div>
+
+      <div class="phase-item" data-animate>
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-content">
+          <h3>Prove the model city by city</h3>
+          <p>Launch in a few cities, check locals carefully, and learn from real trips before growing further. The first goal is to prove that this simpler way to travel works.</p>
+        </div>
+      </div>
+
+      <div class="phase-item" data-animate>
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-content">
+          <h3>Strengthen the local network</h3>
+          <p>Improve matching, trust checks, reviews, and the way locals show what they offer, so each city builds a stronger and more reliable network.</p>
+        </div>
+      </div>
+
+      <div class="phase-item" data-animate>
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-content">
+          <h3>Make the trip simpler</h3>
+          <p>Bring more of the planning and support into one place without turning the trip into another fixed tour.</p>
+        </div>
+      </div>
+
+      <div class="phase-item" data-animate>
+        <div class="phase-label">Phase 4</div>
+        <div class="phase-content">
+          <h3>Set a new standard for travel</h3>
+          <p>Make trusted local connection the normal way people enter a city, so more money goes to the people who actually know the place.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section style="padding: 8rem 2rem; text-align: center; background: var(--ll-surface);" data-animate>
+    <h2 style="margin-bottom: 2rem;">Join the Phase 1 Pilot.</h2>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+      <a href="index.html#waitlist" class="btn btn-primary">Request Early Access</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer">
+    <div class="footer-container" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; border-top: 1px solid rgba(10,43,86,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--ll-navy);">Local Link</a>
+        <p>Simple travel, built around trusted people who live in the city.</p>
+      </div>
+      <div class="footer-links" style="display: flex; gap: 4rem; justify-content: flex-end;">
+        <div class="footer-col">
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 1rem;"><a href="index.html#app-experience">Why Local Link</a></li>
+            <li style="margin-bottom: 1rem;"><a href="how_it_works.html">How It Works</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('animated');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

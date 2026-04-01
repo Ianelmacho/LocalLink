@@ -240,6 +240,14 @@
       const otherGroup = document.getElementById('otherExperienceGroup');
       const successMessage = document.getElementById('successMessage');
       const formActions = document.getElementById('formActions');
+      const emailInput = document.getElementById('email');
+
+      // Prefill email passed from homepage/join path selection
+      const params = new URLSearchParams(window.location.search);
+      const prefilledEmail = params.get('email');
+      if (prefilledEmail && emailInput) {
+        emailInput.value = prefilledEmail;
+      }
 
       // Show/hide "Other" experience input
       experienceSelect.addEventListener('change', function () {

@@ -3,192 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local Link - See the World Through Someone Who Calls It Home</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Local Link - Travel Through Trusted Locals</title>
+  <meta name="description" content="Join the Local Link Phase 1 Pilot. Connect with verified locals who live in the city and make travel feel easier." />
+  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="home_editorial.css?v=32" />
 </head>
-<body>
-  <!-- Navigation -->
+<body class="page-home">
+
   <nav class="nav">
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
-          <img src="../photos/local_link_logo.png" alt="Local Link Logo" />
+          <div class="logo-mark">
+            <span class="logo-l l-back">L</span>
+            <span class="logo-l l-front">L</span>
+          </div>
           Local Link
         </a>
       </div>
-      <ul class="nav-links">
-        <li><a href="#journey">The Journey</a></li>
-        <li><a href="#waitlist">Join</a></li>
-        <li><a href="#footer">Contact</a></li>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="how_it_works.html">How It Works</a></li>
+        <li><a href="#app-experience">Why Local Link</a></li>
+        <li><a href="#human">Safety &amp; Trust</a></li>
       </ul>
+
+      <div class="nav-cta">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero Section — Asymmetric -->
-  <!-- Hero Section — Asymmetric -->
   <section class="hero">
-    <div class="hero-container">
-      <div class="hero-left">
-        <h1>See the world through someone who calls it home.</h1>
-        <p class="hero-subtext">Travel isn't checking places off a list. It's conversations over coffee with locals who know every street. It's sunsets from their favorite rooftop. It's belonging.</p>
-        <div class="hero-ctas">
-          <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
-          <a href="local_signup.html" class="btn btn-secondary">Become a Local</a>
+    <div class="hero-bg-overlay"></div>
+      <div class="hero-container">
+        <div class="hero-left" data-animate>
+          <div class="hero-copy-composition">
+            <span class="hero-eyebrow">FIRST CITY PILOT</span>
+            <h1><span>Travel with a trusted</span><span>local from day one.</span></h1>
+            <p class="hero-subtext">Skip tourist guesswork. Get matched with a verified local who can make arrival safer, simpler, and more personal from the start.</p>
+
+            <form class="hero-capture" id="heroPilotForm">
+              <input type="email" id="heroPilotEmail" class="form-input" placeholder="Enter your email" autocomplete="email" required />
+              <button type="submit" class="btn btn-primary">Request Early Access</button>
+            </form>
+            <div class="success-message" id="heroSuccessMessage">Email saved. Redirecting to role selection...</div>
+          </div>
         </div>
       </div>
-      <div class="hero-right">
-        <div class="hero-image">
-          <!-- Placeholder image -->
-          <div style="background: linear-gradient(135deg, #FFB75E 0%, #F59E0B 100%); width: 100%; height: 100%;"></div>
+  </section>
+
+  <section id="what-local-link" class="journey">
+    <div id="how-it-works" class="journey-shell">
+      <div class="journey-steps-column">
+        <div class="journey-steps-head" data-animate>
+          <span class="section-kicker">How it works</span>
+        </div>
+
+        <div class="journey-steps">
+          <div class="journey-item" data-animate>
+            <div class="journey-number">01</div>
+            <div class="journey-content">
+              <h3>Start with what you actually need</h3>
+              <p>Share the trip, the help you want, and what would make day one easier.</p>
+            </div>
+          </div>
+
+          <div class="journey-item" data-animate data-delay="150">
+            <div class="journey-number">02</div>
+            <div class="journey-content">
+              <h3>Match with a verified local</h3>
+              <p>Every local profile is reviewed before it goes live, so the match feels personal and credible.</p>
+            </div>
+          </div>
+
+          <div class="journey-item" data-animate data-delay="300">
+            <div class="journey-number">03</div>
+            <div class="journey-content">
+              <h3>Plan better. Spend smarter.</h3>
+              <p>Use local insight to avoid bad recommendations and spend better from the start.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-lead" data-animate>
+        <h2>Three simple steps. One better trip.</h2>
+        <p>Tell us what you need. We match you with a verified local. You arrive with a better plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="app-experience" class="app-experience">
+    <div class="app-container">
+      <div class="app-content" data-animate>
+        <span class="section-kicker">Why it's better</span>
+        <h2>Travel does not need more steps.<br>It needs the right local.</h2>
+        <p>Most travel platforms start with listings and packages. Local Link starts with a real person who knows the city.</p>
+
+        <ul class="feature-list">
+          <li>
+            <strong>Start with your real plan</strong>
+            <span>Share what you actually want, not filters.</span>
+          </li>
+          <li>
+            <strong>Get help from someone local</strong>
+            <span>Get support on neighborhoods, food, arrival, and timing.</span>
+          </li>
+          <li>
+            <strong>Avoid overpriced tourist spots</strong>
+            <span>Better local knowledge leads to better choices and better value.</span>
+          </li>
+          <li>
+            <strong>Keep more money local</strong>
+            <span>More of what you spend goes to locals, not platform layers.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="app-frame-wrapper" data-animate data-delay="150">
+        <div class="app-frame">
+          <div class="app-header">
+            <span>Your request</span>
+            <span>Matched local</span>
+          </div>
+
+          <div class="app-main">
+            <h4>Tell us what you need</h4>
+            <div class="app-search">"Arriving in London - need airport help, good food spots, and ideas for my first day"</div>
+
+            <div class="app-card">
+              <span class="app-card-tag">
+                <span class="app-card-tag-icon" aria-hidden="true">&#10003;</span>
+                Verified profile
+              </span>
+              <div class="app-profile">
+                <div class="app-avatar">J</div>
+                <div class="app-info">
+                  <strong>James L.</strong>
+                  <div class="app-meta">London local - food spots, neighborhoods, airport pickup</div>
+                  <div class="app-meta" style="color: var(--ll-ocean);">Can help this week</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-card">
+              <div class="app-profile">
+                <div class="app-avatar ocean">M</div>
+                <div class="app-info">
+                  <strong>Maria S.</strong>
+                  <div class="app-meta">Art, city planning, and arrival support</div>
+                  <div class="app-meta" style="color: var(--ll-ocean);">Available this week</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Editorial Statement Section -->
-  <section class="editorial">
-    <div class="editorial-container">
-      <h2>Travel isn't checking places off a list.<br>It's about belonging.</h2>
-    </div>
-  </section>
-
-  <!-- Journey Section — Vertical Narrative -->
-  <section id="journey" class="journey">
-    <div class="journey-container">
-      <div class="journey-item">
-        <div class="journey-number">01</div>
-        <div class="journey-content">
-          <h3>Arrive</h3>
-          <p>Touch down in a new city. Browse experiences curated by the people who live there, not algorithms designed to maximize spend.</p>
+  <section id="human" class="human-connection">
+    <div class="human-container">
+      <div class="human-image" data-animate>
+        <div class="image-placeholder">
+          <img src="https://images.pexels.com/photos/6181065/pexels-photo-6181065.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Traveler receiving local guidance while reviewing a city map" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block;" />
         </div>
       </div>
 
-      <div class="journey-item">
-        <div class="journey-number">02</div>
-        <div class="journey-content">
-          <h3>Meet</h3>
-          <p>Connect with verified locals who carry years of lived experience. A painter who knows every gallery. A chef who remembers hidden restaurants. A friend who understands the city's rhythm.</p>
-        </div>
-      </div>
-
-      <div class="journey-item">
-        <div class="journey-number">03</div>
-        <div class="journey-content">
-          <h3>Explore</h3>
-          <p>Experience the city alive. Street food worth queueing for. Neighborhoods worth your time. Conversations that change how you see the world.</p>
-        </div>
+      <div class="human-content" data-animate data-delay="150">
+        <span class="section-kicker">Safety and trust</span>
+        <h2>Meeting someone in a new city should feel exciting, not uncertain.</h2>
+        <p>That is why trust is built in before anyone ever meets. The experience stays personal because the checks happen up front.</p>
+        <ul class="safety-list">
+          <li>Verified identity for all active local profiles</li>
+          <li>Background checks during pilot approval</li>
+          <li>Ongoing quality standards to remain active</li>
+          <li>Clear expectations before any booking begins</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Split Human Moment Section -->
-  <section class="split-moment">
-    <div class="split-container">
-      <div class="split-image">
-        <div style="background: linear-gradient(135deg, #EC4899 0%, #F59E0B 100%); width: 100%; height: 100%;"></div>
-      </div>
-      <div class="split-content">
-        <h2>Travel as if you already belong.</h2>
-        <p>Every local is verified by the community. Every guide carries lived experience. You're not getting a tour guide. You're getting a friend who gets it.</p>
-      </div>
-    </div>
-  </section>
+  <section id="waitlist" class="pilot-cta">
+    <div class="pilot-container" data-animate>
+      <span class="section-kicker">Limited rollout</span>
+      <h2>Get early access before the first city goes live.</h2>
+      <p class="pilot-subtitle">We're opening Local Link in a limited rollout. Join now and be first to hear when early access opens.</p>
 
-  <!-- Waitlist Section — Invitation Style -->
-  <section id="waitlist" class="waitlist">
-    <div class="waitlist-container">
-      <h2>Be part of the first chapter.</h2>
-      <p class="waitlist-subtitle">We're opening our first cities soon.</p>
-      <form class="waitlist-form" id="waitlistForm">
-        <div class="form-group">
-          <input 
-            type="email" 
-            class="form-input" 
-            id="email" 
-            placeholder="Your email" 
-            required 
-            aria-label="Email address" 
-          />
-          <button type="submit" class="btn btn-primary">Join</button>
-        </div>
-        <div class="success-message" id="successMessage">
-          Welcome. Check your inbox for what comes next.
+      <form class="pilot-form" id="footerWaitlistForm">
+        <div class="form-row">
+          <input type="email" id="footerEmail" class="form-input" placeholder="Your email address" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Request early access</button>
         </div>
       </form>
+      <p class="pilot-microcopy">Early access only. Limited rollout. No spam.</p>
+      <div class="success-message" id="footerSuccessMessage">Email saved. Redirecting to role selection...</div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="footer">
     <div class="footer-container">
-      <div class="footer-content">
-        <h3>Local Link</h3>
-        <p>Connecting travelers with the locals who call cities home.</p>
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link">Local Link</a>
+        <p>Simple travel, built around trusted people who live in the city.</p>
       </div>
+
       <div class="footer-links">
-        <div class="footer-section">
+        <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="#journey">The Journey</a></li>
-            <li><a href="#waitlist">Join</a></li>
-            <li><a href="local_signup.html">Become a Local</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#safety">Safety</a></li>
-            <li><a href="#privacy">Privacy</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:hello@locallink.com">hello@locallink.com</a></li>
-            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="how_it_works.html">How It Works</a></li>
+            <li><a href="#app-experience">Why Local Link</a></li>
+            <li><a href="#human">Safety &amp; Trust</a></li>
+            <li><a href="#waitlist">Join Pilot</a></li>
           </ul>
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <p>&copy; 2026 Local Link. Built for travelers who belong.</p>
+      <p>&copy; 2026 Local Link. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll for anchor links
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-    // Waitlist form handler
-    const form = document.getElementById('waitlistForm');
-    form.addEventListener('submit', function (e) {
+    const routeToRoleSelection = (email, source) => {
+      const target = new URL('join_pilot.html', window.location.href);
+      target.searchParams.set('email', email);
+      target.searchParams.set('source', source);
+      window.location.href = target.toString();
+    };
+
+    const heroForm = document.getElementById('heroPilotForm');
+    heroForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      console.log('Waitlist signup:', { email });
-      
-      document.getElementById('successMessage').classList.add('show');
-      form.reset();
-      
-      setTimeout(() => {
-        document.getElementById('successMessage').classList.remove('show');
-      }, 5000);
+      const emailField = document.getElementById('heroPilotEmail');
+      const email = emailField.value.trim();
+      if (!email) return;
+      document.getElementById('heroSuccessMessage').classList.add('show');
+      setTimeout(() => routeToRoleSelection(email, 'hero'), 220);
+    });
+
+    const footerForm = document.getElementById('footerWaitlistForm');
+    footerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const emailField = document.getElementById('footerEmail');
+      const email = emailField.value.trim();
+      if (!email) return;
+      document.getElementById('footerSuccessMessage').classList.add('show');
+      setTimeout(() => routeToRoleSelection(email, 'footer'), 220);
     });
   </script>
+
 </body>
 </html>
-

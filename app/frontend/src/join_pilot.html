@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Link - Join the Pilot</title>
+  <meta name="description" content="Choose your role in the Local Link pilot and help shape a simpler way to travel with locals." />
+  <link rel="stylesheet" href="styles.css?v=11" />
+  <style>
+    body {
+      background:
+        radial-gradient(1200px 400px at 20% 0%, rgba(127, 184, 255, 0.22), transparent 60%),
+        linear-gradient(180deg, #f7efe7 0%, #ffffff 75%);
+    }
+    .nav {
+      margin-top: 0;
+      top: 0.75rem;
+    }
+    .pilot-hero {
+      background: transparent;
+      padding: 8.5rem 2rem 4rem;
+      text-align: center;
+    }
+    .pilot-hero h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.1;
+    }
+    .pilot-hero p {
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      font-size: 1.1rem;
+    }
+    .captured-email {
+      margin: 1rem auto 0;
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ll-deep-ocean);
+      background: rgba(127, 184, 255, 0.18);
+      border: 1px solid rgba(46, 115, 214, 0.24);
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 0.85rem;
+    }
+    .captured-email.hidden {
+      display: none;
+    }
+
+    .pathway {
+      padding: 2rem 2rem 7rem;
+      background: var(--ll-surface);
+    }
+    .pathway-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .path-card {
+      background: #fff;
+      border: 1px solid rgba(10, 43, 86, 0.08);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(10, 43, 86, 0.08);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .path-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 50px rgba(10, 43, 86, 0.14);
+    }
+    .path-image {
+      height: 320px;
+      position: relative;
+    }
+    .path-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .path-tag {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(10, 43, 86, 0.85);
+      color: var(--ll-cream);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .path-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      flex: 1;
+    }
+    .path-content h2 {
+      font-size: 2rem;
+      min-height: 2.5em;
+    }
+    .path-content p {
+      margin-bottom: 0;
+    }
+    .path-content .btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+
+    .path-meta {
+      font-size: 0.95rem;
+      color: var(--ll-deep-ocean);
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: auto;
+    }
+    .path-credit {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      color: rgba(10, 43, 86, 0.7);
+      line-height: 1.5;
+    }
+    .path-credit a {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .pathway-grid {
+        grid-template-columns: 1fr;
+      }
+      .path-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <div class="logo-mark">
+            <span class="logo-l l-back">L</span>
+            <span class="logo-l l-front">L</span>
+          </div>
+          Local Link
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#what-local-link">Why Local Link</a></li>
+        <li><a href="index.html#human">Safety & Trust</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pilot-hero" data-animate>
+    <span style="font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ll-ocean); display: block; margin-bottom: 1.75rem;">Phase 1 Pilot</span>
+    <h1>Choose how you want to be part of Local Link.</h1>
+    <p>Join as a traveler who wants help from a trusted local, or as a local who wants to share their city and earn from it.</p>
+    <p id="capturedEmail" class="captured-email hidden"></p>
+  </section>
+
+  <section class="pathway">
+    <div class="pathway-grid">
+      <article class="path-card" data-animate>
+        <div class="path-image">
+          <img src="https://images.pexels.com/photos/1173777/pexels-photo-1173777.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Open city map with travel planning notes" />
+          <span class="path-tag">For Locals</span>
+        </div>
+        <div class="path-content">
+          <h2>Apply as a Local</h2>
+          <p>Share your city, offer the kind of help you are good at, and earn by helping travelers experience the place in a real way.</p>
+          <a href="local_signup.html" id="localPathLink" class="btn btn-primary">Apply as Local</a>
+          <p class="path-credit">Photo: <a href="https://www.pexels.com/photo/opened-map-1173777/" target="_blank" rel="noopener noreferrer">Kai Pilger via Pexels</a> (Pexels License, non-AI photo).</p>
+        </div>
+      </article>
+
+      <article class="path-card traveler-card" data-animate data-delay="150">
+        <div class="path-image">
+          <img src="https://images.pexels.com/photos/6310145/pexels-photo-6310145.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Traveler with backpack exploring a city street" />
+          <span class="path-tag">For Travelers</span>
+        </div>
+        <div class="path-content">
+          <h2>Apply as a Traveler</h2>
+          <p>Skip the usual tourist plan. Connect with a trusted local, shape the trip around what matters to you, and travel with more confidence from the start.</p>
+          <a href="tourist_signup.html" id="travelerPathLink" class="btn btn-primary">Apply as Traveler</a>
+          <p class="path-credit">Photo: <a href="https://www.pexels.com/photo/unrecognizable-traveler-with-rucksack-on-city-street-6310145/" target="_blank" rel="noopener noreferrer">furkanfdemir via Pexels</a> (Pexels License, non-AI photo).</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const capturedEmail = params.get('email');
+    const capturedSource = params.get('source');
+    const localPathLink = document.getElementById('localPathLink');
+    const travelerPathLink = document.getElementById('travelerPathLink');
+    const capturedEmailTag = document.getElementById('capturedEmail');
+
+    if (capturedEmail) {
+      const sharedParams = new URLSearchParams();
+      sharedParams.set('email', capturedEmail);
+      if (capturedSource) sharedParams.set('source', capturedSource);
+
+      localPathLink.setAttribute('href', `local_signup.html?${sharedParams.toString()}`);
+      travelerPathLink.setAttribute('href', `tourist_signup.html?${sharedParams.toString()}`);
+
+      capturedEmailTag.textContent = `Email captured: ${capturedEmail}`;
+      capturedEmailTag.classList.remove('hidden');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('animated');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
