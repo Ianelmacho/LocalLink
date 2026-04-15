@@ -6,7 +6,7 @@
   <title>Local Link - Travel Through Trusted Locals</title>
   <meta name="description" content="Join the Local Link Phase 1 Pilot. Connect with verified locals who live in the city and make travel feel easier." />
   <link rel="stylesheet" href="styles.css?v=11" />
-  <link rel="stylesheet" href="home_editorial.css?v=32" />
+  <link rel="stylesheet" href="home_editorial.css?v=48" />
 </head>
 <body class="page-home">
 
@@ -43,13 +43,13 @@
       <div class="hero-container">
         <div class="hero-left" data-animate>
           <div class="hero-copy-composition">
-            <span class="hero-eyebrow">FIRST CITY PILOT</span>
-            <h1><span>Travel with a trusted</span><span>local from day one.</span></h1>
-            <p class="hero-subtext">Skip tourist guesswork. Get matched with a verified local who can make arrival safer, simpler, and more personal from the start.</p>
+            <span class="hero-eyebrow">FOUNDING CITY PILOT</span>
+            <h1><span>Arrive in a new city</span><span>with a local already there.</span></h1>
+            <p class="hero-subtext">Local Link matches you with a verified local before you land, so arrival, neighborhoods, and first plans feel calmer from the first hour.</p>
 
             <form class="hero-capture" id="heroPilotForm">
               <input type="email" id="heroPilotEmail" class="form-input" placeholder="Enter your email" autocomplete="email" required />
-              <button type="submit" class="btn btn-primary">Request Early Access</button>
+              <button type="submit" class="btn btn-primary">Get Access</button>
             </form>
             <div class="success-message" id="heroSuccessMessage">Email saved. Redirecting to role selection...</div>
           </div>
@@ -176,9 +176,11 @@
       </div>
 
       <div class="human-content" data-animate data-delay="150">
-        <span class="section-kicker">Safety and trust</span>
-        <h2>Meeting someone in a new city should feel exciting, not uncertain.</h2>
-        <p>That is why trust is built in before anyone ever meets. The experience stays personal because the checks happen up front.</p>
+        <div class="human-intro">
+          <span class="section-kicker">Safety and trust</span>
+          <h2>Meeting someone in a new city should feel exciting, not uncertain.</h2>
+        </div>
+        <p class="human-summary">That is why trust is built in before anyone ever meets. The experience stays personal because the checks happen up front.</p>
         <ul class="safety-list">
           <li>Verified identity for all active local profiles</li>
           <li>Background checks during pilot approval</li>
@@ -190,19 +192,21 @@
   </section>
 
   <section id="waitlist" class="pilot-cta">
-    <div class="pilot-container" data-animate>
-      <span class="section-kicker">Limited rollout</span>
-      <h2>Get early access before the first city goes live.</h2>
-      <p class="pilot-subtitle">We're opening Local Link in a limited rollout. Join now and be first to hear when early access opens.</p>
+    <div class="pilot-container">
+      <div class="pilot-content" data-animate>
+        <span class="section-kicker">Limited rollout</span>
+        <h2>Get early access before the first city goes live.</h2>
+        <p class="pilot-subtitle">We're opening Local Link in a limited rollout. Join now and be first to hear when early access opens.</p>
 
-      <form class="pilot-form" id="footerWaitlistForm">
-        <div class="form-row">
-          <input type="email" id="footerEmail" class="form-input" placeholder="Your email address" autocomplete="email" required>
-          <button type="submit" class="btn btn-primary">Request early access</button>
-        </div>
-      </form>
-      <p class="pilot-microcopy">Early access only. Limited rollout. No spam.</p>
-      <div class="success-message" id="footerSuccessMessage">Email saved. Redirecting to role selection...</div>
+        <form class="pilot-form" id="footerWaitlistForm">
+          <div class="form-row">
+            <input type="email" id="footerEmail" class="form-input" placeholder="Your email address" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Get access</button>
+          </div>
+        </form>
+        <p class="pilot-microcopy">Early access only. Limited rollout. No spam.</p>
+        <div class="success-message" id="footerSuccessMessage">Email saved. Redirecting to role selection...</div>
+      </div>
     </div>
   </section>
 
