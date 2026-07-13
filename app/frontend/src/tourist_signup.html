@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join Local Link - Tourist Early Access</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <link rel="stylesheet" href="tourist_signup_style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
@@ -13,13 +13,23 @@
   <nav class="nav">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="index.html" class="logo-link">Local Link</a>
+        <a href="index.html" class="logo-link">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+              <path d="M12 12.1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+          </span>
+          <span>Local Link</span>
+        </a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html#what-local-link">Why Local Link</a></li>
-        <li><a href="how_it_works.html">How It Works</a></li>
-        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="how_it_works.html">How it works</a></li>
+        <li><a href="mission.html">Our mission</a></li>
       </ul>
+      <div class="nav-cta">
+        <a href="join_pilot.html" class="btn btn-outline">Join pilot</a>
+      </div>
     </div>
   </nav>
 

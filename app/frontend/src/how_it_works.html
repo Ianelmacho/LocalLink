@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Local Link - How It Works</title>
   <meta name="description" content="Learn how Local Link connects travelers with trusted locals for simpler, more personal travel." />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <style>
     .how-hero {
       background:
-        radial-gradient(900px 320px at 15% 0%, rgba(127, 184, 255, 0.2), transparent 60%),
-        linear-gradient(180deg, #f7efe7 0%, #ffffff 78%);
-      padding: 10rem 2rem 5rem;
+        radial-gradient(900px 400px at 15% 0%, rgba(127, 184, 255, 0.2), transparent 60%),
+        linear-gradient(180deg, #fbfbfb 0%, lab(92.98% 1.93 8.85) 78%);
+      min-height: 100svh;
+      padding: 9.5rem 10rem 5rem;
       text-align: center;
+    }
+    .how-page-kicker {
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: rgba(10, 43, 86, 0.56);
     }
     .how-hero h1 {
       max-width: 900px;
@@ -65,7 +76,7 @@
     }
     .how-process-card {
       background:
-        linear-gradient(180deg, rgba(245, 230, 216, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%);
+        linear-gradient(180deg, rgba(247, 247, 247, 0.96) 0%, rgba(255, 254, 254, 0.98) 100%);
       border: 1px solid rgba(10, 43, 86, 0.08);
       border-radius: 20px;
       padding: 1.5rem;
@@ -279,7 +290,7 @@
       gap: 1.5rem;
     }
     .role-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      background: linear-gradient(180deg, #faf8f8 0%, #feffff 100%);
       border: 1px solid rgba(10, 43, 86, 0.08);
       border-radius: var(--radius-card);
       padding: 2rem;
@@ -353,20 +364,21 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
-          <div class="logo-mark">
-            <span class="logo-l l-back">L</span>
-            <span class="logo-l l-front">L</span>
-          </div>
-          Local Link
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+              <path d="M12 12.1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+          </span>
+          <span>Local Link</span>
         </a>
       </div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#what-local-link">Why Local Link</a></li>
-        <li><a href="index.html#human">Safety &amp; Trust</a></li>
-        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="how_it_works.html">How it works</a></li>
+        <li><a href="mission.html">Our mission</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="index.html#waitlist" class="btn btn-primary">Join Pilot</a>
+        <a href="join_pilot.html" class="btn btn-primary">Join pilot</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -375,6 +387,7 @@
   </nav>
 
   <section class="how-hero" data-animate>
+    <span class="how-page-kicker">How it works</span>
     <h1>Local Link makes travel simpler, more personal, and closer to the city.</h1>
     <div class="how-hero-lead">
       <p>Instead of starting with a big travel company, you start with a trusted local who lives there. That makes the trip easier to plan and more personal from the beginning.</p>

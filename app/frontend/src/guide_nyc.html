@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FindMyGuide - John (NYC)</title>
   <link rel="stylesheet" href="guide_common_style.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <link rel="stylesheet" href="profile_popup_style.css" />
   <link rel="stylesheet" href="bottom_logo_style.css">
   <style>
@@ -26,14 +26,23 @@
   <nav class="nav">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="index.html" class="logo-link">Local Link</a>
+        <a href="index.html" class="logo-link">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+              <path d="M12 12.1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+          </span>
+          <span>Local Link</span>
+        </a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#how-it-works">How it Works</a></li>
-        <li><a href="#safety">Safety</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="how_it_works.html">How it works</a></li>
+        <li><a href="mission.html">Our mission</a></li>
       </ul>
+      <div class="nav-cta">
+        <a href="join_pilot.html" class="btn btn-outline">Join pilot</a>
+      </div>
     </div>
   </nav>
 

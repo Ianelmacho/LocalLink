@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Local Link - Join the Pilot</title>
   <meta name="description" content="Choose your role in the Local Link pilot and help shape a simpler way to travel with locals." />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <style>
     body {
       background:
@@ -38,7 +38,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--ll-deep-ocean);
-      background: rgba(127, 184, 255, 0.18);
+      background: rgba(239, 240, 242, 0.18);
       border: 1px solid rgba(46, 115, 214, 0.24);
       border-radius: var(--radius-pill);
       padding: 0.4rem 0.85rem;
@@ -147,20 +147,21 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
-          <div class="logo-mark">
-            <span class="logo-l l-back">L</span>
-            <span class="logo-l l-front">L</span>
-          </div>
-          Local Link
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+              <path d="M12 12.1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+          </span>
+          <span>Local Link</span>
         </a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html#what-local-link">Why Local Link</a></li>
-        <li><a href="index.html#human">Safety & Trust</a></li>
-        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="how_it_works.html">How it works</a></li>
+        <li><a href="mission.html">Our mission</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="index.html" class="btn btn-outline">Back Home</a>
+        <a href="join_pilot.html" class="btn btn-outline">Join pilot</a>
       </div>
     </div>
   </nav>

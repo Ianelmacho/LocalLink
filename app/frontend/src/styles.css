@@ -64,7 +64,7 @@ body {
 }
 
 /* Typography Basics */
-h1, h2, h3, h4, .editorial-heading {
+h1, h2, h3, h4 {
   font-family: var(--font-serif);
   color: var(--ll-navy);
   font-weight: 500;
@@ -168,7 +168,6 @@ img {
 }
 
 .w-100 { width: 100%; }
-.mt-2 { margin-top: 1rem; }
 
 /* ============================================
    Forms & Controls
@@ -251,84 +250,85 @@ img {
    ============================================ */
 
 .nav {
-  position: sticky;
-  top: 1rem;
-  margin: 1rem auto 0;
-  width: 95%;
-  max-width: 1400px;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  transform: none;
+  margin: 0;
+  width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.85); /* Frosty glass effect */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(10, 43, 86, 0.08);
+  padding: 0 4.5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
   transition: all 0.3s ease;
 }
 
 .nav-container {
-  width: 100%;
+  width: min(100%, 1840px);
   margin: 0 auto;
-  padding: 0 2rem;
-  height: 60px; /* Thinner */
+  padding: 0 1.45rem 0 2.9rem;
+  height: 5.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 246, 236, 0.34);
+  box-shadow: 0 18px 42px rgba(16, 33, 60, 0.14);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .nav-logo .logo-link {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 700;
   color: var(--ll-navy);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
 .logo-mark {
-  position: relative;
-  width: 24px;
-  height: 28px;
-  display: inline-block;
-}
-
-.logo-l {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1;
-  position: absolute;
-}
-
-.l-back {
-  top: 0;
-  left: 0;
-  color: var(--ll-ocean);
-  opacity: 0.6;
-}
-
-.l-front {
-  top: 6px;
-  left: 6px;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
   color: var(--ll-navy);
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: 3.2rem;
   margin-left: auto;
-  margin-right: 1.25rem;
+  margin-right: 2rem;
 }
 
 .nav-links a {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--ll-navy);
-  opacity: 0.8;
+  opacity: 1;
+  text-transform: none;
 }
 
 .nav-links a:hover {
@@ -339,6 +339,20 @@ img {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.nav-cta .btn,
+.nav-cta .btn-primary,
+.nav-cta .btn-outline {
+  min-height: 3.25rem;
+  padding: 0 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, rgba(17, 90, 92, 0.98), rgba(7, 69, 72, 0.98)) !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: none;
 }
 
 .hamburger {
@@ -370,16 +384,6 @@ img {
   align-items: center;
   background: var(--ll-cream); /* Fallback before image */
   padding: 4rem 2rem;
-}
-
-.hero-bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(10,43,86,0.85) 0%, rgba(10,43,86,0.5) 100%);
-  z-index: 1;
 }
 
 /* Real travel photography background */
@@ -423,13 +427,6 @@ img {
   max-width: 620px;
 }
 
-.hero-actions-row {
-  margin-top: 2rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
 .hero-capture {
   margin-top: 1.4rem;
   display: flex;
@@ -440,311 +437,6 @@ img {
 .hero-capture .form-input {
   background: rgba(255, 255, 255, 0.96);
   border-color: rgba(10, 43, 86, 0.12);
-}
-
-.hero-trust-list {
-  margin-top: 0.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.hero-trust-list span {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: rgba(245, 230, 216, 0.95);
-  background: rgba(10, 43, 86, 0.35);
-  border: 1px solid rgba(245, 230, 216, 0.28);
-  border-radius: var(--radius-pill);
-  padding: 0.32rem 0.72rem;
-}
-
-/* ============================================
-   The Core Value Props (App Features translated to editorial)
-   ============================================ */
-
-.values {
-  padding: 6rem 2rem;
-  background: var(--ll-surface);
-}
-
-.values-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-}
-
-.value-item {
-  border-top: 1px solid rgba(10, 43, 86, 0.1);
-  padding-top: 2rem;
-}
-
-.value-item h3 {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-}
-
-.value-item p {
-  font-size: 0.95rem;
-}
-
-/* ============================================
-   The App Interface (Editorial interpretation)
-   ============================================ */
-
-.app-experience {
-  padding: 7rem 2rem;
-  background: linear-gradient(180deg, rgba(245, 230, 216, 0.9) 0%, rgba(245, 230, 216, 0.68) 100%);
-  border-top: 1px solid rgba(10, 43, 86, 0.08);
-  box-shadow: inset 0 18px 28px -26px rgba(10, 43, 86, 0.2);
-}
-
-.app-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6.25rem;
-  align-items: center;
-}
-
-.app-content h2 {
-  margin-bottom: 1.9rem;
-}
-
-.app-content p {
-  max-width: 34rem;
-  font-size: 1.05rem;
-  line-height: 1.72;
-  margin-bottom: 2.25rem;
-  opacity: 0.76;
-}
-
-.feature-list {
-  list-style: none;
-  margin-top: 2rem;
-}
-
-.feature-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.feature-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--ll-ocean);
-  font-weight: 600;
-}
-
-/* Elegant App Frame Visual */
-.app-frame-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-frame {
-  width: 100%;
-  max-width: 380px;
-  background: var(--ll-surface);
-  border: 1px solid rgba(10, 43, 86, 0.15);
-  border-radius: 32px;
-  box-shadow: var(--shadow-elevated);
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  opacity: 0.5;
-}
-
-.app-main h4 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--ll-navy);
-  font-family: var(--font-serif);
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-.app-search {
-  display: flex;
-  background: var(--ll-neutral);
-  padding: 1rem;
-  border-radius: var(--radius-card);
-  border: 1px solid rgba(10, 43, 86, 0.05);
-  font-size: 0.9rem;
-  color: var(--ll-navy);
-  opacity: 0.7;
-  margin-bottom: 2rem;
-}
-
-.app-card {
-  border: 1px solid rgba(10, 43, 86, 0.1);
-  border-radius: var(--radius-card);
-  padding: 1.25rem;
-  margin-bottom: 1rem;
-  transition: var(--transition);
-}
-
-.app-card:hover {
-  border-color: var(--ll-ocean);
-  box-shadow: var(--shadow-subtle);
-}
-
-.app-card-tag {
-  display: inline-block;
-  background: var(--ll-neutral);
-  color: var(--ll-navy);
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-pill);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.app-profile {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.app-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--ll-cream);
-  border: 1px solid rgba(10, 43, 86, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--ll-navy);
-}
-
-.app-avatar.ocean {
-  background: var(--ll-sky);
-  color: var(--ll-navy);
-}
-
-.app-info {
-  flex: 1;
-}
-
-.app-info strong {
-  display: block;
-  font-size: 1rem;
-  color: var(--ll-navy);
-}
-
-.app-meta {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  margin-top: 0.2rem;
-}
-
-/* Refined product-section hierarchy and tighter bullet scanability */
-.feature-list {
-  max-width: 32rem;
-  display: grid;
-  gap: 1.25rem;
-}
-
-.feature-list li {
-  padding-left: 1rem;
-  display: grid;
-  gap: 0.18rem;
-  font-size: 0.92rem;
-  margin-bottom: 0;
-}
-
-.feature-list li::before {
-  content: '';
-  top: 0.55rem;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ll-ocean);
-}
-
-.feature-list strong {
-  font-size: 0.94rem;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-.feature-list span {
-  color: var(--ll-navy);
-  opacity: 0.72;
-  line-height: 1.55;
-}
-
-.app-frame-wrapper {
-  position: relative;
-  padding: 1rem;
-  border-radius: 40px;
-  background: linear-gradient(180deg, rgba(229, 214, 199, 0.68) 0%, rgba(245, 230, 216, 0.38) 100%);
-  box-shadow: 0 18px 40px rgba(10, 43, 86, 0.08);
-}
-
-.app-frame {
-  background: rgba(255, 255, 255, 0.98);
-}
-
-.app-card-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(46, 115, 214, 0.1);
-  color: var(--ll-deep-ocean);
-  border: 1px solid rgba(46, 115, 214, 0.16);
-  font-weight: 700;
-  padding: 0.28rem 0.68rem;
-  letter-spacing: 0.08em;
-}
-
-.app-card-tag-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(46, 115, 214, 0.14);
-  color: var(--ll-ocean);
-  font-size: 0.62rem;
-  font-weight: 700;
-}
-
-.app-info strong {
-  font-size: 1.05rem;
-  font-weight: 700;
 }
 
 /* ============================================
@@ -785,12 +477,6 @@ img {
 .journey-steps {
   display: grid;
   gap: 1.15rem;
-}
-
-.journey-actions {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: flex-start;
 }
 
 .journey-item {
@@ -929,13 +615,6 @@ img {
   line-height: 1.08;
 }
 
-.pilot-subtitle {
-  font-size: 1rem;
-  line-height: 1.68;
-  margin-bottom: 2.35rem;
-  opacity: 0.8;
-}
-
 .pilot-microcopy {
   margin-top: 0.9rem;
   font-size: 0.82rem;
@@ -1026,7 +705,7 @@ img {
    ============================================ */
 
 @media (max-width: 1024px) {
-  .hero-container, .app-container, .human-container, .journey-shell {
+  .hero-container, .human-container, .journey-shell {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
@@ -1049,6 +728,20 @@ img {
 }
 
 @media (max-width: 768px) {
+  .nav {
+    top: 0.75rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+
+  .nav-container {
+    height: 3.75rem;
+    padding: 0 0.5rem 0 1rem;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1070,13 +763,8 @@ img {
     flex-direction: column;
   }
 
-  .values, .app-experience, .journey, .human-connection, .pilot-cta {
+  .journey, .human-connection, .pilot-cta {
     padding: 6rem 2rem;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .journey-shell {
@@ -1097,10 +785,6 @@ img {
 
   .form-row {
     flex-direction: column;
-  }
-
-  .app-frame {
-    max-width: 100%;
   }
 
   .footer-bottom {
