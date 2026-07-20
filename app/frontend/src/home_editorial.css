@@ -1,5 +1,27 @@
+/*
+  Local Link home page CSS — commented learning version.
+
+  How to study this file:
+  1. Read one section at a time: variables, nav, hero, journey, app preview, safety, footer.
+  2. Change one property, refresh the browser, and watch what changed.
+  3. The most important layout tools here are grid, flex, padding, margin, width, min-height, and media queries.
+  4. I tightened the final CTA/footer so it does not feel like a giant empty block.
+*/
+
+/*
+  FONT IMPORTS
+  This loads Montserrat for normal text and Playfair Display for the big elegant headings.
+  If this line fails, the browser falls back to Georgia / system fonts.
+*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
 
+
+/*
+  DESIGN TOKENS / VARIABLES
+  These are reusable values for the whole page.
+  Changing a variable here updates every selector that uses var(--name).
+  This is how you keep your colours, fonts, shadows, and widths consistent.
+*/
 :root {
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -18,6 +40,12 @@
   --ll-ocean: #0d4f70;
 }
 
+
+/*
+  PAGE BASE
+  This only targets the home page body.
+  The .page-home prefix stops these styles from accidentally affecting other pages.
+*/
 body.page-home {
   margin: 0;
   background: var(--cream);
@@ -25,12 +53,22 @@ body.page-home {
   font-family: var(--font-sans);
 }
 
+
+/*
+  BOX-SIZING RESET
+  border-box makes width calculations easier: padding and borders are included inside the element width.
+*/
 .page-home *,
 .page-home *::before,
 .page-home *::after {
   box-sizing: border-box;
 }
 
+
+/*
+  BASIC ELEMENT RESET
+  These rules remove default browser styling so the design starts from a clean base.
+*/
 .page-home a {
   color: inherit;
   text-decoration: none;
@@ -47,6 +85,12 @@ body.page-home {
   list-style: none;
 }
 
+
+/*
+  SCROLL ANIMATION SETUP
+  Elements with data-animate start slightly lower and transparent.
+  JavaScript likely adds .animated when they enter the screen.
+*/
 .page-home [data-animate] {
   opacity: 0;
   transform: translateY(18px);
@@ -66,6 +110,11 @@ body.page-home {
   transition-delay: 0.3s;
 }
 
+
+/*
+  SHARED TYPOGRAPHY
+  These classes are reused for small uppercase labels and main section headings.
+*/
 .page-home .section-kicker,
 .page-home .hero-eyebrow,
 .page-home .app-header {
@@ -91,6 +140,11 @@ body.page-home {
   color: var(--ink-soft);
 }
 
+
+/*
+  NAVIGATION BAR
+  The nav is absolute so it floats over the hero image instead of taking normal page space.
+*/
 .page-home .nav {
   position: absolute;
   top: 2rem;
@@ -104,6 +158,11 @@ body.page-home {
   color: var(--ink);
 }
 
+
+/*
+  NAV INNER PILL
+  This is the rounded glass-style bar that holds the logo, nav links, and CTA button.
+*/
 .page-home .nav-container {
   height: 4.75rem;
   width: min(100%, 1840px);
@@ -120,6 +179,11 @@ body.page-home {
   gap: 1.5rem;
 }
 
+
+/*
+  LOGO AREA
+  Inline-flex keeps the icon and text aligned on one row.
+*/
 .page-home .logo-link {
   display: inline-flex;
   align-items: center;
@@ -146,10 +210,10 @@ body.page-home {
 .page-home .hero-pilot-icon svg,
 .page-home .journey-icon svg,
 .page-home .safety-icon svg,
-.page-home .feature-icon svg,
-.page-home .app-tag svg,
-.page-home .app-reason-icon svg,
-.page-home .app-proof-list svg {
+.page-home .why-proof-row svg,
+.page-home .why-tab-icon svg,
+.page-home .why-panel-icon svg,
+.page-home .why-arrow svg {
   width: 100%;
   height: 100%;
   fill: none;
@@ -162,6 +226,11 @@ body.page-home {
   stroke-width: 1.9;
 }
 
+
+/*
+  DESKTOP NAV LINKS
+  Flexbox spreads the nav links horizontally with controlled spacing.
+*/
 .page-home .nav-links {
   display: flex;
   align-items: center;
@@ -185,6 +254,11 @@ body.page-home {
   gap: 0.8rem;
 }
 
+
+/*
+  NAV CTA BUTTON
+  The pill shape comes from border-radius: 999px.
+*/
 .page-home .nav-pill-link {
   display: inline-flex;
   align-items: center;
@@ -203,6 +277,11 @@ body.page-home {
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+
+/*
+  MOBILE MENU BUTTON
+  Hidden on desktop and shown in the mobile media query.
+*/
 .page-home .hamburger {
   display: none;
   width: 40px;
@@ -221,6 +300,12 @@ body.page-home {
   background: currentColor;
 }
 
+
+/*
+  HERO SECTION
+  This is the first full-screen section.
+  The background stacks a soft colour overlay on top of hero.png.
+*/
 .page-home .hero {
   position: relative;
   min-height: 100svh;
@@ -230,6 +315,12 @@ body.page-home {
     url("hero.png") center 47% / cover no-repeat;
 }
 
+
+/*
+  HERO IMAGE FILTER LAYER
+  This pseudo-element subtly blurs/saturates the whole hero background.
+  If the hero looks too hazy, reduce blur(1.15px) or remove this block.
+*/
 .page-home .hero::after {
   content: "";
   position: absolute;
@@ -245,6 +336,11 @@ body.page-home {
 }
 
 
+
+/*
+  HERO GRID
+  A 12-column grid gives precise placement: left copy uses columns 1-5, card uses 9-12.
+*/
 .page-home .hero-container {
   position: relative;
   z-index: 2;
@@ -257,6 +353,11 @@ body.page-home {
   align-items: center;
 }
 
+
+/*
+  HERO LEFT CONTENT
+  This positions the headline, paragraph, and email form.
+*/
 .page-home .hero-left {
   grid-column: 1 / span 5;
   padding-top: 7rem;
@@ -266,6 +367,11 @@ body.page-home {
   max-width: 36rem;
 }
 
+
+/*
+  HERO LABEL / PILL
+  This is the small “London Pilot” badge above the headline.
+*/
 .page-home .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -286,6 +392,11 @@ body.page-home {
   color: #d89a31;
 }
 
+
+/*
+  HERO HEADLINE
+  clamp() makes the text responsive: it grows with viewport width but stays inside min/max limits.
+*/
 .page-home .hero-left h1 {
   margin-bottom: 1.15rem;
   color: #f7efe4;
@@ -298,6 +409,11 @@ body.page-home {
   display: block;
 }
 
+
+/*
+  HERO DESCRIPTION
+  Uses the serif font to match the headline, but smaller and easier to read.
+*/
 .page-home .hero-subtext {
   max-width: 34rem;
   margin-bottom: 1.65rem;
@@ -307,6 +423,11 @@ body.page-home {
   line-height: 1.36;
 }
 
+
+/*
+  HERO EMAIL FORM LAYOUT
+  Grid creates two parts: flexible email input + fixed-width button.
+*/
 .page-home .hero-capture {
   display: grid;
   width: min(100%, 45rem);
@@ -317,12 +438,22 @@ body.page-home {
 }
 
 .page-home .hero-capture .form-input,
+
+/*
+  HERO FORM BUTTON
+  This overrides the generic .btn-primary style specifically inside the hero email form.
+*/
 .page-home .hero-capture .btn-primary {
   min-height: 0;
   height: 100%;
 }
 
 .page-home .form-input,
+
+/*
+  BASE BUTTON STYLE
+  Shared button settings used before more specific button styles override them.
+*/
 .page-home .btn,
 .page-home .btn-primary {
   min-height: 4rem;
@@ -330,6 +461,11 @@ body.page-home {
   font-family: var(--font-sans);
 }
 
+
+/*
+  EMAIL INPUT SHELL
+  The icon and input are placed in two columns.
+*/
 .page-home .hero-email-field {
   display: grid;
   grid-template-columns: 1.9rem minmax(0, 1fr);
@@ -355,6 +491,11 @@ body.page-home {
   height: 1.65rem;
 }
 
+
+/*
+  FORM INPUT
+  The real input has no border/background because the parent wrapper creates the visual box.
+*/
 .page-home .form-input {
   width: 100%;
   min-width: 0;
@@ -406,6 +547,12 @@ body.page-home {
   box-shadow: 0 16px 36px rgba(7, 30, 59, 0.16);
 }
 
+
+/*
+  RIGHT-SIDE PILOT CARD
+  Explains how the pilot works.
+  It is placed on the right side of the hero grid.
+*/
 .page-home .hero-pilot-card {
   grid-column: 9 / -1;
   justify-self: end;
@@ -436,6 +583,11 @@ body.page-home {
   gap: 0;
 }
 
+
+/*
+  PILOT CARD ROWS
+  Each row has icon, number, and text columns.
+*/
 .page-home .hero-pilot-item {
   display: grid;
   grid-template-columns: 3.8rem 2rem minmax(0, 1fr);
@@ -513,6 +665,11 @@ body.page-home {
   line-height: 1.55;
 }
 
+
+/*
+  FORM SUCCESS MESSAGE
+  Hidden by default. JavaScript can add .show after a successful signup.
+*/
 .page-home .success-message {
   display: none;
   margin-top: 1rem;
@@ -527,6 +684,11 @@ body.page-home {
   display: block;
 }
 
+
+/*
+  HOW IT WORKS SECTION
+  This section is set to one full viewport height on desktop.
+*/
 .page-home .journey {
   position: relative;
   min-height: 100svh;
@@ -544,6 +706,11 @@ body.page-home {
   display: none;
 }
 
+
+/*
+  HOW IT WORKS GRID
+  Another 12-column grid: text/steps on one side, image on the other.
+*/
 .page-home .journey-shell {
   position: relative;
   z-index: 1;
@@ -570,23 +737,35 @@ body.page-home {
   transition: none;
 }
 
+
+/*
+  HOW IT WORKS IMAGE
+  object-fit: cover keeps the image filling the box without distortion.
+*/
 .page-home .journey-visual {
   grid-column: 7 / -1;
   width: 100%;
-  height: min(64svh, 34rem);
-  min-height: 0;
-  overflow: hidden;
-  border: 1px solid rgba(7, 30, 59, 0.08);
-  border-radius: 1.35rem;
-  box-shadow: 0 24px 70px rgba(16, 33, 60, 0.13);
+  margin: 0;
 }
 
 .page-home .journey-visual img {
   width: 100%;
-  height: 100%;
+  height: min(62svh, 33rem);
+  min-height: 0;
   display: block;
+  border: 1px solid rgba(7, 30, 59, 0.08);
+  border-radius: 1.35rem;
+  box-shadow: 0 24px 70px rgba(16, 33, 60, 0.13);
   object-fit: cover;
   object-position: center;
+}
+
+.page-home .journey-caption {
+  margin-top: 0.65rem;
+  color: rgba(7, 30, 59, 0.48);
+  font-size: 0.76rem;
+  line-height: 1.4;
+  text-align: right;
 }
 
 .page-home .journey-lead {
@@ -600,7 +779,7 @@ body.page-home {
 }
 
 .page-home .journey-lead h2 {
-  max-width: 11.5ch;
+  max-width: none;
   margin-bottom: 1.1rem;
   color: var(--ink);
   font-size: var(--journey-display-size);
@@ -620,6 +799,11 @@ body.page-home {
   gap: 1.15rem;
 }
 
+
+/*
+  STEP CARD
+  Holds the three process steps in one white card.
+*/
 .page-home .journey-steps {
   position: relative;
   display: grid;
@@ -631,6 +815,11 @@ body.page-home {
   box-shadow: 0 18px 46px rgba(16, 33, 60, 0.08);
 }
 
+
+/*
+  VERTICAL DOTTED TIMELINE
+  This creates the line connecting the numbered step circles.
+*/
 .page-home .journey-steps::before {
   content: "";
   position: absolute;
@@ -701,6 +890,11 @@ body.page-home {
   stroke-width: 1.4;
 }
 
+
+/*
+  WHY IT IS BETTER / APP PREVIEW SECTION
+  Similar structure to journey, but with the mock app card.
+*/
 .page-home .app-experience {
   position: relative;
   overflow: hidden;
@@ -718,6 +912,11 @@ body.page-home {
   display: none;
 }
 
+
+/*
+  APP SECTION GRID
+  Left copy uses grid columns; app preview sits on the right.
+*/
 .page-home .app-container {
   position: relative;
   z-index: 1;
@@ -740,6 +939,11 @@ body.page-home {
   color: var(--gold);
 }
 
+
+/*
+  APP PREVIEW CARD
+  This creates the large rounded preview mockup on the right.
+*/
 .page-home .app-frame-wrapper {
   grid-column: 7 / -1;
   width: 100%;
@@ -780,6 +984,11 @@ body.page-home {
   margin-bottom: 1.35rem;
 }
 
+
+/*
+  LEFT FEATURE LIST
+  Simple repeated rows with an icon and explanation.
+*/
 .page-home .feature-list {
   display: grid;
   gap: 0;
@@ -929,6 +1138,11 @@ body.page-home {
   font-size: 0.76rem;
 }
 
+
+/*
+  MATCHED LOCAL PROFILE LAYOUT
+  Avatar, text, and proof list sit in a grid.
+*/
 .page-home .app-profile {
   display: grid;
   grid-template-columns: 4rem minmax(0, 1fr) 10.8rem;
@@ -1046,6 +1260,11 @@ body.page-home {
   stroke-width: 1.5;
 }
 
+
+/*
+  SAFETY AND TRUST SECTION
+  Full-screen desktop section with an image on the left and trust copy on the right.
+*/
 .page-home .human-connection {
   min-height: 100svh;
   height: 100svh;
@@ -1055,6 +1274,11 @@ body.page-home {
   background: #fdfbf7;
 }
 
+
+/*
+  SAFETY SECTION GRID
+  Image and copy are placed in separate grid column groups.
+*/
 .page-home .human-container {
   width: var(--container);
   margin: 0 auto;
@@ -1097,6 +1321,11 @@ body.page-home {
   color: var(--ink-soft);
 }
 
+
+/*
+  SAFETY BULLET LIST
+  Each point uses a small icon circle plus text.
+*/
 .page-home .safety-list {
   display: grid;
   gap: 0.7rem;
@@ -1127,8 +1356,14 @@ body.page-home {
   stroke-width: 1.6;
 }
 
+
+/*
+  FINAL CTA + FOOTER WRAPPER
+  This area is intentionally smaller than a full page.
+  It should feel like the end of the website, not another hero section.
+*/
 .page-home .pilot-footer {
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   background: #fbf7f0;
   color: var(--ink);
 }
@@ -1138,14 +1373,20 @@ body.page-home {
   margin: 0 auto;
 }
 
+
+/*
+  COMPACT SIGNUP STRIP
+  This is the beige email signup card above the blue footer.
+  Main controls for size: min-height, padding, margin, and grid-template-columns.
+*/
 .page-home .pilot-footer-cta {
-  width: min(calc(100% - 2rem), 1685px);
-  min-height: 8.7rem;
-  margin: 0 auto clamp(2rem, 3vw, 3rem);
-  padding: 1.5rem 4.35rem;
+  width: min(calc(100% - 7rem), 1500px);
+  min-height: 6.4rem;
+  margin: 0 auto 2rem;
+  padding: 1rem 2.4rem;
   display: grid;
-  grid-template-columns: 4.75rem minmax(26rem, 1fr) minmax(36rem, 39rem);
-  gap: 3rem;
+  grid-template-columns: 3.3rem minmax(20rem, 1fr) minmax(31rem, 37rem);
+  gap: 1.8rem;
   align-items: center;
   border-radius: 1rem;
   border: 1px solid rgba(184, 139, 87, 0.18);
@@ -1156,16 +1397,16 @@ body.page-home {
 .page-home .pilot-footer-icon {
   display: grid;
   place-items: center;
-  width: 4.75rem;
-  height: 4.75rem;
+  width: 3.3rem;
+  height: 3.3rem;
   border-radius: 50%;
   background: rgba(218, 201, 181, 0.86);
   color: #bd8541;
 }
 
 .page-home .pilot-footer-icon svg {
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 1.25rem;
+  height: 1.25rem;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -1177,14 +1418,14 @@ body.page-home {
   margin: 0 0 0.46rem;
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: clamp(1.55rem, 1.65vw, 2rem);
+  font-size: clamp(1.25rem, 1.35vw, 1.65rem);
   font-weight: 500;
   line-height: 1.1;
 }
 
 .page-home .pilot-footer-copy p {
-  color: rgba(8, 43, 85, 0.72);
-  font-size: 0.96rem;
+  color: rgba(8, 43, 85, 0.68);
+  font-size: 0.86rem;
   line-height: 1.35;
 }
 
@@ -1194,23 +1435,35 @@ body.page-home {
   padding-top: 0;
 }
 
+
+/*
+  FOOTER EMAIL FORM
+  A compact pill with input on the left and button on the right.
+*/
 .page-home .pilot-footer-form {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 11.9rem;
+  grid-template-columns: minmax(0, 2.5fr) 8rem;
+  gap: 1.25rem;
   width: 100%;
-  height: 3.6rem;
-  overflow: hidden;
-  border: 1px solid rgba(184, 139, 87, 0.32);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.38);
+  height: 3.2rem;
+  align-items: stretch;
+}
+
+.page-home .pilot-footer-form .form-input,
+.page-home .pilot-footer-button{
+  min-height: 0;
+  height: 100%
 }
 
 .page-home .pilot-footer-email {
   display: flex;
   align-items: center;
-  gap: 0.82rem;
+  gap: 0.7rem;
   min-width: 0;
-  padding: 0 1.35rem;
+  padding: 0 1.5rem;
+  border: 2px solid rgba(184, 139, 87, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .page-home .pilot-footer-mail {
@@ -1233,7 +1486,7 @@ body.page-home {
 
 .page-home .pilot-footer-form .form-input {
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 0.92rem;
 }
 
 .page-home .pilot-footer-form .form-input::placeholder {
@@ -1245,7 +1498,7 @@ body.page-home {
   border-radius: 999px;
   background: #082b55;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -1258,18 +1511,29 @@ body.page-home {
   transform: translateY(-1px);
 }
 
+
+/*
+  BLUE FOOTER PANEL
+  This is the real bottom of the site.
+  The padding and column min-height decide whether it feels too tall or compact.
+*/
 .page-home .footer-panel {
   width: 100%;
-  padding: clamp(4.5rem, 6vw, 5.6rem) max(4rem, calc((100vw - 1500px) / 2)) clamp(3rem, 4.8vw, 4.2rem);
+  padding: 3.2rem max(4rem, calc((100vw - 1500px) / 2)) 2.5rem;
   display: grid;
-  grid-template-columns: minmax(18rem, 1.35fr) repeat(4, minmax(9rem, 1fr));
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(16rem, 1.25fr) repeat(4, minmax(8rem, 1fr));
+  gap: clamp(1.8rem, 3vw, 3.2rem);
   background:
     radial-gradient(circle at 24% 0%, rgba(15, 78, 130, 0.42), rgba(15, 78, 130, 0) 28rem),
     linear-gradient(135deg, #061a34 0%, #082f5d 58%, #03152d 100%);
   color: rgba(250, 246, 239, 0.92);
 }
 
+
+/*
+  FOOTER BRAND LOCKUP
+  Logo/title styling in the first footer column.
+*/
 .page-home .footer-logo {
   display: inline-flex;
   align-items: center;
@@ -1277,7 +1541,7 @@ body.page-home {
   margin-bottom: 0.8rem;
   color: #fffaf2;
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 500;
 }
 
@@ -1298,6 +1562,11 @@ body.page-home {
   line-height: 1.55;
 }
 
+
+/*
+  SOCIAL ICON ROW
+  Small circular links below the brand description.
+*/
 .page-home .footer-social {
   display: flex;
   gap: 0.6rem;
@@ -1322,33 +1591,44 @@ body.page-home {
   color: #fff;
 }
 
+
+/*
+  COPYRIGHT TEXT
+  margin-top controls how far it sits below the social icons.
+*/
 .page-home .footer-copyright {
-  margin-top: clamp(3rem, 5vw, 4.5rem);
+  margin-top: 2rem;
   color: rgba(250, 246, 239, 0.58);
   font-size: 0.88rem;
 }
 
+
+/*
+  FOOTER LINK COLUMNS
+  Each column contains a heading and related links.
+  min-height: 0 prevents unnecessary empty height.
+*/
 .page-home .footer-column {
   display: grid;
   align-content: start;
-  gap: 1rem;
-  min-height: 13.4rem;
+  gap: 0.72rem;
+  min-height: 0;
   padding-left: clamp(2rem, 3.4vw, 3.6rem);
   border-left: 1px solid rgba(250, 246, 239, 0.2);
 }
 
 .page-home .footer-column h3 {
-  margin: 0 0 0.95rem;
+  margin: 0 0 0.55rem;
   color: #f1dfc7;
-  font-size: 1rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .page-home .footer-column a {
-  color: rgba(250, 246, 239, 0.86);
-  font-size: 1rem;
+  color: rgba(250, 246, 239, 0.84);
+  font-size: 0.9rem;
   line-height: 1.25;
   transition: color 0.2s ease;
 }
@@ -1358,6 +1638,11 @@ body.page-home {
   color: #fff;
 }
 
+
+/*
+  RESPONSIVE RULES: MEDIUM DESKTOPS
+  These slightly reduce heading sizes and spacing before tablet/mobile layouts kick in.
+*/
 @media (max-width: 1400px) {
   :root {
     --display-size: 3.6rem;
@@ -1401,6 +1686,11 @@ body.page-home {
   }
 }
 
+
+/*
+  RESPONSIVE RULES: TABLET / SMALL LAPTOP
+  The layout changes from multi-column grids to single-column stacking.
+*/
 @media (max-width: 960px) {
   :root {
     --container: min(calc(100% - 2rem), 720px);
@@ -1498,8 +1788,11 @@ body.page-home {
   }
 
   .page-home .journey-visual {
-    height: 28rem;
     min-height: 0;
+  }
+
+  .page-home .journey-visual img {
+    height: 28rem;
   }
 
   .page-home .journey-steps::before {
@@ -1570,6 +1863,11 @@ body.page-home {
   }
 }
 
+
+/*
+  RESPONSIVE RULES: MOBILE
+  Smaller type, stacked forms, and one-column footer.
+*/
 @media (max-width: 560px) {
   :root {
     --display-size: 2.45rem;

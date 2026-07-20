@@ -28,3 +28,22 @@ Open `http://localhost:9000/`.
 - `app/frontend/src` - current static site pages, styles, and image assets
 - `dockerfile` - nginx container for the static site
 - `compose.yaml` - local container runner
+
+## Quick front end editing 
+
+- cd "C:\Users\Precision 3551\Desktop\LocalLink\app\frontend\src"
+- powershell -ExecutionPolicy Bypass -File .\serve_local.ps1
+
+## When you see (Serving ... at http://localhost:9000/)
+## Open a new Terminal 
+
+- Start-Process "http://localhost:9000/"
+
+## Repo Testing as intedend 
+
+- cd "C:\Users\Precision 3551\Desktop\LocalLink"
+- docker compose up --build
+
+## Open a new terminal
+
+- Start-Process "http://localhost:9000/"
