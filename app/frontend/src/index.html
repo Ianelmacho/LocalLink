@@ -7,7 +7,7 @@
   <title>Local Link - Travel Through Trusted Locals</title>
   <meta name="description"
     content="Join the Local Link Phase 1 Pilot. Connect with verified locals who live in the city and make travel feel easier." />
-  <link rel="stylesheet" href="home_editorial.css?v=135" />
+  <link rel="stylesheet" href="home_editorial.css?v=166" />
 </head>
 
 <body class="page-home">
@@ -29,6 +29,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="how_it_works.html">How it works</a></li>
         <li><a href="mission.html">Our mission</a></li>
+        <li><a href="safety_trust.html">Safety &amp; trust</a></li>
       </ul>
 
       <div class="nav-cta">
@@ -148,7 +149,7 @@
 
   <section id="what-local-link" class="journey">
     <div id="how-it-works" class="journey-shell">
-      <div class="journey-steps-column">
+      <div class="journey-copy">
         <div class="journey-lead" data-animate>
           <span class="section-kicker">How it works</span>
           <h2>
@@ -158,6 +159,47 @@
           <p>Tell us where you're going and what kind of experience you want. We match you with a verified local who
             helps shape the trip, so you can make the most of every moment.</p>
         </div>
+
+        <div class="journey-proof-row" aria-label="Local Link benefits">
+          <span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 3.5 18 6v5.1c0 3.8-2.4 7.2-6 8.4-3.6-1.2-6-4.6-6-8.4V6l6-2.5Z" />
+              <path d="m9.4 12 1.8 1.8 3.8-4" />
+            </svg>
+            <span>Verified locals,<br>vetted for quality</span>
+          </span>
+          <span class="journey-proof-divider" aria-hidden="true"></span>
+          <span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 20s6-5.1 6-10.2a6 6 0 1 0-12 0C6 14.9 12 20 12 20Z" />
+              <path d="M12 11.7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            </svg>
+            <span>Local knowledge,<br>real perspectives</span>
+          </span>
+          <span class="journey-proof-divider" aria-hidden="true"></span>
+          <span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 12.2 11.8 20.4a2 2 0 0 1-2.8 0L3.6 15a2 2 0 0 1 0-2.8L11.8 4H18v6.2Z" />
+              <path d="M15.6 7.2h.1" />
+            </svg>
+            <span>Better value,<br>smarter travel</span>
+          </span>
+        </div>
+
+        <a href="how_it_works.html" class="section-pill-link journey-link">
+          <span>See how it works</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="journey-showcase" data-animate>
+        <figure class="journey-visual">
+          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=82"
+            alt="Colorful coastal homes above the sea" loading="lazy" />
+        </figure>
 
         <div class="journey-steps">
           <div class="journey-item" data-animate>
@@ -205,12 +247,6 @@
           </div>
         </div>
       </div>
-
-      <figure class="journey-visual" data-animate>
-        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=82"
-          alt="Colorful coastal homes above the sea" loading="lazy" />
-        <figcaption class="journey-caption">Manarola, Cinque Terre, Italy - Photo by Jack Ward via Unsplash.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -252,11 +288,16 @@
             Effortless
           </span>
         </div>
+        <a href="mission.html" class="section-pill-link why-link">
+          <span>See why it's better</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
       </div>
 
       <div class="why-interactive" data-animate data-delay="150">
-        <h3>Explore what makes it better</h3>
-
         <div class="why-tabs" role="tablist" aria-label="Why Local Link is better">
           <button class="why-tab" type="button" role="tab" aria-selected="false" data-why-tab="0">
             <span class="why-tab-icon" aria-hidden="true">
@@ -318,19 +359,14 @@
 
         <article class="why-panel" aria-live="polite">
           <div class="why-panel-copy">
-            <span class="why-panel-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M5 9.5h14l-1.1-4h-3.7l-.5 4M9.8 9.5l-.5-4H5.9L5 9.5" />
-                <path d="M6.2 9.5V19h11.6V9.5" />
-                <path d="M8.7 19v-4.7h6.6V19" />
-              </svg>
-            </span>
             <h4 id="whyPanelTitle">Support communities that make a difference</h4>
             <p id="whyPanelText">Your trip helps independent businesses, local guides, and neighborhoods thrive.</p>
           </div>
-          <img id="whyPanelImage"
-            src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=82"
-            alt="Independent local cafe with plants and outdoor seating" loading="lazy">
+          <figure class="why-panel-visual">
+            <img id="whyPanelImage"
+              src="assets/why_communities.jpg"
+              alt="Independent local cafe with plants and outdoor seating" loading="lazy">
+          </figure>
         </article>
 
         <div class="why-controls" aria-label="Change why it is better slide">
@@ -359,11 +395,11 @@
 
   <section id="human" class="human-connection">
     <div class="human-container">
-      <div class="human-image" data-animate>
+      <figure class="human-image" data-animate>
         <div class="image-placeholder">
           <img src="local_hero.png" alt="Travelers together at golden hour" />
         </div>
-      </div>
+      </figure>
 
       <div class="human-content" data-animate data-delay="150">
         <div class="human-intro">
@@ -410,6 +446,13 @@
             <span>Clear expectations before any booking begins</span>
           </li>
         </ul>
+        <a href="safety_trust.html" class="section-pill-link safety-link">
+          <span>Learn more about safety</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -485,7 +528,7 @@
           <h3>Explore</h3>
           <a href="how_it_works.html">How it works</a>
           <a href="#app-experience">Why Local Link</a>
-          <a href="#human">Safety &amp; trust</a>
+          <a href="safety_trust.html">Safety &amp; trust</a>
           <a href="#waitlist">Join pilot</a>
         </nav>
 
@@ -545,6 +588,83 @@
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    const whyBetterSlides = [
+      {
+        title: 'Form connections that feel natural',
+        text: 'Meet people who know the city and can help the trip feel warmer from the first day.',
+        image: 'assets/why_connections.jpg',
+        alt: 'Friends sharing a relaxed city meal'
+      },
+      {
+        title: 'Support communities that make a difference',
+        text: 'Your trip helps independent businesses, local guides, and neighborhoods thrive.',
+        image: 'assets/why_communities.jpg',
+        alt: 'Independent local cafe with plants and outdoor seating'
+      },
+      {
+        title: 'Find hidden gems before everyone else',
+        text: 'Skip generic lists and discover the small places locals actually recommend.',
+        image: 'assets/why_hidden_gems.jpg',
+        alt: 'Small hidden restaurant glowing at night'
+      },
+      {
+        title: 'Spend smarter without guessing',
+        text: 'A local can point you toward better value, better food, and fewer tourist traps.',
+        image: 'assets/why_spend_smarter.jpg',
+        alt: 'Traveler looking over a sunny city view'
+      },
+      {
+        title: 'Make translation feel easier',
+        text: 'Ask questions, understand signs, and move through the city with less friction.',
+        image: 'assets/why_translation.jpg',
+        alt: 'People talking together in a bright city workspace'
+      },
+      {
+        title: 'Travel with a safer first plan',
+        text: 'Arrive knowing who to contact, where to go, and what to avoid early on.',
+        image: 'assets/why_safer.jpg',
+        alt: 'Traveler walking through a calm city street'
+      }
+    ];
+
+    const whyTabs = document.querySelectorAll('[data-why-tab]');
+    const whyDots = document.querySelectorAll('[data-why-dot]');
+    const whyTitle = document.getElementById('whyPanelTitle');
+    const whyText = document.getElementById('whyPanelText');
+    const whyImage = document.getElementById('whyPanelImage');
+    let activeWhyIndex = 1;
+
+    const showWhySlide = (index) => {
+      activeWhyIndex = (index + whyBetterSlides.length) % whyBetterSlides.length;
+      const slide = whyBetterSlides[activeWhyIndex];
+
+      whyTitle.textContent = slide.title;
+      whyText.textContent = slide.text;
+      whyImage.src = slide.image;
+      whyImage.alt = slide.alt;
+
+      whyTabs.forEach((tab, tabIndex) => {
+        const isActive = tabIndex === activeWhyIndex;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+
+      whyDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === activeWhyIndex);
+      });
+    };
+
+    whyTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => showWhySlide(index));
+    });
+
+    whyDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showWhySlide(index));
+    });
+
+    document.querySelector('[data-why-prev]').addEventListener('click', () => showWhySlide(activeWhyIndex - 1));
+    document.querySelector('[data-why-next]').addEventListener('click', () => showWhySlide(activeWhyIndex + 1));
 
     const routeToRoleSelection = (email, source) => {
       const target = new URL('join_pilot.html', window.location.href);

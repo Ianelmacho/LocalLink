@@ -2,7 +2,7 @@
   Local Link home page CSS — commented learning version.
 
   How to study this file:
-  1. Read one section at a time: variables, nav, hero, journey, app preview, safety, footer.
+  1. Read one section at a time: variables, nav, hero, journey, why section, safety, footer.
   2. Change one property, refresh the browser, and watch what changed.
   3. The most important layout tools here are grid, flex, padding, margin, width, min-height, and media queries.
   4. I tightened the final CTA/footer so it does not feel like a giant empty block.
@@ -34,9 +34,11 @@
   --white: #ffffff;
   --line: rgba(7, 30, 59, 0.1);
   --shadow: 0 22px 46px rgba(16, 33, 60, 0.05);
-  --container: min(calc(100% - 7rem), 1640px);
+  --container: min(calc(100% - 8rem), 1760px);
   --display-size: 4rem;
   --journey-display-size: 4rem;
+  --section-media-height: calc(100svh - 8.5rem);
+  --section-padding-y: 4.25rem;
   --ll-ocean: #0d4f70;
 }
 
@@ -116,8 +118,7 @@ body.page-home {
   These classes are reused for small uppercase labels and main section headings.
 */
 .page-home .section-kicker,
-.page-home .hero-eyebrow,
-.page-home .app-header {
+.page-home .hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 700;
@@ -212,7 +213,6 @@ body.page-home {
 .page-home .safety-icon svg,
 .page-home .why-proof-row svg,
 .page-home .why-tab-icon svg,
-.page-home .why-panel-icon svg,
 .page-home .why-arrow svg {
   width: 100%;
   height: 100%;
@@ -235,7 +235,7 @@ body.page-home {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3.2rem;
+  gap: 2.35rem;
   margin-left: auto;
   margin-right: 2rem;
   font-size: 0.92rem;
@@ -429,23 +429,22 @@ body.page-home {
   Grid creates two parts: flexible email input + fixed-width button.
 */
 .page-home .hero-capture {
-  display: grid;
-  width: min(100%, 45rem);
-  height: 3rem;
-  grid-template-columns: minmax(0, 1fr) 10rem;
-  gap: 1.25rem;
+  display: grid;sdf
+  width: min(100%, 30rem);
+  height: 2.7rem;
+  grid-template-columns: minmax(0, 4.5fr) 8rem;
+  gap: 1.3rem;
   align-items: stretch;
 }
 
 .page-home .hero-capture .form-input,
-
-/*
-  HERO FORM BUTTON
-  This overrides the generic .btn-primary style specifically inside the hero email form.
-*/
 .page-home .hero-capture .btn-primary {
   min-height: 0;
   height: 100%;
+}
+
+.page-home .hero-capture .form-input {
+  font-size: 0.92rem;
 }
 
 .page-home .form-input,
@@ -467,28 +466,32 @@ body.page-home {
   The icon and input are placed in two columns.
 */
 .page-home .hero-email-field {
-  display: grid;
-  grid-template-columns: 1.9rem minmax(0, 1fr);
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
   min-width: 0;
   height: 100%;
-  padding: 0 1.45rem;
+  padding: 0 1.5rem;
   border: 2px solid rgba(184, 139, 87, 0.34);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 16px 36px rgba(16, 33, 60, 0.07);
 }
 
 .page-home .hero-input-icon {
-  display: grid;
-  place-items: center;
-  color: rgba(7, 30, 59, 0.42);
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: #d39a45;
 }
 
 .page-home .hero-input-icon {
-  width: 1.65rem;
-  height: 1.65rem;
+  width: auto;
+  height: auto;
+}
+
+.page-home .hero-input-icon svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 
@@ -541,8 +544,9 @@ body.page-home {
   border-radius: 999px;
   background: #082b55;
   color: #fff;
-  padding: 0 1.5rem;
-  font-size: 1.08rem;
+  padding: 0 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   white-space: nowrap;
   box-shadow: 0 16px 36px rgba(7, 30, 59, 0.16);
 }
@@ -561,7 +565,7 @@ body.page-home {
   padding: 2rem 2.2rem 1.8rem;
   border: 1px solid rgba(7, 30, 59, 0.13);
   border-radius: 1.55rem;
-  background: rgba(255, 252, 248, 0.97);
+  background: rgba(224, 209, 190, 0.96);
   color: var(--ink);
   box-shadow: 0 26px 70px rgba(16, 33, 60, 0.16);
   backdrop-filter: blur(18px);
@@ -696,7 +700,7 @@ body.page-home {
   overflow: hidden;
   display: grid;
   align-items: center;
-  padding: 3rem 0;
+  padding: var(--section-padding-y) 0;
   background:
     radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0) 34%),
     linear-gradient(180deg, #f2eadf 0%, #eee5d8 100%);
@@ -714,13 +718,13 @@ body.page-home {
 .page-home .journey-shell {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 8rem), 1540px);
-  min-height: calc(100svh - 6rem);
+  width: var(--container);
+  min-height: var(--section-media-height);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 4.2rem;
-  align-items: center;
+  column-gap: 3rem;
+  align-items: start;
 }
 
 .page-home .journey [data-animate] {
@@ -742,15 +746,21 @@ body.page-home {
   HOW IT WORKS IMAGE
   object-fit: cover keeps the image filling the box without distortion.
 */
-.page-home .journey-visual {
-  grid-column: 7 / -1;
+.page-home .journey-showcase {
+  grid-column: 6 / -1;
+  position: relative;
   width: 100%;
-  margin: 0;
+  align-self: start;
+}
+
+.page-home .journey-visual {
+  width: calc(100% - 6.5rem);
+  margin: 0 0 0 6.5rem;
 }
 
 .page-home .journey-visual img {
   width: 100%;
-  height: min(62svh, 33rem);
+  height: var(--section-media-height);
   min-height: 0;
   display: block;
   border: 1px solid rgba(7, 30, 59, 0.08);
@@ -760,103 +770,147 @@ body.page-home {
   object-position: center;
 }
 
-.page-home .journey-caption {
-  margin-top: 0.65rem;
-  color: rgba(7, 30, 59, 0.48);
-  font-size: 0.76rem;
-  line-height: 1.4;
-  text-align: right;
-}
-
 .page-home .journey-lead {
   max-width: 32rem;
 }
 
-.page-home .journey-lead .section-kicker {
+.page-home .journey-lead .section-kicker,
+.page-home .why-copy .section-kicker,
+.page-home .human-content .section-kicker {
   display: block;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.65rem;
   color: var(--gold);
+}
+
+.page-home .journey-lead .section-kicker::after,
+.page-home .why-copy .section-kicker::after,
+.page-home .human-content .section-kicker::after {
+  content: "";
+  display: block;
+  width: 6.35rem;
+  height: 2px;
+  margin-top: 1rem;
+  background: var(--gold);
 }
 
 .page-home .journey-lead h2 {
   max-width: none;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.45rem;
   color: var(--ink);
   font-size: var(--journey-display-size);
 }
 
 .page-home .journey-lead p {
-  max-width: 31rem;
+  max-width: 28.4rem;
   color: rgba(7, 30, 59, 0.74);
   font-size: 1rem;
-  line-height: 1.62;
+  line-height: 1.7;
 }
 
-.page-home .journey-steps-column {
+.page-home .journey-copy {
   grid-column: 1 / span 5;
-  width: 100%;
-  display: grid;
-  gap: 1.15rem;
+  width: calc(100% + 2rem);
+  min-height: var(--section-media-height);
+  height: var(--section-media-height);
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  margin-left: -2rem;
+  padding-top: 0;
 }
 
-
-/*
-  STEP CARD
-  Holds the three process steps in one white card.
-*/
-.page-home .journey-steps {
+.page-home .journey-proof-row {
   position: relative;
   display: grid;
-  gap: 0;
-  border: 1px solid rgba(7, 30, 59, 0.08);
-  border-radius: 0.82rem;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 46px rgba(16, 33, 60, 0.08);
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  width: 100%;
+  max-width: 31.25rem;
+  margin-top: 6.15rem;
+  color: var(--ink);
 }
 
-
-/*
-  VERTICAL DOTTED TIMELINE
-  This creates the line connecting the numbered step circles.
-*/
-.page-home .journey-steps::before {
+.page-home .journey-proof-row::before {
   content: "";
   position: absolute;
-  left: 2.95rem;
-  top: 4rem;
-  bottom: 4rem;
-  border-left: 1px dashed rgba(184, 139, 86, 0.66);
-  z-index: 0;
+  top: -5.7rem;
+  left: 0;
+  width: 3.75rem;
+  height: 2px;
+  background: var(--gold);
+}
+
+.page-home .journey-proof-row > span:not(.journey-proof-divider) {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  color: rgba(7, 30, 59, 0.74);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.page-home .journey-proof-row svg {
+  width: 2.05rem;
+  height: 2.05rem;
+  color: var(--gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+}
+
+.page-home .journey-proof-divider {
+  width: 1px;
+  min-height: 5.7rem;
+  background: rgba(178, 132, 78, 0.18);
+}
+
+.page-home .journey-link {
+  margin-top: auto;
+  border-color: rgba(184, 139, 86, 0.34);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/*
+  FLOATING STEP CARDS
+  These cards sit over the image, matching the reference layout.
+*/
+.page-home .journey-steps {
+  position: absolute;
+  top: 50%;
+  left: -6rem;
+  z-index: 2;
+  display: grid;
+  gap: 1.45rem;
+  width: min(28.5rem, 50vw);
+  transform: translateY(-50%);
 }
 
 .page-home .journey-item {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 3.8rem minmax(0, 1fr) 1.5rem;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 1.45rem;
   align-items: center;
-  gap: 1rem;
-  min-height: 6.2rem;
-  padding: 1rem 1.15rem;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.page-home .journey-item + .journey-item {
-  border-top: 1px solid rgba(178, 132, 78, 0.16);
+  gap: 1.15rem;
+  min-height: 8.25rem;
+  padding: 1.3rem 1.45rem;
+  border: 1px solid rgba(7, 30, 59, 0.06);
+  border-radius: 0.82rem;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 20px 42px rgba(16, 33, 60, 0.12);
 }
 
 .page-home .journey-number {
   display: grid;
   place-items: center;
-  width: 3.35rem;
-  height: 3.35rem;
-  border: 1px solid rgba(184, 139, 86, 0.13);
+  width: 3.45rem;
+  height: 3.45rem;
+  border: 1px solid rgba(184, 139, 86, 0.12);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(242, 235, 225, 0.98), rgba(235, 225, 212, 0.98));
+  background: rgba(238, 228, 214, 0.72);
   color: var(--ink);
   font-size: 1rem;
   font-weight: 700;
@@ -866,15 +920,15 @@ body.page-home {
   margin: 0 0 0.4rem;
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.15;
 }
 
 .page-home .journey-content p {
-  max-width: 31rem;
+  max-width: 20rem;
   color: rgba(7, 30, 59, 0.73);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   line-height: 1.52;
 }
 
@@ -892,8 +946,8 @@ body.page-home {
 
 
 /*
-  WHY IT IS BETTER / APP PREVIEW SECTION
-  Similar structure to journey, but with the mock app card.
+  WHY IT IS BETTER SECTION
+  Full-screen section with left explanation and a right-side interactive benefit card.
 */
 .page-home .app-experience {
   position: relative;
@@ -902,7 +956,7 @@ body.page-home {
   height: 100svh;
   display: grid;
   align-items: center;
-  padding: 2.25rem 0;
+  padding: var(--section-padding-y) 0;
   background:
     radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 36%),
     linear-gradient(180deg, #f8f2ea 0%, #f6efe5 100%);
@@ -914,50 +968,30 @@ body.page-home {
 
 
 /*
-  APP SECTION GRID
-  Left copy uses grid columns; app preview sits on the right.
+  WHY SECTION GRID
+  Left copy uses columns 1-5, and the interactive card uses columns 6-12.
 */
 .page-home .app-container {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 10rem), 1480px);
+  width: var(--container);
+  min-height: var(--section-media-height);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 4.25rem;
-  align-items: center;
+  column-gap: 3rem;
+  align-items: stretch;
 }
 
-.page-home .app-content {
+.page-home .why-copy {
   grid-column: 1 / span 5;
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  min-height: var(--section-media-height);
 }
 
-.page-home .app-content .section-kicker {
-  display: block;
-  margin-bottom: 0.85rem;
-  color: var(--gold);
-}
-
-
-/*
-  APP PREVIEW CARD
-  This creates the large rounded preview mockup on the right.
-*/
-.page-home .app-frame-wrapper {
-  grid-column: 7 / -1;
-  width: 100%;
-  max-width: 44.5rem;
-  justify-self: end;
-  padding: 1.55rem 1.75rem 1.45rem;
-  border: 1px solid rgba(7, 30, 59, 0.08);
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 26px 70px rgba(16, 33, 60, 0.08);
-  backdrop-filter: blur(12px);
-}
-
-.page-home .app-content h2,
+.page-home .why-copy h2,
 .page-home .human-content h2 {
   margin-bottom: 1.15rem;
   color: var(--ink);
@@ -965,299 +999,338 @@ body.page-home {
   max-width: 14.5ch;
 }
 
-.page-home .app-content h2 {
-  margin-bottom: 1.25rem;
-  max-width: 12.4ch;
-  font-size: clamp(3.15rem, 4.05vw, 4.05rem);
+.page-home .why-copy h2 {
+  margin-bottom: 1.2rem;
+  max-width: 12.8ch;
+  font-size: var(--journey-display-size);
   line-height: 1;
 }
 
-.page-home .app-content p,
+.page-home .why-copy p {
+  max-width: 31rem;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.page-home .why-copy p {
+  margin-bottom: 2rem;
+}
+
 .page-home .human-content p {
   max-width: 34rem;
+  margin-bottom: 1.35rem;
   font-size: 1rem;
   line-height: 1.55;
 }
 
-.page-home .app-content p,
-.page-home .human-content p {
-  margin-bottom: 1.35rem;
+.page-home .why-quote {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  align-content: center;
+  column-gap: 1.25rem;
+  row-gap: .5rem;
+  max-width: 33.5rem;
+  margin: 0 0 1.75rem;
+  padding: 1.45rem 1.45rem;
+  border: 1px solid rgba(178, 132, 78, 0.14);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.43);
 }
 
+.page-home .why-quote > span {
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 3.8rem;
+  line-height: 0.9;
+}
 
-/*
-  LEFT FEATURE LIST
-  Simple repeated rows with an icon and explanation.
-*/
-.page-home .feature-list {
-  display: grid;
+.page-home .why-quote blockquote {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.page-home .why-quote figcaption {
+  grid-column: 2;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+.page-home .why-proof-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 0;
   max-width: 33.5rem;
-  margin-top: 1.05rem;
-}
-
-.page-home .feature-list li {
-  display: grid;
-  grid-template-columns: 3.6rem minmax(0, 1fr);
-  gap: 1.1rem;
-  align-items: center;
-  padding: 0.72rem 0;
-}
-
-.page-home .feature-list li + li {
-  border-top: 1px dashed rgba(178, 132, 78, 0.25);
-}
-
-.page-home .feature-icon {
-  display: grid;
-  place-items: center;
-  width: 3.6rem;
-  height: 3.6rem;
-  border: 1px solid rgba(178, 132, 78, 0.17);
-  border-radius: 999px;
-  background: rgba(250, 246, 239, 0.62);
-  color: var(--gold);
-}
-
-.page-home .feature-icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  stroke-width: 1.65;
-}
-
-.page-home .feature-list strong {
-  display: block;
-  margin-bottom: 0.18rem;
-  font-family: var(--font-sans);
-  font-size: 0.94rem;
-  font-weight: 700;
-  line-height: 1.2;
+  min-height: 4.45rem;
+  padding: 0 1.35rem;
+  border: 1px solid rgba(178, 132, 78, 0.16);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.46);
   color: var(--ink);
+  font-size: 0.9rem;
 }
 
-.page-home .feature-list li > div > span {
-  display: block;
-  color: var(--ink-soft);
-  font-size: 0.88rem;
-  line-height: 1.42;
-}
-
-.page-home .app-frame {
-  width: 100%;
-}
-
-.page-home .app-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.1rem;
-  color: rgba(16, 33, 60, 0.58);
-}
-
-.page-home .app-main h4 {
-  margin: 0 0 0.8rem;
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 700;
-}
-
-.page-home .app-search {
-  margin-bottom: 1rem;
-  padding: 0.9rem 1.05rem;
-  border: 1px solid rgba(178, 132, 78, 0.2);
-  border-radius: 0.8rem;
-  background: rgba(250, 246, 239, 0.78);
-  color: var(--ink);
-  font-size: 0.94rem;
-  line-height: 1.5;
-}
-
-.page-home .app-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0 0 0.9rem;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid rgba(178, 132, 78, 0.16);
-}
-
-.page-home .app-tag {
+.page-home .why-proof-row span:not(.why-dot) {
   display: inline-flex;
   align-items: center;
-  gap: 0.42rem;
-  min-height: 1.9rem;
-  padding: 0 0.68rem;
-  border: 1px solid rgba(178, 132, 78, 0.18);
-  border-radius: 999px;
-  background: rgba(250, 246, 239, 0.72);
-  color: var(--ink);
-  font-size: 0.74rem;
-  line-height: 1;
+  gap: 0.65rem;
 }
 
-.page-home .app-tag svg {
-  width: 1rem;
-  height: 1rem;
+.page-home .why-proof-row svg {
+  width: 1.4rem;
+  height: 1.4rem;
   color: var(--gold);
   stroke-width: 1.55;
 }
 
-.page-home .app-card {
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(178, 132, 78, 0.18);
-  border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.72);
+.page-home .why-dot {
+  width: 1px;
+  height: 2.15rem;
+  border-radius: 0;
+  background: rgba(178, 132, 78, 0.18);
 }
 
-.page-home .app-card + .app-card {
-  margin-top: 0.85rem;
-}
-
-.page-home .app-card-tag {
+.page-home .section-pill-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.42rem;
-  padding: 0.22rem 0.55rem;
+  justify-content: center;
+  gap: 0.85rem;
+  width: 19rem;
+  min-height: 3.7rem;
+  padding: 0 1.75rem;
+  border: 1px solid rgba(184, 139, 86, 0.28);
   border-radius: 999px;
-  background: rgba(47, 128, 111, 0.12);
-  color: #0f5b55;
-  font-family: var(--font-sans);
-  font-size: 0.66rem;
-  font-weight: 700;
-}
-
-.page-home .app-card-tag-icon {
-  display: grid;
-  place-items: center;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  font-size: 0.76rem;
-}
-
-
-/*
-  MATCHED LOCAL PROFILE LAYOUT
-  Avatar, text, and proof list sit in a grid.
-*/
-.page-home .app-profile {
-  display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) 10.8rem;
-  gap: 1.1rem;
-  align-items: center;
-}
-
-.page-home .app-avatar {
-  display: grid;
-  place-items: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 999px;
-  background: rgba(235, 221, 202, 0.86);
-  color: var(--ink);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.page-home .app-bio {
-  max-width: 26rem;
-  margin-top: 0.4rem;
-  color: var(--ink);
-  font-size: 0.8rem;
-  line-height: 1.45;
-}
-
-.page-home .app-proof-list {
-  display: grid;
-  gap: 0.55rem;
-  padding-left: 1rem;
-  border-left: 1px solid rgba(178, 132, 78, 0.2);
-  color: var(--ink);
-  font-size: 0.78rem;
-}
-
-.page-home .app-proof-list li {
-  display: grid;
-  grid-template-columns: 1.05rem minmax(0, 1fr);
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.page-home .app-proof-list svg {
+  background: rgba(255, 255, 255, 0.44);
   color: var(--gold);
-  stroke-width: 1.55;
-}
-
-.page-home .app-info strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--ink);
+  font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.page-home .app-meta {
-  color: var(--ink-soft);
-  font-size: 0.84rem;
-  line-height: 1.5;
+.page-home .section-pill-link:hover,
+.page-home .section-pill-link:focus-visible {
+  background: #082b55;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(16, 33, 60, 0.14);
 }
 
-.page-home .app-match-reason {
-  display: grid;
-  grid-template-columns: 1.9rem minmax(0, 1fr);
-  gap: 0.8rem;
-  align-items: start;
-  margin-top: 0.9rem;
-  color: var(--ink);
+.page-home .section-pill-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
 }
 
-.page-home .app-section-title {
-  margin-top: 0.65rem;
+.page-home .why-link {
+  margin-top: auto;
 }
 
-.page-home .app-reason-tags {
+.page-home .why-interactive {
+  grid-column: 6 / -1;
+  align-self: stretch;
+  justify-self: stretch;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.55rem;
-  padding-left: 2.7rem;
+  flex-direction: column;
+  width: calc(100% - 6.5rem);
+  max-width: 58rem;
+  margin-left: 6.5rem;
+  min-height: var(--section-media-height);
+  padding: 1.45rem 1.65rem 1.3rem;
+  border: 1px solid rgba(7, 30, 59, 0.08);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 26px 70px rgba(16, 33, 60, 0.08);
 }
 
-.page-home .app-reason-tags span {
-  display: inline-flex;
+.page-home .why-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 1.35rem;
+  padding: 0.05rem 0 0.65rem;
+  border-bottom: 1px solid rgba(178, 132, 78, 0.14);
+}
+
+.page-home .why-tab {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1.4rem minmax(0, 1fr);
+  justify-items: center;
   align-items: center;
-  min-height: 1.55rem;
-  padding: 0 0.65rem;
-  border: 1px solid rgba(178, 132, 78, 0.18);
-  border-radius: 999px;
-  background: rgba(250, 246, 239, 0.72);
+  gap: 0.45rem;
+  min-height: 4.35rem;
+  padding: 0.15rem 0.5rem 0.45rem;
+  border: 0;
+  border-left: 1px solid rgba(178, 132, 78, 0.14);
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
-  font-size: 0.66rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.page-home .app-match-reason p {
-  color: var(--ink-soft);
-  font-size: 0.78rem;
-  line-height: 1.45;
+.page-home .why-tab:first-child {
+  border-left: 0;
 }
 
-.page-home .app-match-reason strong {
-  color: var(--ink);
+.page-home .why-tab span:last-child {
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
-.page-home .app-reason-icon {
+.page-home .why-tab:hover,
+.page-home .why-tab:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.page-home .why-tab.is-active {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: none;
+}
+
+.page-home .why-tab.is-active::after {
+  content: "";
+  position: absolute;
+  right: 0.8rem;
+  bottom: -0.66rem;
+  left: 0.8rem;
+  height: 2px;
+  background: var(--gold);
+}
+
+.page-home .why-tab-icon {
   display: grid;
   place-items: center;
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: rgba(7, 30, 59, 0.64);
+}
+
+.page-home .why-tab.is-active .why-tab-icon {
   color: var(--gold);
 }
 
-.page-home .app-reason-icon svg {
-  stroke-width: 1.5;
+.page-home .why-tab-icon svg {
+  stroke-width: 1.45;
+}
+
+.page-home .why-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+  gap: 1.45rem;
+  align-items: center;
+  flex: 1;
+  margin: 0;
+  padding: 1.45rem;
+  border: 1px solid rgba(178, 132, 78, 0.14);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.page-home .why-panel-copy {
+  align-self: center;
+}
+
+.page-home .why-panel h4 {
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 1.85vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.page-home .why-panel h4::after {
+  content: "";
+  display: block;
+  width: 3.1rem;
+  height: 2px;
+  margin-top: 1.1rem;
+  background: var(--gold);
+}
+
+.page-home .why-panel p {
+  max-width: 19rem;
+  margin: 0;
+  color: rgba(7, 30, 59, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.page-home .why-panel-visual {
+  margin: 0;
+}
+
+.page-home .why-panel-visual img {
+  width: 100%;
+  height: clamp(18rem, 34svh, 22rem);
+  display: block;
+  border-radius: 0.85rem;
+  object-fit: cover;
+}
+
+.page-home .why-controls {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(178, 132, 78, 0.14);
+}
+
+.page-home .why-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(178, 132, 78, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.page-home .why-arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 1.8;
+}
+
+.page-home .why-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.page-home .why-dots button {
+  width: 0.62rem;
+  height: 0.62rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(7, 30, 59, 0.28);
+  cursor: pointer;
+}
+
+.page-home .why-dots button.is-active {
+  background: var(--gold);
 }
 
 
@@ -1270,7 +1343,7 @@ body.page-home {
   height: 100svh;
   display: grid;
   align-items: center;
-  padding: 3rem 0;
+  padding: var(--section-padding-y) 0;
   background: #fdfbf7;
 }
 
@@ -1281,16 +1354,17 @@ body.page-home {
 */
 .page-home .human-container {
   width: var(--container);
+  min-height: var(--section-media-height);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 1.8rem;
-  align-items: stretch;
+  column-gap: 3rem;
+  align-items: start;
 }
 
 .page-home .human-image {
   grid-column: 1 / span 5;
-  min-height: clamp(22rem, 52svh, 30rem);
+  margin: 0;
 }
 
 .page-home .image-placeholder,
@@ -1300,6 +1374,7 @@ body.page-home {
 }
 
 .page-home .image-placeholder {
+  height: var(--section-media-height);
   overflow: hidden;
   border-radius: 0.5rem;
 }
@@ -1310,11 +1385,10 @@ body.page-home {
 
 .page-home .human-content {
   grid-column: 7 / span 5;
-  align-self: center;
-}
-
-.page-home .human-content .section-kicker {
-  color: var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  min-height: var(--section-media-height);
 }
 
 .page-home .human-summary {
@@ -1328,7 +1402,7 @@ body.page-home {
 */
 .page-home .safety-list {
   display: grid;
-  gap: 0.7rem;
+  gap: 0;
   margin-top: 1.8rem;
 }
 
@@ -1336,8 +1410,12 @@ body.page-home {
   display: grid;
   grid-template-columns: 2.4rem minmax(0, 1fr);
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
+  min-height: 4.05rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(7, 30, 59, 0.1);
   color: var(--ink-soft);
+  font-size: 1rem;
 }
 
 .page-home .safety-icon {
@@ -1354,6 +1432,10 @@ body.page-home {
   width: 1.05rem;
   height: 1.05rem;
   stroke-width: 1.6;
+}
+
+.page-home .safety-link {
+  margin-top: auto;
 }
 
 
@@ -1450,9 +1532,9 @@ body.page-home {
 }
 
 .page-home .pilot-footer-form .form-input,
-.page-home .pilot-footer-button{
+.page-home .pilot-footer-button {
   min-height: 0;
-  height: 100%
+  height: 100%;
 }
 
 .page-home .pilot-footer-email {
@@ -1653,32 +1735,28 @@ body.page-home {
     gap: 2.4rem;
   }
 
-  .page-home .journey-steps::before {
-    left: 2.95rem;
-    top: 4rem;
-    bottom: 4rem;
+  .page-home .journey-steps {
+    left: -4.5rem;
+    width: min(28rem, 56vw);
+    gap: 1rem;
   }
 
   .page-home .journey-item {
-    grid-template-columns: 3.8rem minmax(0, 1fr) 1.5rem;
-    min-height: 6.2rem;
-    gap: 1rem;
-    padding: 1rem 1.15rem;
+    grid-template-columns: 3.1rem minmax(0, 1fr) 1.3rem;
+    min-height: 7.2rem;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
   }
 
   .page-home .journey-number {
-    width: 3.35rem;
-    height: 3.35rem;
-    font-size: 1rem;
+    width: 3.05rem;
+    height: 3.05rem;
+    font-size: 0.9rem;
   }
 
   .page-home .journey-content h3 {
     margin-bottom: 0.4rem;
     font-size: 1.18rem;
-  }
-
-  .page-home .journey-content p {
-    font-size: 0.9rem;
   }
 
   .page-home .journey-lead p {
@@ -1749,8 +1827,8 @@ body.page-home {
 
   .page-home .hero-left,
   .page-home .hero-pilot-card,
-  .page-home .app-content,
-  .page-home .app-frame-wrapper,
+  .page-home .why-copy,
+  .page-home .why-interactive,
   .page-home .human-image,
   .page-home .human-content {
     grid-column: 1;
@@ -1780,11 +1858,20 @@ body.page-home {
     row-gap: 2.2rem;
   }
 
+  .page-home .journey-copy,
+  .page-home .journey-showcase,
   .page-home .journey-visual,
   .page-home .journey-lead,
-  .page-home .journey-steps-column {
+  .page-home .journey-steps {
     grid-column: 1;
     grid-row: auto;
+  }
+
+  .page-home .journey-copy {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    margin-left: 0;
   }
 
   .page-home .journey-visual {
@@ -1795,8 +1882,15 @@ body.page-home {
     height: 28rem;
   }
 
-  .page-home .journey-steps::before {
-    display: none;
+  .page-home .image-placeholder {
+    height: 28rem;
+  }
+
+  .page-home .journey-steps {
+    position: static;
+    width: 100%;
+    transform: none;
+    margin-top: 1rem;
   }
 
   .page-home .journey-item {
@@ -1810,21 +1904,32 @@ body.page-home {
     display: none;
   }
 
-  .page-home .app-frame-wrapper {
-    max-width: min(100%, 32rem);
+  .page-home .why-interactive {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
     justify-self: start;
   }
 
-  .page-home .app-profile {
-    grid-template-columns: 4rem minmax(0, 1fr);
+  .page-home .why-copy {
+    min-height: auto;
   }
 
-  .page-home .app-proof-list {
-    grid-column: 1 / -1;
-    padding-left: 0;
-    padding-top: 0.9rem;
-    border-left: 0;
-    border-top: 1px solid rgba(178, 132, 78, 0.2);
+  .page-home .why-link {
+    margin-top: 1.45rem;
+  }
+
+  .page-home .why-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .page-home .why-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .page-home .why-panel-visual img {
+    min-height: 0;
+    max-height: 17rem;
   }
 
   .page-home .pilot-footer-shell {
@@ -1878,19 +1983,43 @@ body.page-home {
     padding-top: 5rem;
   }
 
-  .page-home .app-content h2,
+  .page-home .why-copy h2,
   .page-home .human-content h2 {
     font-size: 2.45rem;
   }
 
-  .page-home .feature-list li {
-    grid-template-columns: 3.25rem minmax(0, 1fr);
-    gap: 1rem;
+  .page-home .why-copy p {
+    font-size: 1rem;
   }
 
-  .page-home .feature-icon {
-    width: 3.25rem;
-    height: 3.25rem;
+  .page-home .why-quote {
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+  }
+
+  .page-home .why-quote figcaption {
+    grid-column: 1;
+  }
+
+  .page-home .why-proof-row {
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .page-home .why-interactive {
+    padding: 1.25rem;
+  }
+
+  .page-home .why-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-home .why-panel {
+    padding: 1.15rem;
+  }
+
+  .page-home .why-panel h4 {
+    font-size: 1.8rem;
   }
 
   .page-home .journey-item {
@@ -1901,6 +2030,27 @@ body.page-home {
   .page-home .journey-number {
     width: 2.85rem;
     height: 2.85rem;
+  }
+
+  .page-home .journey-proof-row {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .page-home .journey-proof-row > span:not(.journey-proof-divider) {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    justify-items: start;
+    text-align: left;
+  }
+
+  .page-home .journey-proof-divider {
+    display: none;
+  }
+
+  .page-home .journey-link {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1.5rem;
   }
 
   .page-home .pilot-footer-form {

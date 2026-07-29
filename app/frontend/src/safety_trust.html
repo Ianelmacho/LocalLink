@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Link - Safety & Trust</title>
+  <meta name="description" content="Learn how Local Link builds trust before travelers and locals meet." />
+  <link rel="stylesheet" href="styles.css?v=16" />
+  <style>
+    body {
+      background: #fbf7f0;
+      color: var(--ll-navy);
+    }
+
+    .safety-page {
+      min-height: 100svh;
+      padding: 9.5rem 4.5rem 4.5rem;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 34%),
+        linear-gradient(180deg, #fdfbf7 0%, #f6efe5 100%);
+    }
+
+    .safety-page-shell {
+      width: min(calc(100% - 2rem), 1320px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .safety-page-image {
+      margin: 0;
+    }
+
+    .safety-page-image img {
+      width: 100%;
+      height: min(66svh, 38rem);
+      display: block;
+      border-radius: 1.2rem;
+      object-fit: cover;
+      box-shadow: 0 24px 70px rgba(16, 33, 60, 0.12);
+    }
+
+    .safety-page-caption {
+      margin-top: 0.65rem;
+      color: rgba(10, 43, 86, 0.5);
+      font-size: 0.76rem;
+      text-align: right;
+    }
+
+    .safety-page-copy {
+      padding-top: 0.2rem;
+    }
+
+    .safety-page-kicker {
+      display: block;
+      margin-bottom: 1rem;
+      color: #b88b57;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .safety-page-copy h1 {
+      max-width: 11ch;
+      margin: 0 0 1.25rem;
+      color: var(--ll-navy);
+      font-size: clamp(3.25rem, 5vw, 5.4rem);
+      line-height: 0.98;
+    }
+
+    .safety-page-copy > p {
+      max-width: 43rem;
+      color: rgba(10, 43, 86, 0.78);
+      font-size: 1.08rem;
+      line-height: 1.72;
+    }
+
+    .safety-page-list {
+      display: grid;
+      margin: 2rem 0 0;
+      list-style: none;
+    }
+
+    .safety-page-list li {
+      display: grid;
+      grid-template-columns: 2.7rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      min-height: 4.4rem;
+      border-bottom: 1px solid rgba(10, 43, 86, 0.12);
+      color: rgba(10, 43, 86, 0.8);
+      font-size: 1rem;
+    }
+
+    .safety-page-icon {
+      display: grid;
+      place-items: center;
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 999px;
+      background: #f1e8dc;
+      color: #b88b57;
+    }
+
+    .safety-page-icon svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 900px) {
+      .safety-page {
+        padding: 8rem 1.25rem 4rem;
+      }
+
+      .safety-page-shell {
+        width: min(100%, 720px);
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+      }
+
+      .safety-page-image img {
+        height: 28rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" />
+              <path d="M12 12.1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+          </span>
+          <span>Local Link</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="how_it_works.html">How it works</a></li>
+        <li><a href="mission.html">Our mission</a></li>
+        <li><a href="safety_trust.html">Safety &amp; trust</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="join_pilot.html" class="btn btn-outline">Join pilot</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="safety-page">
+    <div class="safety-page-shell">
+      <figure class="safety-page-image">
+        <img src="local_hero.png" alt="Travelers standing together at golden hour" />
+        <figcaption class="safety-page-caption">Mountain overlook at golden hour - Photo via Local Link.</figcaption>
+      </figure>
+
+      <section class="safety-page-copy" aria-labelledby="safetyTitle">
+        <span class="safety-page-kicker">Safety and trust</span>
+        <h1 id="safetyTitle">More Adventure, Less Uncertainty</h1>
+        <p>Safety is the foundation of Local Link. Every person, plan, and experience is carefully reviewed so both travellers and hosts feel protected, prepared, and supported every step of the way.</p>
+        <ul class="safety-page-list">
+          <li>
+            <span class="safety-page-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 12.2a3.2 3.2 0 1 0-3.2-3.2 3.2 3.2 0 0 0 3.2 3.2Z" />
+                <path d="M5.8 18.3c1.1-2.6 3.3-4 6.2-4s5.1 1.4 6.2 4" />
+              </svg>
+            </span>
+            <span>Verified identity for all active local profiles</span>
+          </li>
+          <li>
+            <span class="safety-page-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3.8 6 6.2v5.5c0 4.2 2.6 7 6 8.5 3.4-1.5 6-4.3 6-8.5V6.2Z" />
+                <path d="m9.5 12.3 1.7 1.7 3.4-3.6" />
+              </svg>
+            </span>
+            <span>Background checks during pilot approval</span>
+          </li>
+          <li>
+            <span class="safety-page-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4.2 5.5 6.8v5.6c0 3.8 2.4 6.5 6.5 7.9 4.1-1.4 6.5-4.1 6.5-7.9V6.8Z" />
+                <path d="M12 8v4.2" />
+                <path d="M12 15.7h.01" />
+              </svg>
+            </span>
+            <span>Ongoing quality standards to remain active</span>
+          </li>
+          <li>
+            <span class="safety-page-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5.3 6.3h13.4v11.4H5.3z" />
+                <path d="M8.3 9.5h7.4M8.3 12.5h5.3" />
+              </svg>
+            </span>
+            <span>Clear expectations before any booking begins</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
