@@ -251,7 +251,7 @@ img {
 
 .nav {
   position: absolute;
-  top: 2rem;
+  top: 1.25rem;
   left: 0;
   right: 0;
   transform: none;
@@ -271,8 +271,8 @@ img {
 .nav-container {
   width: min(100%, 1840px);
   margin: 0 auto;
-  padding: 0 1.45rem 0 2.9rem;
-  height: 5.7rem;
+  padding: 0 0.85rem 0 1.85rem;
+  height: 4rem;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: var(--radius-pill);
   background: rgba(255, 246, 236, 0.34);
@@ -344,12 +344,13 @@ img {
 .nav-cta .btn,
 .nav-cta .btn-primary,
 .nav-cta .btn-outline {
-  min-height: 3.25rem;
-  padding: 0 1.35rem;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  min-height: 2.35rem;
+  padding: 0 1.05rem;
+  border: 0 !important;
   border-radius: var(--radius-pill);
-  background: linear-gradient(180deg, rgba(17, 90, 92, 0.98), rgba(7, 69, 72, 0.98)) !important;
-  color: rgba(255, 255, 255, 0.96) !important;
+  background: #082b55 !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px rgba(16, 33, 60, 0.1);
   font-size: 0.92rem;
   font-weight: 700;
   text-transform: none;
@@ -738,7 +739,7 @@ img {
   }
 
   .nav-container {
-    height: 3.75rem;
+    height: 3.35rem;
     padding: 0 0.5rem 0 1rem;
   }
 

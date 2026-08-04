@@ -148,7 +148,7 @@ body.page-home {
 */
 .page-home .nav {
   position: absolute;
-  top: 2rem;
+  top: 1.25rem;
   left: 0;
   right: 0;
   z-index: 50;
@@ -165,10 +165,10 @@ body.page-home {
   This is the rounded glass-style bar that holds the logo, nav links, and CTA button.
 */
 .page-home .nav-container {
-  height: 4.75rem;
+  height: 4rem;
   width: min(100%, 1840px);
   margin: 0 auto;
-  padding: 0 1.05rem 0 2.25rem;
+  padding: 0 0.85rem 0 1.85rem;
   border: 1px solid rgba(255, 252, 252, 0.72);
   border-radius: 999px;
   background: rgba(255, 246, 236, 0.34);
@@ -208,7 +208,6 @@ body.page-home {
 .page-home .logo-mark svg,
 .page-home .hero-eyebrow-icon svg,
 .page-home .hero-input-icon svg,
-.page-home .hero-pilot-icon svg,
 .page-home .journey-icon svg,
 .page-home .safety-icon svg,
 .page-home .why-proof-row svg,
@@ -264,8 +263,8 @@ body.page-home {
   align-items: center;
   justify-content: center;
   min-width: 7.15rem;
-  min-height: 2.75rem;
-  padding: 0 1.15rem;
+  min-height: 2.35rem;
+  padding: 0 1.05rem;
   border: 0;
   border-radius: 999px;
   background: #082b55;
@@ -304,32 +303,15 @@ body.page-home {
 /*
   HERO SECTION
   This is the first full-screen section.
-  The background stacks a soft colour overlay on top of hero.png.
+  The hero image is shown directly without a gradient or blur filter.
 */
 .page-home .hero {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(255, 248, 238, 0.12), rgba(255, 248, 238, 0.06)),
-    url("hero.png") center 47% / cover no-repeat;
+  background: url("hero.png") center 47% / cover no-repeat;
 }
 
-
-/*
-  HERO IMAGE FILTER LAYER
-  This pseudo-element subtly blurs/saturates the whole hero background.
-  If the hero looks too hazy, reduce blur(1.15px) or remove this block.
-*/
-.page-home .hero::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  z-index: 0;
-  backdrop-filter: blur(1.15px) saturate(0.94);
-  -webkit-backdrop-filter: blur(1.15px) saturate(0.94);
-  pointer-events: none;
-}
 
 .page-home .hero::before {
   display: none;
@@ -565,7 +547,7 @@ body.page-home {
   padding: 2rem 2.2rem 1.8rem;
   border: 1px solid rgba(7, 30, 59, 0.13);
   border-radius: 1.55rem;
-  background: rgba(224, 209, 190, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   color: var(--ink);
   box-shadow: 0 26px 70px rgba(16, 33, 60, 0.16);
   backdrop-filter: blur(18px);
@@ -574,7 +556,7 @@ body.page-home {
 .page-home .hero-pilot-card h2 {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(7, 30, 59, 0.18);
+  border-bottom: 1px solid rgba(7, 30, 59, 0.2);
   font-family: var(--font-serif);
   color: var(--ink);
   font-size: 1.65rem;
@@ -590,14 +572,15 @@ body.page-home {
 
 /*
   PILOT CARD ROWS
-  Each row has icon, number, and text columns.
+  Each row has the outlined number circle and text, matching the hero reference.
 */
 .page-home .hero-pilot-item {
   display: grid;
-  grid-template-columns: 3.8rem 2rem minmax(0, 1fr);
+  grid-template-columns: 3.9rem minmax(0, 1fr);
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 1.35rem;
+  min-height: 1.7rem;
+  padding: 0.95rem 0;
 }
 
 .page-home .hero-pilot-item:first-child {
@@ -605,59 +588,31 @@ body.page-home {
 }
 
 .page-home .hero-pilot-item + .hero-pilot-item {
-  border-top: 1px solid rgba(7, 30, 59, 0.17);
-}
-
-.page-home .hero-pilot-icon {
-  display: grid;
-  place-items: center;
-  width: 3.8rem;
-  height: 3.8rem;
-  border-radius: 999px;
-  color: var(--ink);
-  box-shadow: inset 0 0 0 1px rgba(7, 30, 59, 0.04);
-}
-
-.page-home .hero-pilot-icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  stroke-width: 1.7;
+  border-top: 1px solid rgba(7, 30, 59, 0.18);
 }
 
 .page-home .hero-pilot-number {
   display: grid;
   place-items: center;
-  width: 1.95rem;
-  height: 1.95rem;
-  border: 1px solid rgba(7, 30, 59, 0.18);
+  width: 3rem;
+  height: 3rem;
+  border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
+  background:
+    radial-gradient(circle at 0% 0%, #f5ebdc 0%, #e9dac6 76%),
+    #e9dac6;
   color: var(--ink);
-  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
   font-weight: 700;
-}
-
-.page-home .hero-pilot-icon-gold {
-  background: #f3dfb7;
-}
-
-.page-home .hero-pilot-icon-blue {
-  background: #e3edf5;
-}
-
-.page-home .hero-pilot-icon-green {
-  background: #e2efd5;
-}
-
-.page-home .hero-pilot-icon-coral {
-  background: #f9d9ca;
+  line-height: 1;
 }
 
 .page-home .hero-pilot-item strong {
   display: block;
-  margin-bottom: 0.42rem;
+  margin-bottom: 0.4rem;
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -666,7 +621,7 @@ body.page-home {
   display: block;
   color: rgba(7, 30, 59, 0.72);
   font-size: 0.88rem;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 
@@ -727,21 +682,6 @@ body.page-home {
   align-items: start;
 }
 
-.page-home .journey [data-animate] {
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
-.page-home .app-experience [data-animate],
-.page-home .human-connection [data-animate],
-.page-home .pilot-footer [data-animate] {
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
-
 /*
   HOW IT WORKS IMAGE
   object-fit: cover keeps the image filling the box without distortion.
@@ -778,7 +718,7 @@ body.page-home {
 .page-home .why-copy .section-kicker,
 .page-home .human-content .section-kicker {
   display: block;
-  margin-bottom: 1.65rem;
+  margin-bottom: 1.85rem;
   color: var(--gold);
 }
 
@@ -827,18 +767,21 @@ body.page-home {
   gap: 1.1rem;
   width: 100%;
   max-width: 31.25rem;
-  margin-top: 6.15rem;
+  margin-top: 3.65rem;
   color: var(--ink);
 }
 
 .page-home .journey-proof-row::before {
   content: "";
   position: absolute;
-  top: -5.7rem;
   left: 0;
-  width: 3.75rem;
+  width: 100%;
   height: 2px;
-  background: var(--gold);
+  background: rgba(184, 139, 87, 0.72);
+}
+
+.page-home .journey-proof-row::before {
+  top: -3rem;
 }
 
 .page-home .journey-proof-row > span:not(.journey-proof-divider) {
@@ -868,9 +811,17 @@ body.page-home {
 }
 
 .page-home .journey-link {
+  position: relative;
   margin-top: auto;
+  transform: translateY(-2rem);
   border-color: rgba(184, 139, 86, 0.34);
   background: rgba(255, 255, 255, 0.4);
+}
+
+.page-home .journey-link:hover,
+.page-home .journey-link:focus-visible,
+.page-home .journey-link:active {
+  transform: translateY(-2rem);
 }
 
 /*
@@ -957,9 +908,7 @@ body.page-home {
   display: grid;
   align-items: center;
   padding: var(--section-padding-y) 0;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 36%),
-    linear-gradient(180deg, #f8f2ea 0%, #f6efe5 100%);
+  background: #f6efe5;
 }
 
 .page-home .app-experience::before {
@@ -1097,16 +1046,16 @@ body.page-home {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
-  width: 19rem;
-  min-height: 3.7rem;
-  padding: 0 1.75rem;
+  gap: 1rem;
+  width: 13rem;
+  min-height: 2.7rem;
+  padding: 1 2.75rem;
   border: 1px solid rgba(184, 139, 86, 0.28);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.44);
   color: var(--gold);
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: .75rem;
   font-weight: 700;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1129,6 +1078,7 @@ body.page-home {
 
 .page-home .why-link {
   margin-top: auto;
+  transform: translateY(2rem);
 }
 
 .page-home .why-interactive {
@@ -1137,9 +1087,9 @@ body.page-home {
   justify-self: stretch;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 6.5rem);
-  max-width: 58rem;
-  margin-left: 6.5rem;
+  width: calc(100% - 2.5rem);
+  max-width: 62rem;
+  margin-left: 2.5rem;
   min-height: var(--section-media-height);
   padding: 1.45rem 1.65rem 1.3rem;
   border: 1px solid rgba(7, 30, 59, 0.08);
@@ -1231,8 +1181,8 @@ body.page-home {
 
 .page-home .why-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
-  gap: 1.45rem;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 19rem);
+  gap: 2rem;
   align-items: center;
   flex: 1;
   margin: 0;
@@ -1244,6 +1194,7 @@ body.page-home {
 
 .page-home .why-panel-copy {
   align-self: center;
+  max-width: 30rem;
 }
 
 .page-home .why-panel h4 {
@@ -1266,7 +1217,7 @@ body.page-home {
 }
 
 .page-home .why-panel p {
-  max-width: 19rem;
+  max-width: 29rem;
   margin: 0;
   color: rgba(7, 30, 59, 0.72);
   font-size: 0.98rem;
@@ -1275,11 +1226,14 @@ body.page-home {
 
 .page-home .why-panel-visual {
   margin: 0;
+  width: min(100%, 19rem);
+  justify-self: end;
 }
 
 .page-home .why-panel-visual img {
   width: 100%;
-  height: clamp(18rem, 34svh, 22rem);
+  aspect-ratio: 1 / 1;
+  height: auto;
   display: block;
   border-radius: 0.85rem;
   object-fit: cover;
@@ -1436,6 +1390,13 @@ body.page-home {
 
 .page-home .safety-link {
   margin-top: auto;
+  transform: translateY(2.2rem);
+}
+
+.page-home .safety-link:hover,
+.page-home .safety-link:focus-visible,
+.page-home .safety-link:active {
+  transform: translateY(2.2rem);
 }
 
 
@@ -1783,7 +1744,7 @@ body.page-home {
 
   .page-home .nav-container {
     width: calc(100% - 0.5rem);
-    height: 3.75rem;
+    height: 3.35rem;
     padding: 0 0.5rem 0 1rem;
   }
 
@@ -1929,7 +1890,7 @@ body.page-home {
 
   .page-home .why-panel-visual img {
     min-height: 0;
-    max-height: 17rem;
+    max-height: 16rem;
   }
 
   .page-home .pilot-footer-shell {
