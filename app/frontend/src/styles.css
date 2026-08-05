@@ -273,15 +273,16 @@ img {
   margin: 0 auto;
   padding: 0 0.85rem 0 1.85rem;
   height: 4rem;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 252, 252, 0.72);
   border-radius: var(--radius-pill);
   background: rgba(255, 246, 236, 0.34);
-  box-shadow: 0 18px 42px rgba(16, 33, 60, 0.14);
+  box-shadow: 0 12px 30px rgba(16, 33, 60, 0.11);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .nav-logo .logo-link {
