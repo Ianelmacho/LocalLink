@@ -1358,6 +1358,7 @@ body.page-home {
   display: grid;
   gap: 0;
   margin-top: 1.8rem;
+  transform: translateY(-2rem);
 }
 
 .page-home .safety-list li {
@@ -1390,13 +1391,13 @@ body.page-home {
 
 .page-home .safety-link {
   margin-top: auto;
-  transform: translateY(2.2rem);
+  transform: translateY(0.2rem);
 }
 
 .page-home .safety-link:hover,
 .page-home .safety-link:focus-visible,
 .page-home .safety-link:active {
-  transform: translateY(2.2rem);
+  transform: translateY(0.2rem);
 }
 
 
