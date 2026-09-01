@@ -411,7 +411,7 @@ body.page-home {
   Grid creates two parts: flexible email input + fixed-width button.
 */
 .page-home .hero-capture {
-  display: grid;sdf
+  display: grid;
   width: min(100%, 30rem);
   height: 2.7rem;
   grid-template-columns: minmax(0, 4.5fr) 8rem;
@@ -547,10 +547,10 @@ body.page-home {
   padding: 2rem 2.2rem 1.8rem;
   border: 1px solid rgba(7, 30, 59, 0.13);
   border-radius: 1.55rem;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.82);
   color: var(--ink);
   box-shadow: 0 26px 70px rgba(16, 33, 60, 0.16);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
 }
 
 .page-home .hero-pilot-card h2 {
@@ -754,6 +754,7 @@ body.page-home {
   height: var(--section-media-height);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-self: start;
   margin-left: -2rem;
   padding-top: 0;
@@ -764,10 +765,10 @@ body.page-home {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.85rem;
   width: 100%;
   max-width: 31.25rem;
-  margin-top: 3.65rem;
+  margin-top: 0;
   color: var(--ink);
 }
 
@@ -776,18 +777,31 @@ body.page-home {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: rgba(184, 139, 87, 0.72);
+  top: -2.6rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(184, 139, 87, 0.72) 0 calc(50% - 1.75rem),
+    transparent calc(50% - 1.75rem) calc(50% + 1.75rem),
+    rgba(184, 139, 87, 0.72) calc(50% + 1.75rem) 100%
+  );
 }
 
-.page-home .journey-proof-row::before {
-  top: -3rem;
+.page-home .journey-proof-row::after {
+  content: "";
+  position: absolute;
+  top: -2.78rem;
+  left: 50%;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: var(--gold);
+  transform: translateX(-50%) rotate(45deg);
 }
 
 .page-home .journey-proof-row > span:not(.journey-proof-divider) {
   display: grid;
   justify-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   text-align: center;
   color: rgba(7, 30, 59, 0.74);
   font-size: 0.76rem;
@@ -795,25 +809,30 @@ body.page-home {
   line-height: 1.45;
 }
 
-.page-home .journey-proof-row svg {
-  width: 2.05rem;
-  height: 2.05rem;
-  color: var(--gold);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.45;
+.page-home .journey-proof-row .proof-stamp {
+  display: block;
+  width: 3.15rem;
+  height: 3.15rem;
+  border: 0;
+  object-fit: contain;
+}
+
+.page-home .journey-proof-row .proof-stamp--verified,
+.page-home .journey-proof-row .proof-stamp--value {
+  width: 3.4rem;
+  height: 3.4rem;
 }
 
 .page-home .journey-proof-divider {
   width: 1px;
-  min-height: 5.7rem;
+  min-height: 5.8rem;
   background: rgba(178, 132, 78, 0.18);
 }
 
 .page-home .journey-link {
   position: relative;
-  margin-top: auto;
-  transform: translateY(-2rem);
+  margin-top: 0;
+  transform: none;
   border-color: rgba(184, 139, 86, 0.34);
   background: rgba(255, 255, 255, 0.4);
 }
@@ -821,7 +840,7 @@ body.page-home {
 .page-home .journey-link:hover,
 .page-home .journey-link:focus-visible,
 .page-home .journey-link:active {
-  transform: translateY(-2rem);
+  transform: none;
 }
 
 /*
@@ -965,6 +984,40 @@ body.page-home {
   margin-bottom: 2rem;
 }
 
+.page-home .why-copy > p,
+.page-home .human-summary {
+  position: relative;
+}
+
+.page-home .why-copy > p::before,
+.page-home .human-summary::before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 0.57rem);
+  left: min(50%, 15.625rem);
+  z-index: 1;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: var(--gold);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.page-home .why-copy > p::after,
+.page-home .human-summary::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  width: min(100%, 31.25rem);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(184, 139, 87, 0.72) 0 calc(50% - 1.75rem),
+    transparent calc(50% - 1.75rem) calc(50% + 1.75rem),
+    rgba(184, 139, 87, 0.72) calc(50% + 1.75rem) 100%
+  );
+}
+
 .page-home .human-content p {
   max-width: 34rem;
   margin-bottom: 1.35rem;
@@ -1008,38 +1061,45 @@ body.page-home {
 }
 
 .page-home .why-proof-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 0;
   max-width: 33.5rem;
-  min-height: 4.45rem;
+  min-height: 4.7rem;
   padding: 0 1.35rem;
-  border: 1px solid rgba(178, 132, 78, 0.16);
+  border: 1px solid rgba(178, 132, 78, 0.11);
   border-radius: 0.65rem;
-  background: rgba(255, 255, 255, 0.46);
+  background: rgba(239, 229, 215, 0.62);
   color: var(--ink);
   font-size: 0.9rem;
 }
 
 .page-home .why-proof-row span:not(.why-dot) {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
+  min-width: 0;
 }
 
-.page-home .why-proof-row svg {
-  width: 1.4rem;
-  height: 1.4rem;
+.page-home .why-proof-row .why-proof-icon {
+  flex: 0 0 auto;
+  width: 1.8rem;
+  height: 1.8rem;
   color: var(--gold);
-  stroke-width: 1.55;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .page-home .why-dot {
   width: 1px;
-  height: 2.15rem;
+  height: 2.2rem;
   border-radius: 0;
-  background: rgba(178, 132, 78, 0.18);
+  background: rgba(178, 132, 78, 0.55);
 }
 
 .page-home .section-pill-link {
@@ -1049,7 +1109,7 @@ body.page-home {
   gap: 1rem;
   width: 13rem;
   min-height: 2.7rem;
-  padding: 1 2.75rem;
+  padding: 0 2.75rem;
   border: 1px solid rgba(184, 139, 86, 0.28);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.44);
@@ -1076,6 +1136,15 @@ body.page-home {
   stroke-width: 1.7;
 }
 
+.page-home .journey-link,
+.page-home .why-link,
+.page-home .safety-link {
+  width: 14.75rem;
+  max-width: 100%;
+  padding-inline: 1.25rem;
+  white-space: nowrap;
+}
+
 .page-home .why-link {
   margin-top: auto;
   transform: translateY(2rem);
@@ -1090,7 +1159,8 @@ body.page-home {
   width: calc(100% - 2.5rem);
   max-width: 62rem;
   margin-left: 2.5rem;
-  min-height: var(--section-media-height);
+  height: var(--section-media-height);
+  min-height: 0;
   padding: 1.45rem 1.65rem 1.3rem;
   border: 1px solid rgba(7, 30, 59, 0.08);
   border-radius: 1.2rem;
@@ -1194,10 +1264,17 @@ body.page-home {
 
 .page-home .why-panel-copy {
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 19.15rem;
   max-width: 30rem;
+  transform: translateY(-1.5rem);
 }
 
 .page-home .why-panel h4 {
+  display: flex;
+  flex: 0 0 5.35rem;
+  flex-direction: column;
   margin: 0 0 1.25rem;
   color: var(--ink);
   font-family: var(--font-serif);
@@ -1212,7 +1289,7 @@ body.page-home {
   display: block;
   width: 3.1rem;
   height: 2px;
-  margin-top: 1.1rem;
+  margin-top: auto;
   background: var(--gold);
 }
 
@@ -1285,6 +1362,29 @@ body.page-home {
 
 .page-home .why-dots button.is-active {
   background: var(--gold);
+}
+
+@media (min-width: 961px) {
+  .page-home .app-experience {
+    padding: calc(var(--section-padding-y) - 1rem) 0;
+  }
+
+  .page-home .app-container,
+  .page-home .why-copy {
+    min-height: calc(var(--section-media-height) + 2rem);
+  }
+
+  .page-home .why-interactive {
+    height: calc(var(--section-media-height) + 2rem);
+  }
+
+  .page-home .why-link,
+  .page-home .why-link:hover,
+  .page-home .why-link:focus-visible,
+  .page-home .why-link:active {
+    transform: none;
+  }
+
 }
 
 
@@ -1378,15 +1478,45 @@ body.page-home {
   place-items: center;
   width: 2.4rem;
   height: 2.4rem;
-  border-radius: 999px;
-  background: #f1e8dc;
   color: var(--gold);
 }
 
 .page-home .safety-icon svg {
-  width: 1.05rem;
-  height: 1.05rem;
-  stroke-width: 1.6;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.page-home .safety-symbol__navy,
+.page-home .safety-symbol__gold {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.page-home .safety-symbol__navy {
+  stroke: var(--ink);
+  stroke-width: 1.55;
+}
+
+.page-home .safety-symbol__gold {
+  stroke: var(--gold);
+  stroke-width: 1.45;
+}
+
+.page-home .safety-symbol__star,
+.page-home .safety-symbol__needle {
+  fill: rgba(185, 133, 67, 0.1);
+}
+
+.page-home .safety-symbol__center {
+  fill: #fffaf2;
+}
+
+.page-home .safety-symbol__dots {
+  stroke-dasharray: 0.1 4.2;
+  stroke-linecap: round;
 }
 
 .page-home .safety-link {
@@ -1398,6 +1528,40 @@ body.page-home {
 .page-home .safety-link:focus-visible,
 .page-home .safety-link:active {
   transform: translateY(0.2rem);
+}
+
+@media (min-width: 961px) {
+  .page-home .human-container {
+    align-items: stretch;
+  }
+
+  .page-home .human-image {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .page-home .human-image .image-placeholder {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: var(--section-media-height);
+  }
+
+  .page-home .human-content {
+    height: auto;
+    min-height: var(--section-media-height);
+    align-self: stretch;
+  }
+
+  .page-home .safety-list {
+    transform: translateY(-1rem);
+  }
+
+  .page-home .safety-link,
+  .page-home .safety-link:hover,
+  .page-home .safety-link:focus-visible,
+  .page-home .safety-link:active {
+    transform: none;
+  }
 }
 
 
@@ -1684,6 +1848,59 @@ body.page-home {
 
 
 /*
+  PASSPORT STAMP ICONS
+  These rules only change the finish of decorative homepage icons. Their existing
+  width and height remain unchanged so no surrounding layout can move.
+*/
+.page-home .hero-eyebrow-icon,
+.page-home .why-tab-icon,
+.page-home .pilot-footer-icon,
+.page-home .journey-icon svg,
+.page-home .journey-proof-row svg {
+  box-sizing: border-box;
+  border: 1px solid currentColor;
+  border-radius: 42% 48% 44% 46% / 46% 42% 49% 43%;
+  outline: 1px dashed currentColor;
+  outline-offset: -3px;
+  background-color: rgba(255, 252, 246, 0.72);
+  background-image: linear-gradient(112deg, transparent 0 43%, rgba(255, 255, 255, 0.72) 44% 49%, transparent 50% 100%);
+  box-shadow: 0 1px 0 rgba(8, 43, 85, 0.06);
+}
+
+.page-home .hero-eyebrow-icon,
+.page-home .why-tab-icon {
+  padding: 0.16rem;
+}
+
+.page-home .journey-icon svg {
+  padding: 0.13rem;
+}
+
+.page-home .journey-proof-row svg {
+  padding: 0.28rem;
+}
+
+.page-home .pilot-footer-icon {
+  padding: 0.42rem;
+  background-color: rgba(218, 201, 181, 0.62);
+}
+
+.page-home .hero-eyebrow-icon,
+.page-home .journey-proof-row > span:nth-child(1) svg,
+.page-home .journey-item:nth-child(even) .journey-icon svg,
+.page-home .why-tab:nth-child(odd) .why-tab-icon,
+.page-home .pilot-footer-icon {
+  transform: rotate(-2deg);
+}
+
+.page-home .journey-proof-row > span:nth-child(5) svg,
+.page-home .journey-item:nth-child(odd) .journey-icon svg,
+.page-home .why-tab:nth-child(even) .why-tab-icon {
+  transform: rotate(2deg);
+}
+
+
+/*
   RESPONSIVE RULES: MEDIUM DESKTOPS
   These slightly reduce heading sizes and spacing before tablet/mobile layouts kick in.
 */
@@ -1833,7 +2050,16 @@ body.page-home {
     width: 100%;
     min-height: auto;
     height: auto;
+    justify-content: flex-start;
     margin-left: 0;
+  }
+
+  .page-home .journey-proof-row {
+    margin-top: 3.65rem;
+  }
+
+  .page-home .journey-link {
+    margin-top: 2rem;
   }
 
   .page-home .journey-visual {
@@ -1869,6 +2095,8 @@ body.page-home {
   .page-home .why-interactive {
     max-width: 100%;
     width: 100%;
+    height: auto;
+    min-height: 0;
     margin-left: 0;
     justify-self: start;
   }
@@ -1887,6 +2115,18 @@ body.page-home {
 
   .page-home .why-panel {
     grid-template-columns: 1fr;
+  }
+
+  .page-home .why-panel-copy {
+    height: auto;
+  }
+
+  .page-home .why-panel h4 {
+    flex-basis: auto;
+  }
+
+  .page-home .why-panel h4::after {
+    margin-top: 1.1rem;
   }
 
   .page-home .why-panel-visual img {
@@ -1964,8 +2204,22 @@ body.page-home {
   }
 
   .page-home .why-proof-row {
-    flex-wrap: wrap;
-    gap: 0.9rem;
+    gap: 0;
+    padding-inline: 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .page-home .why-proof-row span:not(.why-dot) {
+    gap: 0.35rem;
+  }
+
+  .page-home .why-proof-row .why-proof-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .page-home .why-proof-row .why-dot {
+    height: 2.4rem;
   }
 
   .page-home .why-interactive {

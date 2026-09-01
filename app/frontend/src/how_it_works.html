@@ -13,7 +13,7 @@
     .how-hero {
       background: #fbf7f0;
       min-height: auto;
-      padding: 7.8rem 2rem 3.5rem;
+      padding: 7.8rem 2rem 3.1rem;
       text-align: center;
     }
     .how-page-kicker {
@@ -27,29 +27,44 @@
       color: #bc7a2c;
     }
     .how-hero h1 {
-      max-width: 760px;
-      margin: 0 auto 1.45rem;
+      max-width: 880px;
+      margin: 0 auto 1.65rem;
       color: #082b55;
-      font-size: clamp(3.2rem, 5.5vw, 5.25rem);
+      font-size: clamp(3.25rem, 5.35vw, 5.45rem);
       line-height: 0.98;
       letter-spacing: -0.02em;
     }
+    .how-hero-divider {
+      width: min(640px, 72vw);
+      height: 1px;
+      margin: 0 auto 1.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, transparent, rgba(188, 122, 44, 0.34) 12%, rgba(188, 122, 44, 0.34) 44%, transparent 44%, transparent 56%, rgba(188, 122, 44, 0.34) 56%, rgba(188, 122, 44, 0.34) 88%, transparent);
+    }
+    .how-hero-divider::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      background: #c4924c;
+      transform: rotate(45deg);
+      box-shadow: 0 0 0 0.34rem #fbf7f0;
+    }
     .how-hero-lead {
-      max-width: 560px;
+      max-width: 660px;
       margin: 0 auto;
-      padding-top: 1.05rem;
-      border-top: 1px solid rgba(188, 122, 44, 0.22);
-      text-align: left;
+      text-align: center;
     }
     .how-hero-lead p {
       margin: 0;
-      font-size: 0.82rem;
-      line-height: 1.82;
+      font-size: 1.02rem;
+      line-height: 1.55;
       color: rgba(8, 43, 85, 0.68);
     }
     .how-visual-grid {
       max-width: 1120px;
-      margin: 3rem auto 0;
+      margin: 6.2rem auto 0;
       display: grid;
       grid-template-columns: 1.25fr 0.75fr;
       gap: 1.25rem;
@@ -89,10 +104,16 @@
       min-height: 230px;
       text-align: left;
     }
-    .how-process-card h3 {
-      color: #082b55;
-      font-size: 2rem;
-      margin-bottom: 1.35rem;
+    .how-process-label {
+      margin: 0 auto 1rem;
+      display: inline-block;
+      width: max-content;
+      color: #bc7a2c;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     .how-process-list {
       list-style: none;
@@ -136,7 +157,7 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 1.25rem;
-      align-items: start;
+      align-items: stretch;
     }
     .how-summary {
       background: #fffdf9;
@@ -194,47 +215,61 @@
     .how-detail-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       gap: 1.25rem;
     }
     .detail-card {
-      min-height: 190px;
+      min-height: 0;
       background: #fffdf9;
       border: 1px solid rgba(188, 122, 44, 0.14);
       border-radius: 10px;
-      padding: 1.45rem;
+      padding: 1.35rem;
       box-shadow: 0 18px 40px rgba(8, 43, 85, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    .detail-card::before,
-    .why-card::before {
-      display: block;
-      content: "";
-      width: 1.45rem;
-      height: 1.45rem;
-      margin-bottom: 1.1rem;
-      border: 2px solid #bc7a2c;
-      border-radius: 50%;
+    .detail-card .card-icon {
+      width: 2.15rem;
+      height: 2.15rem;
+      margin-bottom: 0.8rem;
     }
-    .detail-card:nth-child(2)::before,
-    .why-card:nth-child(2)::before {
-      border-radius: 5px;
-    }
-    .detail-card:nth-child(3)::before {
-      border-radius: 50% 50% 45% 45%;
-    }
-    .detail-card:nth-child(4)::before,
-    .why-card:nth-child(3)::before {
-      border-radius: 5px;
-      transform: rotate(45deg);
+    .detail-card .card-icon svg {
+      width: 1rem;
+      height: 1rem;
     }
     .detail-card h3 {
       color: #082b55;
+      font-family: var(--font-serif);
       font-size: 1.18rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
     .detail-card p {
       color: rgba(8, 43, 85, 0.66);
-      font-size: 0.82rem;
-      line-height: 1.65;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+    .card-icon {
+      width: 2.45rem;
+      height: 2.45rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #bc7a2c;
+      background: rgba(188, 122, 44, 0.07);
+      border: 1px solid rgba(188, 122, 44, 0.16);
+      border-radius: 9px;
+      box-shadow: 0 10px 22px rgba(8, 43, 85, 0.05);
+    }
+    .card-icon svg {
+      width: 1.18rem;
+      height: 1.18rem;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .why-local-link {
       padding: 3.25rem 2rem 4.25rem;
@@ -258,18 +293,32 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
+      align-items: stretch;
     }
     .why-card {
       background: #fffdf9;
       border: 1px solid rgba(188, 122, 44, 0.14);
       border-radius: 10px;
-      padding: 1.65rem;
+      padding: 1.55rem 1.5rem;
       box-shadow: 0 18px 40px rgba(8, 43, 85, 0.07);
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .why-card h3 {
       color: #082b55;
+      font-family: var(--font-serif);
       font-size: 1.22rem;
       margin-bottom: 0.8rem;
+    }
+    .why-card h3::after {
+      content: "";
+      display: block;
+      width: 1.8rem;
+      height: 1px;
+      margin-top: 0.75rem;
+      background: #bc7a2c;
     }
     .why-card p {
       color: rgba(8, 43, 85, 0.66);
@@ -421,7 +470,7 @@
         grid-template-rows: none;
       }
       .how-detail-grid {
-        grid-template-columns: 1fr;
+        min-height: 430px;
       }
     }
     @media (max-width: 768px) {
@@ -430,6 +479,14 @@
       }
       .how-hero h1 {
         font-size: clamp(2.7rem, 13vw, 4rem);
+      }
+      .how-summary {
+        padding: 2.2rem 1.4rem;
+      }
+      .how-detail-grid {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
       }
       .deep-step {
         grid-template-columns: 1fr;
@@ -468,7 +525,8 @@
 
   <section class="how-hero" data-animate>
     <span class="how-page-kicker">How it works</span>
-    <h1>Local Link makes travel simpler, more personal, and closer to the city.</h1>
+    <h1>Local Link makes travel simple.</h1>
+    <div class="how-hero-divider" aria-hidden="true"></div>
     <div class="how-hero-lead">
       <p>Instead of starting with a big travel company, you start with a trusted local who lives there. That makes the trip easier to plan and more personal from the beginning.</p>
     </div>
@@ -478,7 +536,7 @@
       </div>
       <div class="how-visual-stack">
         <div class="how-process-card" data-animate data-delay="150">
-          <h3>How it works</h3>
+          <p class="how-process-label">3 simple steps</p>
           <ul class="how-process-list">
             <li><span>01</span><p>The traveler shares what they want.</p></li>
             <li><span>02</span><p>The local shares how they can help.</p></li>
@@ -505,18 +563,30 @@
       </div>
       <div class="how-detail-grid" data-animate data-delay="150">
         <article class="detail-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>
+          </span>
           <h3>Traveler details</h3>
           <p>Travelers share the city, their interests, their pace, and what kind of help they want.</p>
         </article>
         <article class="detail-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+          </span>
           <h3>Local details</h3>
           <p>Locals share where they live, what they can help with, when they are available, and whether they can help with translation or planning.</p>
         </article>
         <article class="detail-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8.5 12.5 5 9a3 3 0 0 1 4.2-4.2l2.1 2.1"/><path d="m15.5 11.5 3.5 3.5a3 3 0 0 1-4.2 4.2l-2.1-2.1"/><path d="m8 16 8-8"/></svg>
+          </span>
           <h3>Good match</h3>
           <p>When both sides fit, they connect to talk through the details and the kind of trip they want to create.</p>
         </article>
         <article class="detail-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
           <h3>Safety</h3>
           <p>Local Link is there to keep the connection safe, clear, and respectful for both the traveler and the local.</p>
         </article>
@@ -532,14 +602,23 @@
       </div>
       <div class="why-local-link-grid">
         <article class="why-card" data-animate>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
           <h3>Start with your trip</h3>
           <p>Instead of browsing ready-made packages, you start with what matters to you.</p>
         </article>
         <article class="why-card" data-animate data-delay="150">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 7h18"/><path d="M6 7v14"/><path d="M18 7v14"/><path d="M8 12h8"/><path d="M8 17h8"/><path d="M7 3h10l1 4H6z"/></svg>
+          </span>
           <h3>Keep it flexible</h3>
           <p>A local can guide, host, help with planning, and in some cases act as a translator depending on what they offer.</p>
         </article>
         <article class="why-card" data-animate data-delay="300">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10"/><path d="M9 10c0-1.5 1.3-2.5 3-2.5s3 1 3 2.5-1.3 2.5-3 2.5-3 1-3 2.5 1.3 2.5 3 2.5 3-1 3-2.5"/></svg>
+          </span>
           <h3>More money stays local</h3>
           <p>The people who actually live in the city stay at the center of the trip and the money from it.</p>
         </article>

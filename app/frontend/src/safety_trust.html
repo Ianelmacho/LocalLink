@@ -3,139 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local Link - Safety & Trust</title>
-  <meta name="description" content="Learn how Local Link builds trust before travelers and locals meet." />
+  <title>Local Link - Safety &amp; Trust</title>
+  <meta name="description" content="See how Local Link creates safer, clearer connections between travelers and verified locals." />
   <link rel="stylesheet" href="styles.css?v=20" />
-  <style>
-    body {
-      background: #fbf7f0;
-      color: var(--ll-navy);
-    }
-
-    .safety-page {
-      min-height: 100svh;
-      padding: 9.5rem 4.5rem 4.5rem;
-      display: grid;
-      align-items: center;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 34%),
-        linear-gradient(180deg, #fdfbf7 0%, #f6efe5 100%);
-    }
-
-    .safety-page-shell {
-      width: min(calc(100% - 2rem), 1320px);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .safety-page-image {
-      margin: 0;
-    }
-
-    .safety-page-image img {
-      width: 100%;
-      height: min(66svh, 38rem);
-      display: block;
-      border-radius: 1.2rem;
-      object-fit: cover;
-      box-shadow: 0 24px 70px rgba(16, 33, 60, 0.12);
-    }
-
-    .safety-page-caption {
-      margin-top: 0.65rem;
-      color: rgba(10, 43, 86, 0.5);
-      font-size: 0.76rem;
-      text-align: right;
-    }
-
-    .safety-page-copy {
-      padding-top: 0.2rem;
-    }
-
-    .safety-page-kicker {
-      display: block;
-      margin-bottom: 1rem;
-      color: #b88b57;
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .safety-page-copy h1 {
-      max-width: 11ch;
-      margin: 0 0 1.25rem;
-      color: var(--ll-navy);
-      font-size: clamp(3.25rem, 5vw, 5.4rem);
-      line-height: 0.98;
-    }
-
-    .safety-page-copy > p {
-      max-width: 43rem;
-      color: rgba(10, 43, 86, 0.78);
-      font-size: 1.08rem;
-      line-height: 1.72;
-    }
-
-    .safety-page-list {
-      display: grid;
-      margin: 2rem 0 0;
-      list-style: none;
-    }
-
-    .safety-page-list li {
-      display: grid;
-      grid-template-columns: 2.7rem minmax(0, 1fr);
-      gap: 1rem;
-      align-items: center;
-      min-height: 4.4rem;
-      border-bottom: 1px solid rgba(10, 43, 86, 0.12);
-      color: rgba(10, 43, 86, 0.8);
-      font-size: 1rem;
-    }
-
-    .safety-page-icon {
-      display: grid;
-      place-items: center;
-      width: 2.7rem;
-      height: 2.7rem;
-      border-radius: 999px;
-      background: #f1e8dc;
-      color: #b88b57;
-    }
-
-    .safety-page-icon svg {
-      width: 1.1rem;
-      height: 1.1rem;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    @media (max-width: 900px) {
-      .safety-page {
-        padding: 8rem 1.25rem 4rem;
-      }
-
-      .safety-page-shell {
-        width: min(100%, 720px);
-        grid-template-columns: 1fr;
-        gap: 2.2rem;
-      }
-
-      .safety-page-image img {
-        height: 28rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="safety_editorial.css?v=1" />
 </head>
-<body>
-  <nav class="nav">
+<body class="page-safety">
+  <nav class="nav" aria-label="Primary navigation">
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html" class="logo-link">
@@ -148,89 +22,195 @@
           <span>Local Link</span>
         </a>
       </div>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="how_it_works.html">How it works</a></li>
         <li><a href="mission.html">Our mission</a></li>
-        <li><a href="safety_trust.html">Safety &amp; trust</a></li>
+        <li><a class="is-active" href="safety_trust.html" aria-current="page">Safety &amp; trust</a></li>
       </ul>
+
       <div class="nav-cta">
-        <a href="join_pilot.html" class="btn btn-outline">Join pilot</a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <a href="join_pilot.html" class="safety-nav-cta">Join pilot</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
 
-  <main class="safety-page">
-    <div class="safety-page-shell">
-      <figure class="safety-page-image">
-        <img src="local_hero.png" alt="Travelers standing together at golden hour" />
-        <figcaption class="safety-page-caption">Mountain overlook at golden hour - Photo via Local Link.</figcaption>
-      </figure>
+  <main>
+    <section class="safety-hero safety-shell">
+      <div class="safety-hero-copy">
+        <span class="safety-kicker">Safety &amp; trust</span>
+        <h1><span>Safety, trust</span><span>and respect in</span><span>every journey.</span></h1>
+        <p>Local Link is built on real relationships, clear standards, and human support&mdash;so you can travel with confidence.</p>
 
-      <section class="safety-page-copy" aria-labelledby="safetyTitle">
-        <span class="safety-page-kicker">Safety and trust</span>
-        <h1 id="safetyTitle">More Adventure, Less Uncertainty</h1>
-        <p>Safety is the foundation of Local Link. Every person, plan, and experience is carefully reviewed so both travellers and hosts feel protected, prepared, and supported every step of the way.</p>
-        <ul class="safety-page-list">
+        <ul class="safety-proof-list" aria-label="Trust highlights">
           <li>
-            <span class="safety-page-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 12.2a3.2 3.2 0 1 0-3.2-3.2 3.2 3.2 0 0 0 3.2 3.2Z" />
-                <path d="M5.8 18.3c1.1-2.6 3.3-4 6.2-4s5.1 1.4 6.2 4" />
-              </svg>
-            </span>
-            <span>Verified identity for all active local profiles</span>
+            <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.2c0 4.5-2.8 7.6-7 9.3-4.2-1.7-7-4.8-7-9.3V6l7-2.5Z"/><path d="m9.2 12 1.8 1.8 3.8-4"/></svg></span>
+            Verified locals
           </li>
           <li>
-            <span class="safety-page-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 3.8 6 6.2v5.5c0 4.2 2.6 7 6 8.5 3.4-1.5 6-4.3 6-8.5V6.2Z" />
-                <path d="m9.5 12.3 1.7 1.7 3.4-3.6" />
-              </svg>
-            </span>
-            <span>Background checks during pilot approval</span>
+            <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.8 12s3.2-5.5 9.2-5.5 9.2 5.5 9.2 5.5-3.2 5.5-9.2 5.5S2.8 12 2.8 12Z"/><circle cx="12" cy="12" r="2.7"/></svg></span>
+            Clear expectations
           </li>
           <li>
-            <span class="safety-page-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 4.2 5.5 6.8v5.6c0 3.8 2.4 6.5 6.5 7.9 4.1-1.4 6.5-4.1 6.5-7.9V6.8Z" />
-                <path d="M12 8v4.2" />
-                <path d="M12 15.7h.01" />
-              </svg>
-            </span>
-            <span>Ongoing quality standards to remain active</span>
-          </li>
-          <li>
-            <span class="safety-page-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M5.3 6.3h13.4v11.4H5.3z" />
-                <path d="M8.3 9.5h7.4M8.3 12.5h5.3" />
-              </svg>
-            </span>
-            <span>Clear expectations before any booking begins</span>
+            <span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="9.5" r="2.4"/><path d="M3.5 19v-1.5A4.5 4.5 0 0 1 8 13a4.5 4.5 0 0 1 4.5 4.5V19M13 14.5a4.4 4.4 0 0 1 7.5 3.1V19"/></svg></span>
+            Respectful support
           </li>
         </ul>
-      </section>
+
+        <div class="safety-hero-actions">
+          <a class="safety-button" href="join_pilot.html">Join the pilot</a>
+          <a class="safety-link" href="#standards">See our standards <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="safety-collage" aria-label="Travelers and destinations supported by Local Link">
+        <img class="safety-collage-main" src="assets/safety-conversation.jpg" alt="Two travelers speaking over coffee" />
+        <img class="safety-collage-city" src="assets/safety-city.jpg" alt="Historic European city viewed from above" />
+        <img class="safety-collage-coast" src="assets/safety-coast.jpg" alt="A coastal road beside mountains and the sea" />
+        <span class="safety-dot-field" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <div class="safety-tagline safety-shell" aria-label="Local Link values">
+      <span></span>
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 25c-4-2-7-5-7-9a5 5 0 0 1 9-3l2 3 2-3a5 5 0 0 1 9 3c0 5-5 8-11 13"/><path d="M8 34c2-5 5-7 10-7h4M40 34c-2-5-5-7-10-7h-4M13 37l7 5h8l7-5"/><path d="M6 28v9M42 28v9"/></svg>
+      <strong>Real people. Local places. Shared respect.</strong>
+      <span></span>
     </div>
+
+    <section class="safety-reasons safety-shell" aria-labelledby="safer-title">
+      <div class="safety-section-title" id="safer-title"><span></span><strong>Why people feel safer here</strong><i></i><span></span></div>
+      <div class="safety-reason-grid">
+        <article class="safety-card" data-animate>
+          <span class="safety-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.2c0 4.5-2.8 7.6-7 9.3-4.2-1.7-7-4.8-7-9.3V6l7-2.5Z"/><path d="m9.2 12 1.8 1.8 3.8-4"/></svg></span>
+          <div><h2>Real people, not<br />anonymous listings</h2><p>Locals join by application, and travelers communicate directly. You get to know who you're connecting with.</p></div>
+        </article>
+        <article class="safety-card" data-animate data-delay="120">
+          <span class="safety-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.8 12s3.2-5.5 9.2-5.5 9.2 5.5 9.2 5.5-3.2 5.5-9.2 5.5S2.8 12 2.8 12Z"/><circle cx="12" cy="12" r="2.7"/></svg></span>
+          <div><h2>Clear expectations,<br />up front</h2><p>Profiles, reviews, and trip details make it easy to set expectations and avoid surprises.</p></div>
+        </article>
+        <article class="safety-card" data-animate data-delay="240">
+          <span class="safety-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="9.5" r="2.4"/><path d="M3.5 19v-1.5A4.5 4.5 0 0 1 8 13a4.5 4.5 0 0 1 4.5 4.5V19M13 14.5a4.4 4.4 0 0 1 7.5 3.1V19"/></svg></span>
+          <div><h2>Respectful matches,<br />not random pairs</h2><p>We match based on shared interests, values, and comfort, so both sides feel good about the connection.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="safety-process safety-shell" aria-labelledby="process-title">
+      <div class="safety-section-title" id="process-title"><span></span><strong>The trust process</strong><i></i><span></span></div>
+      <ol class="safety-process-grid">
+        <li data-animate>
+          <div class="safety-step-heading"><span>01</span><i></i></div>
+          <span class="safety-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6.5 20v-2.2A5.5 5.5 0 0 1 12 12.3a5.5 5.5 0 0 1 5.5 5.5V20"/></svg></span>
+          <h2>Apply &amp; verify</h2>
+          <p>Locals apply and go through identity and background checks to join the community.</p>
+        </li>
+        <li data-animate data-delay="100">
+          <div class="safety-step-heading"><span>02</span><i></i></div>
+          <span class="safety-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h.01M12 9h.01M16 9h.01"/></svg></span>
+          <h2>Connect &amp; plan</h2>
+          <p>You chat, ask questions, and plan together with full visibility before anything is booked.</p>
+        </li>
+        <li data-animate data-delay="200">
+          <div class="safety-step-heading"><span>03</span><i></i></div>
+          <span class="safety-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5.5" width="14" height="14" rx="2"/><path d="M8 3v5M16 3v5M5 10h14M9 14l2 2 4-4"/></svg></span>
+          <h2>Travel with confidence</h2>
+          <p>Clear plans, local guidance, and in-app support keep things smooth while you travel.</p>
+        </li>
+        <li data-animate data-delay="300">
+          <div class="safety-step-heading"><span>04</span></div>
+          <span class="safety-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.1 5 5.4.5-4.1 3.6 1.2 5.3-4.6-2.8-4.6 2.8 1.2-5.3-4.1-3.6 5.4-.5L12 3Z"/></svg></span>
+          <h2>Share &amp; improve</h2>
+          <p>After the trip, both sides leave feedback to help keep the community strong.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="safety-standards safety-shell" id="standards">
+      <article class="safety-promise" data-animate>
+        <svg class="safety-promise-mark" viewBox="0 0 120 120" aria-hidden="true"><path d="M39 58c-10-6-17-14-17-24a15 15 0 0 1 27-9l11 14 11-14a15 15 0 0 1 27 9c0 16-19 27-38 42C52 69 45 63 39 58Z"/><path d="M19 73c7-6 15-7 23-3l18 10 18-10c8-4 16-3 23 3M24 70l-8 11 25 26M96 70l8 11-25 26M41 107h38"/><path d="M8 62c5-8 9-13 17-15M112 62c-5-8-9-13-17-15"/></svg>
+        <div><span class="safety-kicker">Our promise</span><h2>We believe travel<br />should connect,<br />not compromise.</h2><p>That means showing up with kindness, clear boundaries, and leaving each place&mdash;and person&mdash;better than we found it.</p></div>
+      </article>
+
+      <article class="safety-standards-card" data-animate data-delay="150">
+        <span class="safety-kicker">Our standards</span>
+        <ul>
+          <li><span aria-hidden="true">&#10003;</span><div><h2>Respect people and places</h2><p>Be kind, culturally aware, and mindful of local customs.</p></div></li>
+          <li><span aria-hidden="true">&#10003;</span><div><h2>Communicate openly</h2><p>Be honest about expectations and needs from the start.</p></div></li>
+          <li><span aria-hidden="true">&#10003;</span><div><h2>Protect privacy</h2><p>We don't share personal details without consent.</p></div></li>
+          <li><span aria-hidden="true">&#10003;</span><div><h2>Zero tolerance</h2><p>Harassment, discrimination, or unsafe behavior is not allowed.</p></div></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="safety-cta safety-shell" data-animate>
+      <img src="assets/mission/mission-lake.jpg" alt="Boats resting on a calm mountain lake" />
+      <div><h2>Ready to travel with confidence?</h2><p>Join a community where people look out for each other.</p></div>
+      <div class="safety-cta-actions"><a class="safety-cta-button" href="join_pilot.html">Join the pilot</a><a href="how_it_works.html">Learn more about how it works <span aria-hidden="true">&rarr;</span></a></div>
+    </section>
   </main>
+
+  <footer class="safety-footer">
+    <div class="safety-footer-grid safety-shell">
+      <div class="safety-footer-brand">
+        <a href="index.html" class="footer-logo">
+          <span class="footer-logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.6"/></svg></span>
+          <span>Local Link</span>
+        </a>
+        <p>Simple travel, built around trusted people who live in the city.</p>
+        <div class="safety-social" aria-label="Social links">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 21v-8h2.8l.5-3h-3.3V8.1c0-.9.3-1.6 1.7-1.6H18V3.8c-.6-.1-1.4-.2-2.4-.2-2.4 0-4.1 1.5-4.1 4.2V10H9v3h2.5v8"/></svg></a>
+          <a href="mailto:hello@locallink.example" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+        </div>
+        <small>&copy; 2026 Local Link. All rights reserved.</small>
+      </div>
+      <nav aria-label="Explore"><h2>Explore</h2><a href="how_it_works.html">How it works</a><a href="mission.html">Why Local Link</a><a href="safety_trust.html">Safety &amp; trust</a><a href="join_pilot.html">Join pilot</a></nav>
+      <nav aria-label="Company"><h2>Company</h2><a href="mission.html">Our mission</a><a href="join_pilot.html">Contact us</a><a href="how_it_works.html">FAQ</a></nav>
+      <nav aria-label="Pilot"><h2>Pilot</h2><a href="join_pilot.html">London pilot</a><a href="local_signup.html">Local requirements</a><a href="local_signup.html">For locals</a></nav>
+      <nav aria-label="Legal"><h2>Legal</h2><a href="#">Privacy policy</a><a href="#">Terms of service</a></nav>
+    </div>
+  </footer>
 
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
+      const isOpen = hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
+    navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('animated');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+    const animatedSections = document.querySelectorAll('[data-animate]');
+    const revealVisibleSections = () => {
+      animatedSections.forEach((element) => {
+        if (element.getBoundingClientRect().top < window.innerHeight * 0.94) {
+          element.classList.add('animated');
+        }
+      });
+    };
+
+    animatedSections.forEach((element) => observer.observe(element));
+    requestAnimationFrame(revealVisibleSections);
+    window.addEventListener('scroll', revealVisibleSections, { passive: true });
   </script>
 </body>
 </html>
