@@ -9,32 +9,30 @@
 
 :root {
   /* Official Brand Palette */
-  --ll-navy:       #0A2B56;
-  --ll-ocean:      #2E73D6;
-  --ll-sky:        #7FB8FF;
-  --ll-cream:      #F5E6D8;
+  --ll-navy: #0A2B56;
+  --ll-ocean: #2E73D6;
+  --ll-cream: #F5E6D8;
   --ll-deep-ocean: #115A88;
-  --ll-neutral:    #F2F3F5;
-  
+  --ll-neutral: #F2F3F5;
+
   /* Semantic Tokens */
-  --ll-text:         var(--ll-navy);
-  --ll-surface:      #FFFFFF;
-  --ll-surface-soft: var(--ll-neutral);
+  --ll-text: var(--ll-navy);
+  --ll-surface: #FFFFFF;
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans:  'Montserrat', -apple-system, sans-serif;
+  --font-sans: 'Montserrat', -apple-system, sans-serif;
 
   /* Form & UI Tokens */
   --control-min-h: 44px;
-  --radius-soft:   4px;
-  --radius-card:   12px;
-  --radius-pill:   100px;
-  
+  --radius-soft: 4px;
+  --radius-card: 12px;
+  --radius-pill: 100px;
+
   --shadow-subtle: 0 4px 12px rgba(10, 43, 86, 0.04);
-  --shadow-elevated: 0 12px 32px rgba(10, 43, 86, 0.08); /* Only for app frames */
-  --transition:    all 0.3s ease-out;
-  
+  /* Only for app frames */
+  --transition: all 0.3s ease-out;
+
   /* Layout */
   --container-max: 1280px;
 }
@@ -43,7 +41,9 @@
    Global Reset & Defaults
    ============================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -64,34 +64,43 @@ body {
 }
 
 /* Typography Basics */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-serif);
   color: var(--ll-navy);
   font-weight: 500;
   line-height: 1.2;
 }
 
-h1 { font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.01em; }
-h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-h4 { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 p {
   font-family: var(--font-sans);
   color: var(--ll-navy);
   opacity: 0.85;
   line-height: 1.7;
-}
-
-.section-kicker {
-  display: inline-block;
-  margin-bottom: 1.05rem;
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(10, 43, 86, 0.5);
 }
 
 a {
@@ -114,8 +123,8 @@ img {
   transform: translateY(14px) scale(0.995);
   filter: blur(2px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-animate].animated {
@@ -124,8 +133,13 @@ img {
   filter: blur(0);
 }
 
-[data-animate][data-delay="150"] { transition-delay: 0.15s; }
-[data-animate][data-delay="300"] { transition-delay: 0.30s; }
+[data-animate][data-delay="150"] {
+  transition-delay: 0.15s;
+}
+
+[data-animate][data-delay="300"] {
+  transition-delay: 0.30s;
+}
 
 /* ============================================
    Buttons
@@ -152,7 +166,8 @@ img {
   color: #FFF;
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:focus {
   background: var(--ll-deep-ocean);
   box-shadow: var(--shadow-subtle);
 }
@@ -167,7 +182,9 @@ img {
   background: var(--ll-neutral);
 }
 
-.w-100 { width: 100%; }
+.w-100 {
+  width: 100%;
+}
 
 /* ============================================
    Forms & Controls
@@ -243,6 +260,13 @@ img {
 
 .success-message.show {
   display: block;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 /* ============================================
@@ -375,261 +399,10 @@ img {
   transition: var(--transition);
 }
 
-/* ============================================
-   Hero
-   ============================================ */
-
-.hero {
-  position: relative;
-  min-height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  background: var(--ll-cream); /* Fallback before image */
-  padding: 4rem 2rem;
-}
-
-/* Real travel photography background */
-.hero {
-  background-image: url('hero.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-container {
-  position: relative;
-  z-index: 3;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  width: 100%;
-  display: block;
-}
-
-.hero-left {
-  max-width: 760px;
-}
-
-.hero-left h1 {
-  color: var(--ll-cream);
-  margin-bottom: 1.5rem;
-}
-.hero-eyebrow {
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(245, 230, 216, 0.88);
-}
-
 .hero-subtext {
-  color: rgba(245, 230, 216, 0.9); /* Cream slightly transparent */
+  color: rgba(245, 230, 216, 0.9);
   font-size: 1.15rem;
   max-width: 620px;
-}
-
-.hero-capture {
-  margin-top: 1.4rem;
-  display: flex;
-  gap: 0.75rem;
-  max-width: 620px;
-}
-
-.hero-capture .form-input {
-  background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(10, 43, 86, 0.12);
-}
-
-/* ============================================
-   Editorial + Process Split Section
-   ============================================ */
-
-.journey {
-  padding: 7rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
-}
-
-.journey-shell {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(3.25rem, 5vw, 5.75rem);
-  align-items: start;
-}
-
-.journey-lead {
-  max-width: 390px;
-}
-
-.journey-lead h2 {
-  margin-bottom: 1.45rem;
-  font-size: clamp(2.15rem, 4.4vw, 3.35rem);
-  line-height: 1.1;
-}
-
-.journey-lead p {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  max-width: 30rem;
-  opacity: 0.76;
-}
-
-.journey-steps {
-  display: grid;
-  gap: 1.15rem;
-}
-
-.journey-item {
-  display: grid;
-  grid-template-columns: 58px 1fr;
-  gap: 1.1rem;
-  align-items: center;
-  padding: 1.25rem 1.35rem;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(10, 43, 86, 0.12);
-  border-radius: var(--radius-card);
-  box-shadow: 0 10px 24px rgba(10, 43, 86, 0.05);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-}
-
-.journey-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(46, 115, 214, 0.24);
-  box-shadow: 0 18px 34px rgba(10, 43, 86, 0.09);
-}
-
-.journey-number {
-  width: 52px;
-  min-height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 1.55rem;
-  line-height: 1;
-  color: var(--ll-ocean);
-  background: rgba(46, 115, 214, 0.08);
-  border: 1px solid rgba(46, 115, 214, 0.18);
-  border-radius: 16px;
-}
-
-.journey-content h3 {
-  font-size: 1.08rem;
-  margin-bottom: 0.32rem;
-  line-height: 1.24;
-}
-
-.journey-content p {
-  max-width: 30rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  opacity: 0.76;
-}
-
-/* ============================================
-   Human Connection (Split Layout for Safety)
-   ============================================ */
-
-.human-connection {
-  padding: 7rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
-}
-
-.human-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
-
-.image-placeholder {
-  width: 100%;
-  aspect-ratio: 4/5;
-  background: var(--ll-neutral);
-  border-radius: var(--radius-soft);
-  position: relative;
-  overflow: hidden;
-}
-
-.image-placeholder::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border: 1px solid rgba(10, 43, 86, 0.1);
-}
-
-.human-content h2 {
-  margin-bottom: 1.5rem;
-}
-
-.human-content p {
-  font-size: 1rem;
-  line-height: 1.68;
-  margin-bottom: 1.4rem;
-  max-width: 32rem;
-}
-
-.safety-list {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-.safety-list li {
-  position: relative;
-  padding-left: 1.15rem;
-  margin-bottom: 0.7rem;
-  font-size: 0.98rem;
-}
-
-.safety-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.72rem;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ll-ocean);
-}
-
-/* ============================================
-   Pilot CTA / Waitlist
-   ============================================ */
-
-.pilot-cta {
-  padding: 7rem 2rem;
-  background: linear-gradient(180deg, #f8fbff 0%, #f5e6d8 100%);
-  text-align: center;
-}
-
-.pilot-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.pilot-cta h2 {
-  margin-bottom: 1.25rem;
-  font-size: clamp(2.2rem, 4.6vw, 3.2rem);
-  line-height: 1.08;
-}
-
-.pilot-microcopy {
-  margin-top: 0.9rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.68;
-}
-
-.form-row {
-  display: flex;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 /* ============================================
@@ -687,38 +460,11 @@ img {
   opacity: 1;
 }
 
-.footer-bottom {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid rgba(10, 43, 86, 0.05);
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-.footer-legal a {
-  margin-left: 2rem;
-}
-
 /* ============================================
    Responsive Design
    ============================================ */
 
 @media (max-width: 1024px) {
-  .hero-container, .human-container, .journey-shell {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  .journey-lead {
-    max-width: none;
-  }
-  
-  .image-placeholder {
-    aspect-ratio: 16/9;
-  }
 
   .footer-container {
     grid-template-columns: 1fr;
@@ -747,7 +493,7 @@ img {
   .nav-links {
     display: none;
   }
-  
+
   .hamburger {
     display: flex;
   }
@@ -756,46 +502,7 @@ img {
     display: none;
   }
 
-  .hero {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .hero-capture {
-    flex-direction: column;
-  }
-
-  .journey, .human-connection, .pilot-cta {
-    padding: 6rem 2rem;
-  }
-
-  .journey-shell {
-    gap: 3rem;
-  }
-
-  .journey-item {
-    grid-template-columns: 52px 1fr;
-    gap: 0.9rem;
-    padding: 1.15rem;
-  }
-
-  .journey-number {
-    width: 46px;
-    min-height: 46px;
-    font-size: 1.35rem;
-  }
-
   .form-row {
     flex-direction: column;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .footer-legal a {
-    margin: 0 1rem;
   }
 }

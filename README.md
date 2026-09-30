@@ -7,6 +7,7 @@ Static frontend for the Local Link phase 1 pilot.
 - `index.html`
 - `how_it_works.html`
 - `mission.html`
+- `safety_trust.html`
 - `join_pilot.html`
 - `local_signup.html`
 - `tourist_signup.html`
@@ -39,7 +40,7 @@ Open `http://localhost:9000/`.
 
 - Start-Process "http://localhost:9000/"
 
-## Repo Testing as intedend 
+## Test the repository as intended
 
 - cd "C:\Users\Precision 3551\Desktop\LocalLink"
 - docker compose up --build

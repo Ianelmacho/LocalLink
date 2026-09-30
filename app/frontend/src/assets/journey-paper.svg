@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 943" role="img" aria-label="">
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="14" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.07" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1672" height="943" fill="#f7efe5" />
+  <rect width="1672" height="943" filter="url(#paper)" opacity="0.64" />
+</svg>
