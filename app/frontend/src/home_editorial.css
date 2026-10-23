@@ -44,7 +44,7 @@
 */
 body.page-home {
   margin: 0;
-  background: var(--cream);
+  background: var(--cream) url("assets/shared-paper-texture.png") center top / 100% 2800px repeat-y;
   color: var(--ink);
   font-family: var(--font-sans);
 }
@@ -641,13 +641,193 @@ body.page-home {
   HOW IT WORKS SECTION
   This section is set to one full viewport height on desktop.
 */
+.page-home .scrapbook-story {
+  position: relative;
+  background: var(--cream) url("assets/shared-paper-texture.png") center top / 100% 2800px repeat-y;
+}
+
 .page-home .journey {
   position: relative;
+  isolation: isolate;
   min-height: 100svh;
   height: 100svh;
   overflow: hidden;
   padding: 0;
+  background: transparent;
+}
+
+.page-home .journey::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   background: #f8f3eb url("assets/journey-scrapbook-background.png") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, rgba(0, 0, 0, 0.82) 89%, rgba(0, 0, 0, 0.34) 96%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 82%, rgba(0, 0, 0, 0.82) 89%, rgba(0, 0, 0, 0.34) 96%, transparent 100%);
+}
+
+.page-home .journey-safety-transition {
+  position: relative;
+  isolation: isolate;
+  z-index: 2;
+  width: 100%;
+  height: clamp(22rem, 34svh, 25rem);
+  margin: -8.25rem 0 -12rem;
+  overflow: hidden;
+  pointer-events: none;
+  background: transparent;
+}
+
+.page-home .journey-safety-transition::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 1.5rem;
+  right: -0.75rem;
+  width: 7rem;
+  height: 14rem;
+  background: url("assets/safety-stamp-good-people.png") left top / 22rem auto no-repeat;
+  opacity: 0.52;
+  mix-blend-mode: multiply;
+  transform: scaleX(-1) rotate(-7deg);
+}
+
+.page-home .journey-safety-transition__route {
+  position: absolute;
+  z-index: 1;
+  top: 4.4rem;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  overflow: visible;
+}
+
+.page-home .journey-safety-transition__stamp {
+  position: absolute;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.page-home .journey-safety-transition__stamp--arrival {
+  top: 1.2rem;
+  right: 1.25%;
+  width: min(14.5rem, 26vw);
+  opacity: 0.72;
+  transform: rotate(-8deg);
+}
+
+.page-home .journey-safety-transition__note {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  color: rgba(79, 50, 29, 0.88);
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+  font-size: clamp(1rem, 1.32vw, 1.7rem);
+  line-height: 1.24;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.page-home .journey-safety-transition__note--left {
+  top: 3.85rem;
+  left: 4.8%;
+  font-size: 0.92em;
+  transform: rotate(-8deg);
+}
+
+.page-home .journey-safety-transition__note--right {
+  top: 7.35rem;
+  right: 2.5%;
+  width: 19rem;
+  transform: rotate(-7deg);
+}
+
+.page-home .journey-safety-transition__line {
+  fill: none;
+  stroke: rgba(181, 131, 67, 0.9);
+  stroke-dasharray: 8 10;
+  stroke-linecap: round;
+  stroke-width: 2.6;
+}
+
+.page-home .journey-safety-transition__pin {
+  position: absolute;
+  z-index: 2;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50% 50% 50% 0;
+  background: #b58343;
+  transform: translate(-50%, -120.71%) rotate(-45deg);
+}
+
+.page-home .journey-safety-transition__pin::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #f7efe2;
+  transform: translate(-50%, -50%);
+}
+
+.page-home .journey-safety-transition__pin--one {
+  top: 8.53rem;
+  left: 22%;
+}
+
+.page-home .journey-safety-transition__pin--two {
+  top: 7.94rem;
+  left: 50%;
+}
+
+.page-home .journey-safety-transition__pin--three {
+  top: 8.67rem;
+  left: 78%;
+}
+
+.page-home .journey-safety-transition__plane {
+  fill: #b58343;
+}
+
+@media (max-width: 560px) {
+  .page-home .journey-safety-transition {
+    height: 20rem;
+    margin: -5.5rem 0;
+  }
+
+  .page-home .journey-safety-transition__route {
+    top: 5.5rem;
+    height: 6rem;
+  }
+
+  .page-home .journey-safety-transition__note {
+    display: none;
+  }
+
+  .page-home .journey-safety-transition__pin {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .page-home .journey-safety-transition__pin--one {
+    top: 9.04rem;
+  }
+
+  .page-home .journey-safety-transition__pin--two {
+    top: 8.53rem;
+  }
+
+  .page-home .journey-safety-transition__pin--three {
+    top: 9.16rem;
+  }
+
+  .page-home .journey-safety-transition__stamp--arrival {
+    top: 12.8rem;
+    right: 2%;
+    width: 6.5rem;
+  }
 }
 
 /* Full-viewport editorial stage: copy and proof marks left, image and steps right. */
@@ -1034,7 +1214,7 @@ body.page-home {
   display: grid;
   align-items: center;
   padding: var(--section-padding-y) 0;
-  background: #f6efe5;
+  background: transparent;
 }
 
 .page-home .app-experience::before {
@@ -1509,7 +1689,17 @@ body.page-home {
   min-height: 42rem;
   padding: 0;
   overflow: hidden;
+  background: transparent;
+}
+
+.page-home .human-connection::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   background: #f7efe2 url("assets/safety-scrapbook-background-v6.png") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.22) 8%, rgba(0, 0, 0, 0.68) 17%, #000 27%, #000 78%, rgba(0, 0, 0, 0.82) 86%, rgba(0, 0, 0, 0.34) 94%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.22) 8%, rgba(0, 0, 0, 0.68) 17%, #000 27%, #000 78%, rgba(0, 0, 0, 0.82) 86%, rgba(0, 0, 0, 0.34) 94%, transparent 100%);
 }
 
 .page-home .human-container {
@@ -1534,35 +1724,34 @@ body.page-home {
   height: min(84svh, 49.5rem);
   margin: 0;
   filter: drop-shadow(0 1rem 1.3rem rgba(69, 46, 28, 0.12));
-  transform: translateX(2rem) rotate(-2.4deg);
+  transform: translateX(1rem) rotate(-2.4deg);
 }
 
 /* Preserve the collage placement after the shared reveal animation completes. */
 .page-home .human-image[data-animate] {
-  transform: translateX(2rem) translateY(18px) rotate(-2.4deg);
+  transform: translateX(1rem) translateY(18px) rotate(-2.4deg);
 }
 
 .page-home .human-image[data-animate].animated {
-  transform: translateX(2rem) rotate(-2.4deg);
+  transform: translateX(1rem) rotate(-2.4deg);
 }
 
 .page-home .human-image::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -2rem -2.4rem -1.6rem -2rem;
   z-index: -1;
-  background: #f7ecdc;
-  clip-path: polygon(1.5% 2%, 14% 1%, 27% 2.2%, 40% 0.8%, 54% 1.8%, 69% 0.5%, 83% 1.9%, 98% 0.8%, 99% 13%, 98.3% 27%, 100% 42%, 98.6% 58%, 99.4% 73%, 98% 87%, 99% 98%, 84% 99.2%, 69% 98.3%, 53% 99.5%, 38% 98.2%, 22% 99.4%, 1.2% 98.3%, 2% 84%, 0.8% 69%, 1.7% 54%, 0.5% 38%, 1.6% 22%);
+  background: url("assets/safety-photo-paper.png") center / 100% 100% no-repeat;
 }
 
 .page-home .human-image::after {
   content: "";
   position: absolute;
   z-index: 4;
-  top: -0.65rem;
-  left: 9rem;
-  width: 15.2rem;
-  height: 3.1rem;
+  top: -0.45rem;
+  left: 10.25rem;
+  width: 12.5rem;
+  height: 2.55rem;
   background: rgba(214, 186, 143, 0.52);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
   clip-path: polygon(1% 16%, 98% 0, 100% 83%, 3% 100%);
@@ -1595,6 +1784,10 @@ body.page-home {
   .page-home .human-connection .image-placeholder img {
     transform: scale(1.08);
   }
+
+  .page-home .human-content {
+    left: 3rem;
+  }
 }
 
 .page-home .human-image figcaption {
@@ -1626,7 +1819,8 @@ body.page-home {
 
 .page-home .human-content .section-kicker {
   margin: 0 0 clamp(1.4rem, 2.5vh, 1.9rem);
-  color: #a96727;
+  color: var(--gold);
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   transform: translateY(-0.7rem);
 }
@@ -1650,13 +1844,14 @@ body.page-home {
   width: 6.6rem;
   height: 1px;
   margin-top: 1rem;
-  background: #a96727;
+  background: rgba(136, 84, 44, 0.82);
 }
 
 .page-home .human-content h2 {
   max-width: 13ch;
   margin: 0 0 clamp(0.9rem, 1.8vh, 1.25rem);
-  color: #0b469e;
+  color: var(--ink);
+  font-family: var(--font-serif);
   font-size: 4.55rem;
   font-weight: 500;
   line-height: 0.98;
@@ -1665,7 +1860,8 @@ body.page-home {
 .page-home .human-content .human-summary {
   max-width: 43rem;
   margin: 0;
-  color: rgba(11, 70, 158, 0.9);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
   line-height: 1.32;
 }
@@ -1679,7 +1875,7 @@ body.page-home {
   display: grid;
   gap: 0;
   margin: 0.8rem 0 0;
-  border-top: 1px solid rgba(151, 104, 59, 0.32);
+  border-top: 1px solid rgba(136, 84, 44, 0.34);
   transform: none;
 }
 
@@ -1690,7 +1886,7 @@ body.page-home {
   gap: 2rem;
   min-height: 5.7rem;
   padding: 0.45rem 0;
-  border-bottom: 1px solid rgba(151, 104, 59, 0.28);
+  border-bottom: 1px solid rgba(136, 84, 44, 0.34);
   color: var(--ink);
 }
 
@@ -1701,7 +1897,7 @@ body.page-home {
   align-self: stretch;
   width: 1px;
   margin-block: 0.7rem;
-  background: rgba(151, 104, 59, 0.55);
+  background: rgba(136, 84, 44, 0.55);
 }
 
 .page-home .safety-icon {
@@ -1711,7 +1907,7 @@ body.page-home {
   place-items: center;
   width: 4.15rem;
   height: 4.15rem;
-  color: #9b5727;
+  color: #875331;
 }
 
 .page-home .safety-icon svg {
@@ -1723,7 +1919,7 @@ body.page-home {
 .page-home .safety-symbol__navy,
 .page-home .safety-symbol__gold {
   fill: none;
-  stroke: #9b5727;
+  stroke: #875331;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
@@ -1739,11 +1935,11 @@ body.page-home {
 
 .page-home .safety-symbol__star,
 .page-home .safety-symbol__needle {
-  fill: rgba(155, 87, 39, 0.08);
+  fill: rgba(136, 84, 44, 0.08);
 }
 
 .page-home .safety-symbol__center {
-  fill: #fffaf2;
+  fill: #faf4e8;
 }
 
 .page-home .safety-symbol__dots {
@@ -1760,7 +1956,7 @@ body.page-home {
 }
 
 .page-home .safety-copy strong {
-  color: #0b469e;
+  color: var(--ink);
   font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 600;
@@ -1768,29 +1964,60 @@ body.page-home {
 }
 
 .page-home .safety-copy span {
-  color: rgba(11, 70, 158, 0.84);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.3;
 }
 
 .page-home .safety-link {
+  position: relative;
   flex: 0 0 auto;
-  width: 19rem;
+  overflow: hidden;
+  width: 18.5rem;
   min-height: 3.5rem;
   margin-top: 2.7rem;
   margin-left: 0.7rem;
-  border-color: rgba(155, 87, 39, 0.72);
-  border-radius: 999px;
-  background: rgba(255, 250, 242, 0.58);
-  color: #9b5727;
+  padding-inline: 1.6rem;
+  border: 1px solid rgba(151, 104, 59, 0.84);
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(rgba(255, 250, 242, 0.88), rgba(247, 237, 222, 0.88)),
+    url("assets/journey-paper.svg") center / cover no-repeat;
+  box-shadow:
+    inset 0 0 0 0.2rem rgba(255, 252, 246, 0.72),
+    0 0.35rem 0.7rem rgba(73, 52, 32, 0.08);
+  color: var(--ink);
   font-family: var(--font-serif);
   font-size: 1.0625rem;
+  font-weight: 600;
   transform: none;
+}
+
+.page-home .safety-link::before {
+  content: "";
+  position: absolute;
+  inset: 0.28rem;
+  border: 1px solid rgba(151, 104, 59, 0.58);
+  border-radius: 0.18rem;
+  pointer-events: none;
+}
+
+.page-home .safety-link > * {
+  position: relative;
+  z-index: 1;
 }
 
 .page-home .safety-link:hover,
 .page-home .safety-link:focus-visible,
 .page-home .safety-link:active {
+  background:
+    linear-gradient(rgba(255, 250, 242, 0.96), rgba(247, 237, 222, 0.96)),
+    url("assets/journey-paper.svg") center / cover no-repeat;
+  color: var(--ink);
+  box-shadow:
+    inset 0 0 0 0.2rem rgba(255, 252, 246, 0.8),
+    0 0.45rem 0.85rem rgba(73, 52, 32, 0.12);
   transform: none;
 }
 
@@ -2207,11 +2434,11 @@ body.page-home {
   }
 
   .page-home .journey-copy {
-    top: 10.88svh;
-    left: 7.62%;
-    width: 29.8%;
+    top: 4.6svh;
+    left: calc(7.5% - 2rem);
+    width: 35.2%;
     max-width: none;
-    height: 84.5svh;
+    height: 85svh;
     margin: 0;
     transform: none;
   }
@@ -2220,82 +2447,78 @@ body.page-home {
     content: "";
     position: absolute;
     z-index: -1;
-    top: -4.15svh;
-    right: 0.8%;
-    bottom: 1svh;
-    left: -13.8%;
-    background:
-      linear-gradient(rgba(253, 249, 243, 0.96), rgba(249, 242, 232, 0.96)),
-      url("assets/journey-paper.svg") center / cover no-repeat;
-    clip-path: polygon(1.2% 1%, 8% 0.3%, 15% 1.2%, 23% 0.5%, 31% 1.1%, 40% 0.4%, 49% 1%, 58% 0.2%, 67% 1%, 76% 0.4%, 85% 1%, 94% 0.2%, 99.2% 1.4%, 100% 8%, 99.2% 17%, 100% 27%, 99.3% 38%, 100% 49%, 99.2% 60%, 100% 72%, 99.3% 83%, 100% 94%, 98.8% 99%, 91% 99.5%, 82% 98.9%, 73% 99.7%, 63% 99%, 52% 99.7%, 42% 99%, 31% 99.6%, 21% 98.9%, 11% 99.6%, 1.1% 98.8%, 0 91%, 0.8% 81%, 0 70%, 0.7% 59%, 0 48%, 0.8% 37%, 0 26%, 0.7% 15%);
+    top: -4.2svh;
+    right: -9.5%;
+    bottom: -8.5svh;
+    left: -9%;
+    background: url("assets/journey-photo-mat.png") center / 100% 100% no-repeat;
     filter: drop-shadow(0 1.5svh 2.5svh rgba(73, 52, 32, 0.1));
   }
 
   .page-home .journey-copy::after {
-    content: "Good people\A Brighter\A journeys";
+    content: "";
     position: absolute;
-    z-index: 1;
-    bottom: 7.4svh;
-    left: -1.1svh;
-    white-space: pre;
-    color: rgba(101, 66, 40, 0.7);
-    font-family: "Segoe Script", "Brush Script MT", cursive;
-    font-size: 2.2svh;
-    line-height: 1.05;
-    text-align: center;
-    transform: rotate(-8deg);
+    z-index: 3;
+    top: 2.4svh;
+    left: 50%;
+    display: block;
+    width: 18svh;
+    height: 4.6svh;
+    background:
+      linear-gradient(90deg, rgba(185, 147, 88, 0.34), rgba(217, 187, 133, 0.56), rgba(185, 147, 88, 0.34)),
+      url("assets/journey-paper.svg") center / cover no-repeat;
+    box-shadow: 0 0.28svh 0.45svh rgba(78, 52, 26, 0.12);
+    clip-path: polygon(1% 8%, 13% 2%, 28% 8%, 42% 1%, 57% 7%, 72% 1%, 87% 8%, 99% 2%, 98% 92%, 84% 98%, 70% 91%, 55% 99%, 40% 92%, 25% 98%, 11% 91%, 2% 97%);
+    opacity: 0.9;
+    transform: translateX(-50%) rotate(-1deg);
     pointer-events: none;
   }
 
   .page-home .journey-kicker {
-    left: 0;
     position: static;
-    font-size: min(0.74vw, 1.32svh);
+    display: block;
+    font-size: min(0.72vw, 1.28svh);
     line-height: 1.2;
     letter-spacing: 0;
-    transform: translateY(-3svh);
+    transform: none;
   }
 
   .page-home .journey-kicker::after {
-    width: 10.9svh;
-    margin-top: 0.75svh;
+    content: "";
+    display: block;
+    width: 12.5svh;
+    height: 1px;
+    margin-top: 1.2svh;
+    background: rgba(136, 84, 44, 0.82);
   }
 
   .page-home .journey-showcase {
     z-index: 2;
-    top: 14.4svh;
-    right: 5.5%;
+    top: 14.5svh;
+    right: 5.8%;
     bottom: auto;
-    width: 41%;
-    height: 68.6svh;
+    width: 41.3%;
+    height: 68.7svh;
     filter: none;
+    isolation: isolate;
   }
 
   .page-home .journey-showcase::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: -2.4svh -1.8vw -5svh -1.4vw;
+    z-index: 0;
+    inset: -2.2svh -1.2vw -4.5svh -1.2vw;
     background: url("assets/journey-photo-mat.png") center / 100% 100% no-repeat;
+    filter: drop-shadow(0 1.1svh 1.5svh rgba(73, 52, 32, 0.12));
   }
 
   .page-home .journey-showcase::after {
-    content: "Real places.\A Brighter days.";
-    position: absolute;
-    z-index: 2;
-    bottom: -3.5svh;
-    left: -18.5svh;
-    white-space: pre;
-    color: rgba(86, 55, 34, 0.78);
-    font-family: "Segoe Script", "Brush Script MT", cursive;
-    font-size: 2.8svh;
-    line-height: 1.05;
-    text-align: center;
-    transform: rotate(-8deg);
-    pointer-events: none;
+    display: none;
   }
 
   .page-home .journey-visual {
+    position: relative;
+    z-index: 1;
     overflow: visible;
     border-radius: 0.4svh;
   }
@@ -2304,9 +2527,9 @@ body.page-home {
     content: "";
     position: absolute;
     z-index: 3;
-    top: -5.2svh;
-    left: 34%;
-    width: 17.4svh;
+    top: -4svh;
+    left: 26%;
+    width: 18svh;
     height: 4.6svh;
     background:
       linear-gradient(90deg, rgba(185, 147, 88, 0.34), rgba(217, 187, 133, 0.56), rgba(185, 147, 88, 0.34)),
@@ -2323,24 +2546,54 @@ body.page-home {
   }
 
   .page-home .journey-lead h2 {
-    margin: 2.86svh 0 0;
-    font-size: min(3.91vw, 6.95svh);
-    line-height: 0.99;
+    margin: 1.9svh 0 0;
+    font-size: min(4vw, 7svh);
+    line-height: 0.94;
+    white-space: nowrap;
   }
 
   .page-home .journey-lead p {
     max-width: 100%;
-    margin-top: 2.6svh;
-    font-size: min(0.915vw, 1.72svh);
-    line-height: 1.5;
+    margin-top: 1.75svh;
+    font-size: min(1.05vw, 1.68svh);
+    line-height: 1.43;
+  }
+
+  .page-home .journey-lead {
+    position: absolute;
+    top: 8.6svh;
+    left: 2.6svh;
+    width: calc(100% - 5.2svh);
   }
 
   .page-home .journey-top-divider {
+    position: absolute;
+    top: 38.9svh;
+    left: 3svh;
     display: block;
-    width: 90%;
+    width: calc(100% - 6svh);
     height: 1px;
-    margin: 2.5svh 0 0;
-    background: rgba(166, 119, 68, 0.68);
+    margin: 0;
+    background: linear-gradient(
+      to right,
+      rgba(136, 84, 44, 0.48) 0,
+      rgba(136, 84, 44, 0.48) calc(50% - 1.05svh),
+      transparent calc(50% - 1.05svh),
+      transparent calc(50% + 1.05svh),
+      rgba(136, 84, 44, 0.48) calc(50% + 1.05svh),
+      rgba(136, 84, 44, 0.48) 100%
+    );
+  }
+
+  .page-home .journey-top-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2svh;
+    height: 1.2svh;
+    background: #b58343;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   .page-home .journey-top-divider > * {
@@ -2348,9 +2601,13 @@ body.page-home {
   }
 
   .page-home .journey-proof-row {
-    width: 82%;
-    margin-top: 1.2svh;
-    margin-left: 1.6svh;
+    position: absolute;
+    top: 39.65svh;
+    left: 3svh;
+    width: calc(100% - 6svh);
+    height: 36svh;
+    grid-template-rows: repeat(3, 12svh);
+    margin: 0;
     padding-left: 0;
   }
 
@@ -2359,42 +2616,66 @@ body.page-home {
   }
 
   .page-home .journey-proof-item {
-    grid-template-columns: 11.8svh minmax(0, 1fr);
-    gap: 3svh;
-    min-height: 11.75svh;
+    grid-template-columns: 12svh minmax(0, 1fr);
+    gap: 2.5svh;
+    min-height: 0;
     padding: 0;
   }
 
   .page-home .journey-proof-item::after {
+    right: 0;
+    bottom: 0;
     left: 0;
-    background: rgba(166, 119, 68, 0.32);
+    display: block;
+    background: rgba(136, 84, 44, 0.34);
+  }
+
+  .page-home .journey-proof-item:last-child::after {
+    display: none;
   }
 
   .page-home .journey-proof-row .proof-stamp,
   .page-home .journey-proof-row .proof-stamp--verified,
   .page-home .journey-proof-row .proof-stamp--value {
-    width: 11.2svh;
-    height: 11.2svh;
+    width: 12svh;
+    height: 12svh;
+    transform: translateY(0.55svh);
   }
 
   .page-home .journey-proof-copy strong {
-    font-size: 2.25svh;
+    font-size: 2.4svh;
+  }
+
+  .page-home .journey-proof-copy {
+    transform: translateY(0.35svh);
   }
 
   .page-home .journey-proof-copy span {
-    font-size: 1.62svh;
+    max-width: 41svh;
+    font-size: 1.66svh;
+    line-height: 1.3;
   }
 
   .page-home .journey-link-row {
-    width: 28svh;
-    height: 6.35svh;
-    margin: 1.6svh 0 0 13.1svh;
+    position: absolute;
+    z-index: 3;
+    top: 81.2svh;
+    left: calc(25.1% - 2rem);
+    width: 23svh;
+    height: 4.7svh;
+    margin: 0;
     display: block;
+    transform: translateX(-50%);
+  }
+
+  .page-home .journey-link-row::before {
+    display: none;
   }
 
   .page-home .section-pill-link.journey-link {
-    width: 28svh;
-    height: 6.35svh;
+    z-index: 1;
+    width: 23svh;
+    height: 4.7svh;
     aspect-ratio: auto;
     min-height: 0;
     margin: 0;
@@ -2405,20 +2686,20 @@ body.page-home {
   }
 
   .page-home .journey-steps {
-    top: 21.15svh;
-    left: 39.25%;
-    width: 27.4%;
-    height: 59svh;
+    top: 20svh;
+    left: 39.6%;
+    width: 32%;
+    height: 60svh;
     display: block;
   }
 
   .page-home .journey-step-card {
     position: absolute;
     isolation: isolate;
-    height: 19.7svh;
-    grid-template-columns: 5.5svh minmax(0, 1fr) 3.2svh;
-    gap: 1.4svh;
-    padding: 2.6svh 2.7svh;
+    height: 21.7svh;
+    grid-template-columns: 5.8svh minmax(0, 1fr) 4.4svh;
+    gap: 1.8svh;
+    padding: 2svh 2.1svh 2svh 1.6svh;
     border: 0;
     border-radius: 0;
     background: transparent;
@@ -2426,108 +2707,128 @@ body.page-home {
   }
 
   .page-home .journey-step-card::before {
-    display: none;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0.5rem;
+    right: calc(-4svh + 4rem);
+    bottom: 0;
+    left: -3.2svh;
+    display: block;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 1.2svh 1.5svh rgba(73, 52, 32, 0.09));
+    pointer-events: none;
   }
 
   .page-home .journey-step-card::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: url("assets/journey-step-paper-clean.png") center / 100% 100% no-repeat;
-    filter: none;
+    display: none;
   }
 
   .page-home .journey-step-card > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .page-home .journey-step-card:nth-child(1) {
-    top: 1.7svh;
-    left: 0;
+    top: 1.45svh;
+    left: -1rem;
     width: 100%;
-    height: 19.7svh;
+    height: 21.7svh;
     transform: none;
   }
 
+  .page-home .journey-step-card:nth-child(1)::before {
+    background-image: url("assets/journey-step-paper-clean.png");
+  }
+
   .page-home .journey-step-card:nth-child(2) {
-    top: 18.6svh;
+    top: calc(18.8svh + 1rem);
     left: 0;
     width: 100%;
-    height: 19.7svh;
+    height: 21.7svh;
     transform: none;
   }
 
   .page-home .journey-step-card:nth-child(2)::before {
-    display: none;
-  }
-
-  .page-home .journey-step-card:nth-child(2)::after {
     background-image: url("assets/journey-step-paper-clean.png");
   }
 
   .page-home .journey-step-card:nth-child(3) {
-    top: 36svh;
-    left: 0;
+    top: calc(36.9svh + 2rem);
+    left: 1rem;
     width: 100%;
-    height: 20.5svh;
+    height: 21.7svh;
     transform: none;
   }
 
   .page-home .journey-step-card:nth-child(3)::before {
-    display: none;
-  }
-
-  .page-home .journey-step-card:nth-child(3)::after {
     background-image: url("assets/journey-step-paper-clean.png");
   }
 
   .page-home .journey-step-number {
     position: relative;
-    width: 5.5svh;
-    height: 5.5svh;
-    border-color: rgba(172, 101, 50, 0.5);
-    background: rgba(250, 246, 239, 0.72);
-    font-size: 1.8svh;
+    width: 5.8svh;
+    height: 5.8svh;
+    border: 1px solid rgba(136, 84, 44, 0.7);
+    background: rgba(250, 244, 232, 0.82);
+    font-size: 1.85svh;
   }
 
-  .page-home .journey-step-card:nth-child(1) .journey-step-number::after,
-  .page-home .journey-step-card:nth-child(3) .journey-step-number::after {
+  .page-home .journey-step-number::before {
     display: none;
   }
 
-  .page-home .journey-step-card:nth-child(3) .journey-step-number::after {
-    top: 4.4svh;
-    left: -4.2svh;
-    transform: rotate(-4deg);
+  .page-home .journey-step-number::after {
+    display: none;
+  }
+
+  .page-home .journey-step-copy {
+    position: relative;
+    padding-left: 1.6svh;
+  }
+
+  .page-home .journey-step-copy::before {
+    content: "";
+    position: absolute;
+    top: 0.1svh;
+    bottom: 0.1svh;
+    left: 0;
+    width: 1px;
+    background: rgba(136, 84, 44, 0.55);
   }
 
   .page-home .journey-step-copy h3 {
-    font-size: 1.72svh;
+    font-size: 1.82svh;
     white-space: nowrap;
   }
 
   .page-home .journey-step-card:last-child .journey-step-copy h3 {
-    font-size: 1.72svh;
+    font-size: 1.82svh;
   }
 
   .page-home .journey-step-copy p {
-    margin-top: 0.75svh;
-    font-size: 1.34svh;
-    line-height: 1.52;
+    margin-top: 0.85svh;
+    font-size: 1.42svh;
+    line-height: 1.45;
   }
 
   .page-home .journey-step-icon {
-    width: 3.2svh;
-    height: 3.2svh;
-    border-color: #a84e31;
-    color: #a84e31;
+    position: absolute;
+    top: 50%;
+    right: calc(7.25svh + 1rem);
+    width: 4.4svh;
+    height: 4.4svh;
+    border: 1px solid rgba(136, 84, 44, 0.72);
+    background: rgba(250, 244, 232, 0.72);
+    color: #875331;
+    transform: translateY(-50%);
   }
 
   .page-home .journey-step-icon svg {
-    width: 2.05svh;
-    height: 2.05svh;
+    width: 2.7svh;
+    height: 2.7svh;
   }
 
   .page-home .journey-shell::before {
@@ -2865,11 +3166,7 @@ body.page-home {
     font-size: 1.8rem;
   }
 
-  .page-home .journey {
-    background-image: none;
-  }
-
-  .page-home .journey::after {
+  .page-home .journey::before {
     display: none;
   }
 
@@ -2985,6 +3282,9 @@ body.page-home {
     min-height: 0;
     padding: 4.5rem 0;
     overflow: hidden;
+  }
+
+  .page-home .human-connection::before {
     background-position: center top;
     background-size: auto 58rem;
   }
@@ -3039,6 +3339,9 @@ body.page-home {
 @media (max-width: 560px) {
   .page-home .human-connection {
     padding: 3.75rem 0;
+  }
+
+  .page-home .human-connection::before {
     background-size: auto 48rem;
   }
 
@@ -3061,9 +3364,9 @@ body.page-home {
   }
 
   .page-home .human-image::after {
-    left: 28%;
-    width: 44%;
-    height: 2.25rem;
+    left: 31%;
+    width: 38%;
+    height: 1.8rem;
   }
 
   .page-home .image-placeholder {
